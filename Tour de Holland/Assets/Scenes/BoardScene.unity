@@ -1422,8 +1422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 1, z: -3.5}
-  velocity: {x: 0, y: 0, z: 0}
-  smoothSpeed: 0.2
+  smoothSpeed: 6
 --- !u!1001 &449600077
 PrefabInstance:
   m_ObjectHideFlags: 0

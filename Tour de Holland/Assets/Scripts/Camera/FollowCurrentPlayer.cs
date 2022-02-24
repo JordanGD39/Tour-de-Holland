@@ -8,7 +8,6 @@ public class FollowCurrentPlayer : MonoBehaviour
     private Transform playerToFollow;
 
     [SerializeField] private Vector3 offset = Vector3.zero;
-    [SerializeField] private Vector3 velocity;
     [SerializeField] private float smoothSpeed = 2;
 
     // Start is called before the first frame update
@@ -27,7 +26,7 @@ public class FollowCurrentPlayer : MonoBehaviour
         }
 
         Vector3 desiredPos = playerToFollow.position + offset;
-        transform.position = Vector3.SmoothDamp(transform.position, desiredPos, ref velocity, smoothSpeed * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, desiredPos, smoothSpeed * Time.deltaTime);
     }
 
     private void UpdateCurrentPlayer()
