@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private int playerNumber = 0;
+    public int PlayerNumber { get { return playerNumber; } }
     [SerializeField] private SpacesManager spacesManager;
     [SerializeField] private int currentBoardPosition = 0;
-    [SerializeField] private bool canSpin = true;
+    [SerializeField] private bool canSpin = false;
     [SerializeField] private bool goTowardsSpace = false;
     [SerializeField] private float journeyTime = 1;
     [SerializeField] private float arcHeight = 1;
@@ -21,6 +23,9 @@ public class PlayerMovement : MonoBehaviour
     private int moveToSpaceIndex = 0;
     private bool goingToCutsceneSpace = false;
     private int previousSpace = 0;
+
+    public delegate void EndTurn();
+    public EndTurn OnEndTurn;
 
     // Start is called before the first frame update
     void Start()
@@ -42,11 +47,16 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void ReceiveTurn()
+    {
+        canSpin = true;
+    }
+
     private void SpinWheel()
     {
         canSpin = false;
-        //CalculatePosition(Random.Range(1, 6));
-        CalculatePosition(40);
+        CalculatePosition(Random.Range(1, 6));
+        //CalculatePosition(40);
     }
 
     private void CalculatePosition(int spinnedNumber)
@@ -125,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
                 if (moveToSpaceIndex > spacePosistions.Count - 1)
                 {
                     previousSpace = currentBoardPosition;
-                    canSpin = true;
+                    OnEndTurn();
                 }
                 else
                 {
