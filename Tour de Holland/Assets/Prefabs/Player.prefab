@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2032780525393870516}
   - component: {fileID: 5195215431397749478}
+  - component: {fileID: 2935385527601445214}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -42,6 +43,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 785cf3af5a8e6654e8c04db522bbc5f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNumber: 0
+  spacesManager: {fileID: 0}
+  currentBoardPosition: 0
+  canSpin: 0
+  goTowardsSpace: 0
+  journeyTime: 1
+  arcHeight: 1
+  extraY: 1
+--- !u!114 &2935385527601445214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032780525393870507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf8756cc3fce0bf4c97cf88c0b9a1aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2032780525957955072

@@ -337,6 +337,10 @@ PrefabInstance:
       propertyPath: boardSpaceType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2140780086962511075, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
+      propertyPath: propertyCardOnSpace
+      value: 
+      objectReference: {fileID: 11400000, guid: 03862c8dededc8247a7360c3a68b8969, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
 --- !u!4 &41085454 stripped
@@ -880,7 +884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 699182497557813421, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
       propertyPath: m_Name
-      value: SpaceSafe2
+      value: SpaceSafe4
       objectReference: {fileID: 0}
     - target: {fileID: 2140780086962511075, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
       propertyPath: boardSpaceType
@@ -1480,11 +1484,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 699182497557813421, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
       propertyPath: m_Name
-      value: Space (18)
+      value: Train4
       objectReference: {fileID: 0}
     - target: {fileID: 2140780086962511075, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
       propertyPath: boardSpaceType
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2140780086962511075, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
+      propertyPath: spaceToTransportTo
+      value: 
+      objectReference: {fileID: 830114668}
+    - target: {fileID: 2140780086962511075, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
+      propertyPath: propertyCardOnSpace
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
@@ -1817,6 +1829,10 @@ PrefabInstance:
       propertyPath: boardSpaceType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2140780086962511075, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
+      propertyPath: propertyCardOnSpace
+      value: 
+      objectReference: {fileID: 11400000, guid: 279e3b49ca4719b419f0cb1c44080e0a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
 --- !u!4 &577810860 stripped
@@ -2075,7 +2091,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5195215431397749478, guid: cd37cc263b737354ba404b51c3f1b42b, type: 3}
       propertyPath: journeyTime
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5195215431397749478, guid: cd37cc263b737354ba404b51c3f1b42b, type: 3}
       propertyPath: playerNumber
@@ -2195,7 +2211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 699182497557813421, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
       propertyPath: m_Name
-      value: Space (16)
+      value: GoToJail
       objectReference: {fileID: 0}
     - target: {fileID: 2140780086962511075, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
       propertyPath: boardSpaceType
@@ -2439,12 +2455,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 699182497557813421, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
       propertyPath: m_Name
-      value: Space (1)
+      value: Train
       objectReference: {fileID: 0}
     - target: {fileID: 2140780086962511075, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
       propertyPath: boardSpaceType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2140780086962511075, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
+      propertyPath: spaceToTransportTo
+      value: 
+      objectReference: {fileID: 918695100}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
 --- !u!4 &830114668 stripped
@@ -2596,6 +2616,10 @@ PrefabInstance:
       propertyPath: boardSpaceType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2140780086962511075, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
+      propertyPath: propertyCardOnSpace
+      value: 
+      objectReference: {fileID: 11400000, guid: ceb9d14d03b57bd4798b0691368db1cd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
 --- !u!4 &891719378 stripped
@@ -2656,7 +2680,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 699182497557813421, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
       propertyPath: m_Name
-      value: Space (5)
+      value: SpaceSafe2
       objectReference: {fileID: 0}
     - target: {fileID: 2140780086962511075, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
       propertyPath: boardSpaceType
@@ -2726,12 +2750,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 699182497557813421, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
       propertyPath: m_Name
-      value: Space (6)
+      value: Train2
       objectReference: {fileID: 0}
     - target: {fileID: 2140780086962511075, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
       propertyPath: boardSpaceType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2140780086962511075, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
+      propertyPath: spaceToTransportTo
+      value: 
+      objectReference: {fileID: 1272078454}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
 --- !u!4 &918695100 stripped
@@ -2802,6 +2830,10 @@ PrefabInstance:
       propertyPath: boardSpaceType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2140780086962511075, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
+      propertyPath: propertyCardOnSpace
+      value: 
+      objectReference: {fileID: 11400000, guid: 60f51470d3a7ba04497258c489d5c36e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
 --- !u!4 &926705197 stripped
@@ -2964,9 +2996,53 @@ Transform:
   m_Children:
   - {fileID: 119569469}
   - {fileID: 1866959356}
+  - {fileID: 1946770276}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1023398188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1023398189}
+  - component: {fileID: 1023398190}
+  m_Layer: 0
+  m_Name: Green
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1023398189
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023398188}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1946770276}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1023398190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023398188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 472ec8885284c604ca8ba4a8d8b209c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1029970020
 GameObject:
   m_ObjectHideFlags: 0
@@ -3192,6 +3268,10 @@ PrefabInstance:
       propertyPath: boardSpaceType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2140780086962511075, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
+      propertyPath: propertyCardOnSpace
+      value: 
+      objectReference: {fileID: 11400000, guid: 242392e5b1732a94089b0abeb741aed1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
 --- !u!4 &1086409220 stripped
@@ -3280,6 +3360,49 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123103754}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1131556080
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1131556081}
+  - component: {fileID: 1131556082}
+  m_Layer: 0
+  m_Name: Blue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1131556081
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131556080}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1946770276}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1131556082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131556080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 472ec8885284c604ca8ba4a8d8b209c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1161823820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3333,7 +3456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 699182497557813421, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
       propertyPath: m_Name
-      value: Space (11)
+      value: SpaceSafe3
       objectReference: {fileID: 0}
     - target: {fileID: 2140780086962511075, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
       propertyPath: boardSpaceType
@@ -3409,6 +3532,10 @@ PrefabInstance:
       propertyPath: boardSpaceType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2140780086962511075, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
+      propertyPath: propertyCardOnSpace
+      value: 
+      objectReference: {fileID: 11400000, guid: e35fd831bab1f304abcb7a9e52a6a662, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
 --- !u!4 &1176385992 stripped
@@ -3593,6 +3720,10 @@ PrefabInstance:
       propertyPath: boardSpaceType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2140780086962511075, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
+      propertyPath: propertyCardOnSpace
+      value: 
+      objectReference: {fileID: 11400000, guid: 766be94d72648224b99d286bcb8c8e86, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
 --- !u!4 &1221878832 stripped
@@ -3657,12 +3788,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 699182497557813421, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
       propertyPath: m_Name
-      value: Space (14)
+      value: Train3
       objectReference: {fileID: 0}
     - target: {fileID: 2140780086962511075, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
       propertyPath: boardSpaceType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2140780086962511075, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
+      propertyPath: spaceToTransportTo
+      value: 
+      objectReference: {fileID: 449600078}
+    - target: {fileID: 2140780086962511075, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
+      propertyPath: propertyCardOnSpace
+      value: 
+      objectReference: {fileID: 11400000, guid: 6c8a2c6388c90754e9a781ca01ddee66, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
 --- !u!4 &1272078454 stripped
@@ -3928,6 +4067,10 @@ PrefabInstance:
       propertyPath: boardSpaceType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2140780086962511075, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
+      propertyPath: propertyCardOnSpace
+      value: 
+      objectReference: {fileID: 11400000, guid: 5403e138ed571bb4196465a7f962c35c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
 --- !u!4 &1366484284 stripped
@@ -4103,7 +4246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 699182497557813421, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
       propertyPath: m_Name
-      value: Space (10)
+      value: SpaceLucky
       objectReference: {fileID: 0}
     - target: {fileID: 2140780086962511075, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
       propertyPath: boardSpaceType
@@ -4179,6 +4322,10 @@ PrefabInstance:
       propertyPath: boardSpaceType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2140780086962511075, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
+      propertyPath: propertyCardOnSpace
+      value: 
+      objectReference: {fileID: 11400000, guid: 355234a4a8b07114697433b23a4f88b6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
 --- !u!4 &1553872602 stripped
@@ -4348,6 +4495,49 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1651926331}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1729589029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1729589030}
+  - component: {fileID: 1729589031}
+  m_Layer: 0
+  m_Name: Purple
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1729589030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729589029}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1946770276}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1729589031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729589029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 472ec8885284c604ca8ba4a8d8b209c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1732296246
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4417,7 +4607,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5195215431397749478, guid: cd37cc263b737354ba404b51c3f1b42b, type: 3}
       propertyPath: journeyTime
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5195215431397749478, guid: cd37cc263b737354ba404b51c3f1b42b, type: 3}
       propertyPath: playerNumber
@@ -4585,7 +4775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5195215431397749478, guid: cd37cc263b737354ba404b51c3f1b42b, type: 3}
       propertyPath: journeyTime
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5195215431397749478, guid: cd37cc263b737354ba404b51c3f1b42b, type: 3}
       propertyPath: playerNumber
@@ -4732,6 +4922,40 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 699182497557813420, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
   m_PrefabInstance: {fileID: 699182495733391113}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1946770275
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1946770276}
+  m_Layer: 0
+  m_Name: Sets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1946770276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946770275}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1729589030}
+  - {fileID: 1131556081}
+  - {fileID: 2023655207}
+  - {fileID: 1023398189}
+  m_Father: {fileID: 997683528}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1947406743
 GameObject:
   m_ObjectHideFlags: 0
@@ -4957,6 +5181,10 @@ PrefabInstance:
       propertyPath: boardSpaceType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2140780086962511075, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
+      propertyPath: propertyCardOnSpace
+      value: 
+      objectReference: {fileID: 11400000, guid: fa4f4af82473b1f4da3154d3a4a1a407, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
 --- !u!4 &2016997648 stripped
@@ -4964,6 +5192,49 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 699182497557813420, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
   m_PrefabInstance: {fileID: 2016997647}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2023655206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2023655207}
+  - component: {fileID: 2023655208}
+  m_Layer: 0
+  m_Name: Red
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2023655207
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023655206}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1946770276}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2023655208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023655206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 472ec8885284c604ca8ba4a8d8b209c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2054101359
 GameObject:
   m_ObjectHideFlags: 0
@@ -5248,6 +5519,10 @@ PrefabInstance:
       propertyPath: boardSpaceType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2140780086962511075, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
+      propertyPath: propertyCardOnSpace
+      value: 
+      objectReference: {fileID: 11400000, guid: af9000e7fda5c3a4487b53aee9b49fda, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
 --- !u!1001 &2032780524844640868
@@ -5323,7 +5598,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5195215431397749478, guid: cd37cc263b737354ba404b51c3f1b42b, type: 3}
       propertyPath: journeyTime
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd37cc263b737354ba404b51c3f1b42b, type: 3}
