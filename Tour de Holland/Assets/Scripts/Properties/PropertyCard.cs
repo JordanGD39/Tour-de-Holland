@@ -5,8 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewPropertyCard", menuName = "ScriptableObjects/PropertyCard", order = 1)]
 public class PropertyCard : ScriptableObject
 {
-    [SerializeField] private PropertyCardSet.ColorOfSet setColor = PropertyCardSet.ColorOfSet.PURPLE;
-    public PropertyCardSet.ColorOfSet SetColor;
     [SerializeField] private int buyPrice = 60;
     public int BuyPrice { get { return buyPrice; } }
     [SerializeField] private int sellPrice = 40;

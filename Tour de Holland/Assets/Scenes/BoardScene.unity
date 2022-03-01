@@ -3043,6 +3043,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472ec8885284c604ca8ba4a8d8b209c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  setColor: 3
+  propertyCards:
+  - {fileID: 11400000, guid: fa4f4af82473b1f4da3154d3a4a1a407, type: 2}
+  - {fileID: 11400000, guid: 279e3b49ca4719b419f0cb1c44080e0a, type: 2}
+  - {fileID: 11400000, guid: 60f51470d3a7ba04497258c489d5c36e, type: 2}
+  shopLocations: 010000000200000005000000
+  upgradeLevel: 0
 --- !u!1 &1029970020
 GameObject:
   m_ObjectHideFlags: 0
@@ -3403,6 +3410,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472ec8885284c604ca8ba4a8d8b209c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  setColor: 1
+  propertyCards:
+  - {fileID: 11400000, guid: ceb9d14d03b57bd4798b0691368db1cd, type: 2}
+  - {fileID: 11400000, guid: 766be94d72648224b99d286bcb8c8e86, type: 2}
+  - {fileID: 11400000, guid: 355234a4a8b07114697433b23a4f88b6, type: 2}
+  shopLocations: 010000000200000005000000
+  upgradeLevel: 0
 --- !u!1001 &1161823820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4538,6 +4552,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472ec8885284c604ca8ba4a8d8b209c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  setColor: 0
+  propertyCards:
+  - {fileID: 11400000, guid: af9000e7fda5c3a4487b53aee9b49fda, type: 2}
+  - {fileID: 11400000, guid: 5403e138ed571bb4196465a7f962c35c, type: 2}
+  - {fileID: 11400000, guid: 03862c8dededc8247a7360c3a68b8969, type: 2}
+  shopLocations: 010000000200000005000000
+  upgradeLevel: 0
 --- !u!1001 &1732296246
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5235,6 +5256,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472ec8885284c604ca8ba4a8d8b209c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  setColor: 2
+  propertyCards:
+  - {fileID: 11400000, guid: 242392e5b1732a94089b0abeb741aed1, type: 2}
+  - {fileID: 11400000, guid: e35fd831bab1f304abcb7a9e52a6a662, type: 2}
+  - {fileID: 11400000, guid: 6c8a2c6388c90754e9a781ca01ddee66, type: 2}
+  shopLocations: 010000000200000005000000
+  upgradeLevel: 0
 --- !u!1 &2054101359
 GameObject:
   m_ObjectHideFlags: 0
