@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class PlayerData : MonoBehaviour
 {
     private PlayerDataUI playerDataUI;
+    private PlayerMovement playerMovement;
 
     [SerializeField] private int playerNumber = 0;
     public int PlayerNumber { get { return playerNumber; } }
@@ -13,10 +15,13 @@ public class PlayerData : MonoBehaviour
     [SerializeField] private List<PropertyCard> propertyCards;
     public List<PropertyCard> PropertyCards { get { return propertyCards; } }
 
+    private BoardSpace currentBoardSpace;
+
     // Start is called before the first frame update
     void Start()
     {
         playerDataUI = GameObject.FindGameObjectWithTag("PlayerPanels").transform.GetChild(playerNumber).GetComponent<PlayerDataUI>();
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
     public void AddPropertyCard(PropertyCard propertyCard)
@@ -29,5 +34,31 @@ public class PlayerData : MonoBehaviour
     {
         propertyCards.Remove(propertyCard);
         playerDataUI.UpdateProperties(propertyCard, false);
+    }
+
+    public void CheckCurrentSpace(BoardSpace boardSpace)
+    {
+        currentBoardSpace = boardSpace;
+
+        switch (currentBoardSpace.BoardSpaceType)
+        {
+            case BoardSpace.BoardSpaceTypes.SAFE:
+                break;
+            case BoardSpace.BoardSpaceTypes.START:
+                break;
+            case BoardSpace.BoardSpaceTypes.PROPERTY:
+
+                break;
+            case BoardSpace.BoardSpaceTypes.TRAIN:
+                break;
+            case BoardSpace.BoardSpaceTypes.JAILVISIT:
+                break;
+            case BoardSpace.BoardSpaceTypes.LUCKY:
+                break;
+            case BoardSpace.BoardSpaceTypes.GOTOJAIL:
+                break;
+            default:
+                break;
+        }
     }
 }

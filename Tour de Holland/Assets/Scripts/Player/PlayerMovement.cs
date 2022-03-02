@@ -25,10 +25,13 @@ public class PlayerMovement : MonoBehaviour
     public delegate void EndTurn();
     public EndTurn OnEndTurn;
 
+    private PlayerData playerData;
+
     // Start is called before the first frame update
     void Start()
     {
         spacesManager = FindObjectOfType<SpacesManager>();
+        playerData = GetComponent<PlayerData>();
     }
 
     // Update is called once per frame
@@ -64,7 +67,6 @@ public class PlayerMovement : MonoBehaviour
         GetInBetweenBoardSpaces(calcBoardPos);
 
         currentBoardSpace = spacesManager.GetBoardSpace(calcBoardPos);
-        Debug.Log(currentBoardSpace.BoardSpaceType);
         Debug.Log("BoardPos: " + currentBoardPosition + " spinnedNum: " + spinnedNumber);
         currentBoardPosition = currentBoardSpace.BoardIndex;
 
@@ -133,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
                 if (moveToSpaceIndex > spacePosistions.Count - 1)
                 {
                     previousSpace = currentBoardPosition;
-                    OnEndTurn();
+                    playerData.CheckCurrentSpace(currentBoardSpace);
                 }
                 else
                 {
