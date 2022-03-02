@@ -28,14 +28,14 @@ public class PlayerData : MonoBehaviour
 
     public void AddPropertyCard(PropertyCard propertyCard)
     {
-        propertyCard.Owned = true;
+        propertyCard.PlayerOwningThis = this;
         propertyCards.Add(propertyCard);
         playerDataUI.UpdateProperties(propertyCard, true);
     }
 
     public void RemovePropertyCard(PropertyCard propertyCard)
     {
-        propertyCard.Owned = false;
+        propertyCard.PlayerOwningThis = null;
         propertyCards.Remove(propertyCard);
         playerDataUI.UpdateProperties(propertyCard, false);
     }
@@ -53,10 +53,16 @@ public class PlayerData : MonoBehaviour
                 playerMovement.OnEndTurn();
                 break;
             case BoardSpace.BoardSpaceTypes.PROPERTY:
-                if (boardSpace.PropertyCardOnSpace.Owned)
+                if (boardSpace.PropertyCardOnSpace.PlayerOwningThis != null)
                 {
-                    //Pay player code
-                    playerMovement.OnEndTurn();
+                    if (boardSpace.PropertyCardOnSpace.PlayerOwningThis != this)
+                    {
+                        playerMovement.PlaceOnTourRoute(boardSpace.PropertyCardOnSpace.MyCardSet.TourRoute);
+                    }
+                    else
+                    {
+                        playerMovement.OnEndTurn();
+                    }                    
                 }
                 else
                 {

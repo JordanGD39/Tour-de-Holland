@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PropertyCardSet : MonoBehaviour
 {
+    [SerializeField] private TourRouteManager tourRouteManager;
+    public TourRouteManager TourRoute { get { return tourRouteManager; } }
+
     public enum ColorOfSet { PURPLE, BLUE, RED, GREEN}
     [SerializeField] private ColorOfSet propertySetColor = ColorOfSet.PURPLE;
     public ColorOfSet PropertySetColor { get { return propertySetColor; } }
@@ -20,7 +23,9 @@ public class PropertyCardSet : MonoBehaviour
             PropertyCard card = propertyCards[i];
             card.MyCardSet = this;
             card.PropertySetIndex = i;
-            card.Owned = false;
+            card.PlayerOwningThis = null;
         }
+
+        tourRouteManager.CardSet = this;
     }
 }

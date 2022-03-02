@@ -60,9 +60,14 @@ public class BoatMovement : MonoBehaviour
     {
         transform.position = Vector3.Lerp(transform.position, moveToPos, lerpSpeed * Time.deltaTime);
 
-        Quaternion targetRotation = Quaternion.LookRotation(invert ? transform.position - moveToPos : moveToPos - transform.position);
+        Vector3 diff = invert ? transform.position - moveToPos : moveToPos - transform.position;
 
-        // Smoothly rotate towards the target point.
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
+        if (diff != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(diff);
+
+            // Smoothly rotate towards the target point.
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
+        }        
     }
 }
