@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerData : MonoBehaviour
 {
+    private UIScriptsManager uiScriptsManager;
     private PlayerDataUI playerDataUI;
     private PlayerMovement playerMovement;
 
@@ -22,16 +23,19 @@ public class PlayerData : MonoBehaviour
     {
         playerDataUI = GameObject.FindGameObjectWithTag("PlayerPanels").transform.GetChild(playerNumber).GetComponent<PlayerDataUI>();
         playerMovement = GetComponent<PlayerMovement>();
+        uiScriptsManager = FindObjectOfType<UIScriptsManager>();
     }
 
     public void AddPropertyCard(PropertyCard propertyCard)
     {
+        propertyCard.Owned = true;
         propertyCards.Add(propertyCard);
         playerDataUI.UpdateProperties(propertyCard, true);
     }
 
     public void RemovePropertyCard(PropertyCard propertyCard)
     {
+        propertyCard.Owned = false;
         propertyCards.Remove(propertyCard);
         playerDataUI.UpdateProperties(propertyCard, false);
     }
@@ -43,22 +47,39 @@ public class PlayerData : MonoBehaviour
         switch (currentBoardSpace.BoardSpaceType)
         {
             case BoardSpace.BoardSpaceTypes.SAFE:
+                playerMovement.OnEndTurn();
                 break;
             case BoardSpace.BoardSpaceTypes.START:
+                playerMovement.OnEndTurn();
                 break;
             case BoardSpace.BoardSpaceTypes.PROPERTY:
-
+                if (boardSpace.PropertyCardOnSpace.Owned)
+                {
+                    //Pay player code
+                    playerMovement.OnEndTurn();
+                }
+                else
+                {
+                    uiScriptsManager.BuyPropertyUIScript.ShowBuyPanel(boardSpace.PropertyCardOnSpace, this);
+                }
                 break;
             case BoardSpace.BoardSpaceTypes.TRAIN:
+                playerMovement.OnEndTurn();
                 break;
             case BoardSpace.BoardSpaceTypes.JAILVISIT:
+                playerMovement.OnEndTurn();
                 break;
             case BoardSpace.BoardSpaceTypes.LUCKY:
+                playerMovement.OnEndTurn();
                 break;
             case BoardSpace.BoardSpaceTypes.GOTOJAIL:
-                break;
-            default:
+                playerMovement.OnEndTurn();
                 break;
         }
+    }
+
+    public void ResumeAfterBuying()
+    {
+        playerMovement.OnEndTurn();
     }
 }

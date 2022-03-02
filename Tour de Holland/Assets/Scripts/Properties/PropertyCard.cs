@@ -16,4 +16,5 @@ public class PropertyCard : ScriptableObject
 
     public PropertyCardSet MyCardSet { get; set; }
     public int PropertySetIndex { get; set; }
+    public bool Owned { get; set; } = false;
 }

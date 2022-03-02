@@ -20,6 +20,7 @@ public class PropertyCardSet : MonoBehaviour
             PropertyCard card = propertyCards[i];
             card.MyCardSet = this;
             card.PropertySetIndex = i;
+            card.Owned = false;
         }
     }
 }

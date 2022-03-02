@@ -40,4 +40,9 @@ public class PlayerDataUI : MonoBehaviour
         image.transform.GetChild(add ? 0 : 1).gameObject.SetActive(true);
         image.transform.GetChild(add ? 1 : 0).gameObject.SetActive(false);
     }
+
+    public void ShowBuyProperty()
+    {
+
+    }
 }
