@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 324d671b04e92334394906106e57a41d
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Helvetica BQ
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 014901fbcc66a354081896083486a934, type: 3}
+  - {fileID: 12800000, guid: b05ecbd71077efe419a14aa74286ebd3, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
