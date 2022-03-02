@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TradingManager : MonoBehaviour
 {
@@ -12,6 +13,14 @@ public class TradingManager : MonoBehaviour
 
     [SerializeField] private GameObject tradingPanel;
     [SerializeField] private GameObject tradingSelectPlayerPanel;
+
+    [SerializeField] private Text currentPlayerMoney;
+    [SerializeField] private Text otherPlayerMoney;
+    [SerializeField] private Text currentPlayerAddedMoney;
+    [SerializeField] private Text otherPlayerAddedMoney;
+
+    private int currentPlayerOfferedMoney = 0;
+    private int otherPlayerWantedMoney = 0;
 
     private void Start()
     {
@@ -32,7 +41,6 @@ public class TradingManager : MonoBehaviour
                 tradingSelectPlayerPanel.SetActive(false);
             }            
         }
-        
     }
 
     private void ShowPlayerTradeSelect()
@@ -51,6 +59,50 @@ public class TradingManager : MonoBehaviour
         playerToTrade = players[index].playerData;
         tradingSelectPlayerPanel.SetActive(false);
         tradingPanel.SetActive(true);
+        currentPlayerMoney.text = "$" + tradingPlayer.Money.ToString();
+        otherPlayerMoney.text = "$" + playerToTrade.Money.ToString();
+        
+        otherPlayerAddedMoney.text = "$"; 
+    }
+
+    public void AddOfferMoney(bool currentPlayer)
+    {
+        if (currentPlayer)
+        {
+            if (currentPlayerOfferedMoney < tradingPlayer.Money)
+            {
+                currentPlayerOfferedMoney++;
+                currentPlayerAddedMoney.text = "$" + currentPlayerOfferedMoney.ToString();
+            }
+        }
+        else
+        {
+            if (otherPlayerWantedMoney < playerToTrade.Money)
+            {
+                otherPlayerWantedMoney++;
+                otherPlayerAddedMoney.text = "$" + otherPlayerWantedMoney.ToString();
+            }
+        }
+    }
+
+    public void RemoveOfferMoney(bool currentPlayer)
+    {
+        if (currentPlayer)
+        {
+            if (currentPlayerOfferedMoney > 0)
+            {
+                currentPlayerOfferedMoney--;
+                currentPlayerAddedMoney.text = "$" + currentPlayerOfferedMoney.ToString();
+            }
+        }
+        else
+        {
+            if (otherPlayerWantedMoney > 0)
+            {
+                otherPlayerWantedMoney--;
+                otherPlayerAddedMoney.text = "$" + otherPlayerWantedMoney.ToString();
+            }
+        }
     }
 }
 
