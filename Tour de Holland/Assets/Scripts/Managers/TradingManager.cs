@@ -53,3 +53,4 @@ public class TradingManager : MonoBehaviour
         tradingPanel.SetActive(true);
     }
 }
+
