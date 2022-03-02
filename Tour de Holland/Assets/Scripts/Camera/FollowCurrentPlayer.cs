@@ -31,6 +31,6 @@ public class FollowCurrentPlayer : MonoBehaviour
 
     private void UpdateCurrentPlayer()
     {
-        playerToFollow = playerManager.Players[playerManager.CurrentTurn].transform;
+        playerToFollow = playerManager.Players[playerManager.CurrentTurn].playerData.transform;
     }
 }

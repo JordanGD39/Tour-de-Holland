@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    [SerializeField] private List<PlayerMovement> players = new List<PlayerMovement>();
-    public List<PlayerMovement> Players { get { return players; } }
+    [SerializeField] private List<PlayerClassHolder> players = new List<PlayerClassHolder>();
+    public List<PlayerClassHolder> Players { get { return players; } }
     [SerializeField] private int currentTurn = 0;
     public int CurrentTurn { get { return currentTurn; } }
     public delegate void PlayersInitialized();
@@ -16,12 +16,21 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        players.AddRange(FindObjectsOfType<PlayerMovement>());
-        players.Sort((p1, p2) => p1.PlayerNumber.CompareTo(p2.PlayerNumber));
+        List<PlayerData> playerDatas = new List<PlayerData>();
+        playerDatas.AddRange(FindObjectsOfType<PlayerData>());
+        playerDatas.Sort((p1, p2) => p1.PlayerNumber.CompareTo(p2.PlayerNumber));
 
-        foreach (PlayerMovement player in players)
+        foreach (PlayerData item in playerDatas)
         {
-            player.OnEndTurn += NextTurn;
+            PlayerClassHolder playerClassHolder = new PlayerClassHolder();
+            playerClassHolder.playerData = item;
+            playerClassHolder.playerMovement = item.GetComponent<PlayerMovement>();
+            players.Add(playerClassHolder);
+        }
+
+        foreach (PlayerClassHolder player in players)
+        {
+            player.playerMovement.OnEndTurn += NextTurn;
         }
 
         OnPlayersInitialized();
@@ -30,7 +39,7 @@ public class PlayerManager : MonoBehaviour
 
     private void GiveTurnToCurrentPlayer()
     {
-        players[currentTurn].ReceiveTurn();
+        players[currentTurn].playerMovement.ReceiveTurn();
     }
 
     private void NextTurn()
@@ -45,4 +54,10 @@ public class PlayerManager : MonoBehaviour
         OnPlayerNextTurn();
         GiveTurnToCurrentPlayer();
     }
+}
+
+public class PlayerClassHolder
+{
+    public PlayerData playerData;
+    public PlayerMovement playerMovement;
 }
