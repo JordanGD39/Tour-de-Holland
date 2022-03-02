@@ -2606,3 +2606,427 @@ Received Import Request.
 Start importing Assets/Fonts/biem.png using Guid(6230b5be0b9a21c4c821e4547ca47ae1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4583f95d5b0b53ce14ee1198c1ae7f91') in 0.044269 seconds 
   Import took 0.050349 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 623.477171 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed
+  artifactKey: Guid(6c3e95fae9422d946a849ddd53514907) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed using Guid(6c3e95fae9422d946a849ddd53514907) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aaf4dddb50a8ea2a202275c6356b89f7') in 0.004247 seconds 
+  Import took 0.012323 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.132771 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/Helvetica Bold.ttf
+  artifactKey: Guid(6bda9f0e816dff6448b22ebec57b225b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/Helvetica Bold.ttf using Guid(6bda9f0e816dff6448b22ebec57b225b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8ef21ce7d075906d0940caeac1ecf3c') in 0.251082 seconds 
+  Import took 0.257810 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000291 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaBQ-Bold.otf
+  artifactKey: Guid(030490f522dd7724e8e789d2d5060a92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaBQ-Bold.otf using Guid(030490f522dd7724e8e789d2d5060a92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7acc8ae73f32f8979ef556a268c560d') in 0.025094 seconds 
+  Import took 0.031123 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000237 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/Helvetica-BlackOblique.otf
+  artifactKey: Guid(08fe8da215106db4ca24ac3793917c29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/Helvetica-BlackOblique.otf using Guid(08fe8da215106db4ca24ac3793917c29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a12fc690e51d01589afabb412c53ad27') in 0.018557 seconds 
+  Import took 0.024020 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000249 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaBQ-BoldItalic.otf
+  artifactKey: Guid(649b89628f9f3654ca79126f89168efe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaBQ-BoldItalic.otf using Guid(649b89628f9f3654ca79126f89168efe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0996ee4699b7b17da3f594237162413e') in 0.019826 seconds 
+  Import took 0.025801 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000237 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaCE-CondBoldObl.otf
+  artifactKey: Guid(00586d87cba5dc54596b77ae3e0d51ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaCE-CondBoldObl.otf using Guid(00586d87cba5dc54596b77ae3e0d51ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ba92ddf7ff706201585e14fc31cf162') in 0.020519 seconds 
+  Import took 0.026864 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000240 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaBQ-Roman.otf
+  artifactKey: Guid(014901fbcc66a354081896083486a934) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaBQ-Roman.otf using Guid(014901fbcc66a354081896083486a934) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a1f693dc1de342a573a970eb190b108') in 0.020557 seconds 
+  Import took 0.026723 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000244 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/Helvetica-BoldOblique.otf
+  artifactKey: Guid(979eec10dcc0823448083714b4967902) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/Helvetica-BoldOblique.otf using Guid(979eec10dcc0823448083714b4967902) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '769aa33799c6f032c5a80fd45158af4b') in 0.018726 seconds 
+  Import took 0.025327 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000254 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/Helvetica-Bold.otf
+  artifactKey: Guid(6e561de73811b2b478889051db4ca0ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/Helvetica-Bold.otf using Guid(6e561de73811b2b478889051db4ca0ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6ca7f468e4ed5f2ccff18412fc657e2') in 0.017607 seconds 
+  Import took 0.023297 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000332 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/Helvetica-Black.otf
+  artifactKey: Guid(672f9ab5bd65e9146a67e3ffa77d1811) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/Helvetica-Black.otf using Guid(672f9ab5bd65e9146a67e3ffa77d1811) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '989425c0371e73c2d2e62b22bb53a6ff') in 0.018923 seconds 
+  Import took 0.025429 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000274 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaBQ-Medium.otf
+  artifactKey: Guid(58b494eabe182d84db4f317eb9f04b22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaBQ-Medium.otf using Guid(58b494eabe182d84db4f317eb9f04b22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3de7cfdafe825079cfa38b81cdc7a3f0') in 0.019460 seconds 
+  Import took 0.025239 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000227 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaCE-BoldOblique.otf
+  artifactKey: Guid(9e49da2f532bd7f4ab36179ea4369026) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaCE-BoldOblique.otf using Guid(9e49da2f532bd7f4ab36179ea4369026) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc6f1714f678b81346ba84b10c628253') in 0.018226 seconds 
+  Import took 0.023920 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000248 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/Helvetica.otf
+  artifactKey: Guid(3779e14b1482b3b4d870df4945346bac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/Helvetica.otf using Guid(3779e14b1482b3b4d870df4945346bac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff8cdd783758b0a8e45d5f9906b1d8c2') in 0.016922 seconds 
+  Import took 0.022434 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000281 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaBQ-DemiBold.otf
+  artifactKey: Guid(cd1d3a52292dc214e97a2869a172f0b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaBQ-DemiBold.otf using Guid(cd1d3a52292dc214e97a2869a172f0b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a0fef32d659d401a76d613181100ad65') in 0.017679 seconds 
+  Import took 0.025353 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000319 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaBQ-UltraLight.otf
+  artifactKey: Guid(2bbb92685a9cc7e4688dc30304d6ed10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaBQ-UltraLight.otf using Guid(2bbb92685a9cc7e4688dc30304d6ed10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27a485fafa510f55c148ac375d2591cc') in 0.019663 seconds 
+  Import took 0.025747 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000257 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/Helvetica-Black-SemiBold.ttf
+  artifactKey: Guid(26aa7b2411d67da48a0c6be06eeef06c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/Helvetica-Black-SemiBold.ttf using Guid(26aa7b2411d67da48a0c6be06eeef06c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf99ae07191044da2f5cedac1779167d') in 0.020283 seconds 
+  Import took 0.026523 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000260 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaCE-CondBold.otf
+  artifactKey: Guid(5e62efb3799197a439feb6ab76451778) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaCE-CondBold.otf using Guid(5e62efb3799197a439feb6ab76451778) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e036c8a4cc12d8ca8bf478c385c91217') in 0.020871 seconds 
+  Import took 0.026811 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000264 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaBQ-Italic.otf
+  artifactKey: Guid(324d671b04e92334394906106e57a41d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaBQ-Italic.otf using Guid(324d671b04e92334394906106e57a41d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a3d815778f278c97d416f7f3b2712340') in 0.018505 seconds 
+  Import took 0.025278 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000307 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaCE-Cond.otf
+  artifactKey: Guid(f1e5e4f407f92e544aae1cdac521e7a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaCE-Cond.otf using Guid(f1e5e4f407f92e544aae1cdac521e7a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b44e176d5503b977946146946a5f3182') in 0.019003 seconds 
+  Import took 0.025042 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000211 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaBQ-DemiBoldItalic.otf
+  artifactKey: Guid(338ed9acdac754b408d299737366d80e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaBQ-DemiBoldItalic.otf using Guid(338ed9acdac754b408d299737366d80e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c37cb08fb28f56a41ab2cddf2e6d889a') in 0.019946 seconds 
+  Import took 0.026554 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000241 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaBQ-BlackItalic.otf
+  artifactKey: Guid(dcdf0246f209d944db41f343977d0613) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaBQ-BlackItalic.otf using Guid(dcdf0246f209d944db41f343977d0613) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bcb6b618e2bb592d3d53e62223d80fc2') in 0.017415 seconds 
+  Import took 0.023229 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000302 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaBQ-Black.otf
+  artifactKey: Guid(8e316058f214eab4b8b8170c39906741) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaBQ-Black.otf using Guid(8e316058f214eab4b8b8170c39906741) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50de22a516a4a18c6e62f44a8db44377') in 0.017778 seconds 
+  Import took 0.024115 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000281 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaBQ-MediumItalic.otf
+  artifactKey: Guid(051490336139ff548a4af3fba828c63a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaBQ-MediumItalic.otf using Guid(051490336139ff548a4af3fba828c63a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5ebe0f1c11befdb8b18b20e14efcdf9') in 0.019790 seconds 
+  Import took 0.026047 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000262 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaBQ-Light.otf
+  artifactKey: Guid(b05ecbd71077efe419a14aa74286ebd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaBQ-Light.otf using Guid(b05ecbd71077efe419a14aa74286ebd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c9182d995ec254c37fe0bc7fad62ccb') in 0.019332 seconds 
+  Import took 0.025664 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000336 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaCE-Bold.otf
+  artifactKey: Guid(4846921b7c5954243b4c53f1259614ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaCE-Bold.otf using Guid(4846921b7c5954243b4c53f1259614ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee7da6dd752146df9ee6fb5f50ab8ff6') in 0.018388 seconds 
+  Import took 0.025427 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000302 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaCE-NarrowOblique.otf
+  artifactKey: Guid(458caab0c0cc26140ab4c0f8b7db41e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaCE-NarrowOblique.otf using Guid(458caab0c0cc26140ab4c0f8b7db41e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f961bad701ca4b0f0ac19c604255a807') in 0.023960 seconds 
+  Import took 0.030178 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000231 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaCE-Oblique.otf
+  artifactKey: Guid(faf24d6527dd0654783e9bb85ffd3b45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaCE-Oblique.otf using Guid(faf24d6527dd0654783e9bb85ffd3b45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd32bf94fdbba5daae2caa1e16f53559') in 0.019767 seconds 
+  Import took 0.025332 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000246 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaConBQ-ExtraLight.otf
+  artifactKey: Guid(941d5e8abf1a74842b2cab83bcefb26e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaConBQ-ExtraLight.otf using Guid(941d5e8abf1a74842b2cab83bcefb26e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '714a05e73f452cd5d31caad99beada8b') in 0.017777 seconds 
+  Import took 0.024037 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000232 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaCE-Narrow.otf
+  artifactKey: Guid(7764753d97a16f6419cdb04782431409) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaCE-Narrow.otf using Guid(7764753d97a16f6419cdb04782431409) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '917bc4f97625fb7f6e4353f6cd0e8a3b') in 0.017755 seconds 
+  Import took 0.023671 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000240 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaConBQ-LightItalic.otf
+  artifactKey: Guid(b132eb19e1689c54c8cfe56805173921) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaConBQ-LightItalic.otf using Guid(b132eb19e1689c54c8cfe56805173921) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7d5509aa5603a5ad815589376e22cf0') in 0.021507 seconds 
+  Import took 0.027308 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000305 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaConBQ-Medium.otf
+  artifactKey: Guid(c3aa22ee3d0fe5947a605d497baaea00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaConBQ-Medium.otf using Guid(c3aa22ee3d0fe5947a605d497baaea00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4da1bdeb70c778735456d7430e1a071') in 0.016715 seconds 
+  Import took 0.022340 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000221 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaRoundedLT-Black.otf
+  artifactKey: Guid(ba50aaac07e45ef43b3b98b3381d8146) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaRoundedLT-Black.otf using Guid(ba50aaac07e45ef43b3b98b3381d8146) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6384ee9f719d14a91168140af945e98e') in 0.018320 seconds 
+  Import took 0.025278 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000277 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaRoundedLT-BlackObl.otf
+  artifactKey: Guid(9c9dcd3719f937f4a8f1de99829150a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaRoundedLT-BlackObl.otf using Guid(9c9dcd3719f937f4a8f1de99829150a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8944c2002fef350eaad4c50e29d390b9') in 0.017377 seconds 
+  Import took 0.023598 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000528 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaConBQ-ExtraLightItalic.otf
+  artifactKey: Guid(a42ef56876fda124dbbba67b56dfd848) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaConBQ-ExtraLightItalic.otf using Guid(a42ef56876fda124dbbba67b56dfd848) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7315a9bc8c8930c3867668ef24532ed4') in 0.024500 seconds 
+  Import took 0.030289 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000239 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaRoundedLT-BoldCondObl.otf
+  artifactKey: Guid(4ccfb24c5f0e73a42a2a7b5885e7c771) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaRoundedLT-BoldCondObl.otf using Guid(4ccfb24c5f0e73a42a2a7b5885e7c771) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b44d4dde294ecfeeb707df7fdca222a') in 0.019191 seconds 
+  Import took 0.024673 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000239 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaRoundedLT-Bold.otf
+  artifactKey: Guid(858ba4eb9cd920d4e878efd2a059d9a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaRoundedLT-Bold.otf using Guid(858ba4eb9cd920d4e878efd2a059d9a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f955be2617c470ce94d18ac6110724cc') in 0.020833 seconds 
+  Import took 0.028316 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000252 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaCE-NarrowBold.otf
+  artifactKey: Guid(a33f6e80d347ed842ae0eb23d7aca2e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaCE-NarrowBold.otf using Guid(a33f6e80d347ed842ae0eb23d7aca2e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a859bdf969e4a2648d4a1242e98e8d4c') in 0.017493 seconds 
+  Import took 0.023516 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000289 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaConBQ-Light.otf
+  artifactKey: Guid(7c97fdb23fc87cf468e34b20b44f6ae0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaConBQ-Light.otf using Guid(7c97fdb23fc87cf468e34b20b44f6ae0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98b9dd43041e22b36a420dc16b1312be') in 0.018070 seconds 
+  Import took 0.024083 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000230 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaCE-NarrowBoldOblique.otf
+  artifactKey: Guid(528197592514b1641813ac1dea287ffd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaCE-NarrowBoldOblique.otf using Guid(528197592514b1641813ac1dea287ffd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d327e5ee92261ce11dbc30c0488fd83') in 0.016341 seconds 
+  Import took 0.021911 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000225 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaRounded-BoldObl.otf
+  artifactKey: Guid(43feac31e7e53634ca37ef89a7c8a29a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaRounded-BoldObl.otf using Guid(43feac31e7e53634ca37ef89a7c8a29a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f17cec2b01b2dda1b35b3614c8d3d151') in 0.018734 seconds 
+  Import took 0.024373 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000286 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaCE.otf
+  artifactKey: Guid(d0ef3a0b21be312458d70000bb78ff89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaCE.otf using Guid(d0ef3a0b21be312458d70000bb78ff89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '024d8da02d96ba3ca5015a8d849b915f') in 0.019694 seconds 
+  Import took 0.025462 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000250 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaConBQ-Bold.otf
+  artifactKey: Guid(63be2368e40cdff40be711144ffe3d6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaConBQ-Bold.otf using Guid(63be2368e40cdff40be711144ffe3d6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '244eb082678da61b2b20a0372b79b7d4') in 0.019380 seconds 
+  Import took 0.025112 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000240 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaCE-CondObl.otf
+  artifactKey: Guid(d6c532cb8c95c054b8fffa39defc1687) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaCE-CondObl.otf using Guid(d6c532cb8c95c054b8fffa39defc1687) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '038740d24503e93ec5b47971a7a2e4b4') in 0.016527 seconds 
+  Import took 0.022053 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000234 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaBQ-LightItalic.otf
+  artifactKey: Guid(c576e7dc2721c19459cc9d2c1cee9df8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaBQ-LightItalic.otf using Guid(c576e7dc2721c19459cc9d2c1cee9df8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9c0a20dc0aaab481358ca0ceced560a') in 0.019663 seconds 
+  Import took 0.025429 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000261 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaRoundedLT-BoldCond.otf
+  artifactKey: Guid(9ae29d5744cafaa40b8f9487d3ea76e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaRoundedLT-BoldCond.otf using Guid(9ae29d5744cafaa40b8f9487d3ea76e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8720eff5bcc4145703e659ed5611710') in 0.020715 seconds 
+  Import took 0.027456 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000281 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaRoundedLTStd-BdCnO.otf
+  artifactKey: Guid(1fdd678e1e1d1e34ea079188d1a61217) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaRoundedLTStd-BdCnO.otf using Guid(1fdd678e1e1d1e34ea079188d1a61217) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a0390718d30d796604bc1d07bd04e0f') in 0.018754 seconds 
+  Import took 0.025008 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000248 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaRoundedLTStd-BdO.otf
+  artifactKey: Guid(a3bf686fb259bb241b3c2bca0b4c5fdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaRoundedLTStd-BdO.otf using Guid(a3bf686fb259bb241b3c2bca0b4c5fdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b1b8784591e8fe1ab0dda7678d974f2') in 0.017251 seconds 
+  Import took 0.023069 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000259 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaRoundedLTStd-Bd.otf
+  artifactKey: Guid(e2df41fecac8db54984eb382860706d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaRoundedLTStd-Bd.otf using Guid(e2df41fecac8db54984eb382860706d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5924fb38c6c8339105e2f65b9f135ea0') in 0.017025 seconds 
+  Import took 0.022689 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000260 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaRoundedLTStd-BdCn.otf
+  artifactKey: Guid(c363477591307a340a7ba93c88f0dbab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaRoundedLTStd-BdCn.otf using Guid(c363477591307a340a7ba93c88f0dbab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c35f04850e4f97cbf12c62d2bd9380e') in 0.018443 seconds 
+  Import took 0.025734 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000242 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaRoundedLTStd-Black.otf
+  artifactKey: Guid(eadb1d31d2b256e4e98f63f3c1d5f090) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaRoundedLTStd-Black.otf using Guid(eadb1d31d2b256e4e98f63f3c1d5f090) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0ab37541c933ed5a4d00f13561a3f6a') in 0.019570 seconds 
+  Import took 0.025502 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000266 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaRoundedLTStd-BlkO.otf
+  artifactKey: Guid(d6a2c7ee99738b44fa4b9c0ebfb96ffa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaRoundedLTStd-BlkO.otf using Guid(d6a2c7ee99738b44fa4b9c0ebfb96ffa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ac84c4e48f3e9c3512ae2fe85091c5a') in 0.018368 seconds 
+  Import took 0.024067 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000234 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/HelveticaRoundedLT-BoldObl.otf
+  artifactKey: Guid(426cb324efab5bd43b8f47fef29430c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/HelveticaRoundedLT-BoldObl.otf using Guid(426cb324efab5bd43b8f47fef29430c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4cb7f7fd329ecab7dae7763877896ef') in 0.022265 seconds 
+  Import took 0.028148 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000300 seconds.
+  path: Assets/Fonts/Helvetica Font Family compressed/Helvetica-Compressed.otf
+  artifactKey: Guid(b23325a2d08c2d342ada920ef3353970) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Helvetica Font Family compressed/Helvetica-Compressed.otf using Guid(b23325a2d08c2d342ada920ef3353970) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f6c26ae785254b556422578ef8f3055') in 0.020763 seconds 
+  Import took 0.026669 seconds .
+
