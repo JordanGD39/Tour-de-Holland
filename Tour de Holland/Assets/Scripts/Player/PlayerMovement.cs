@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private int playerNumber = 0;
-    public int PlayerNumber { get { return playerNumber; } }
     [SerializeField] private SpacesManager spacesManager;
     [SerializeField] private int currentBoardPosition = 0;
     [SerializeField] private bool canSpin = false;

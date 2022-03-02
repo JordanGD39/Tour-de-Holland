@@ -13,4 +13,5 @@ public class PropertyCard : ScriptableObject
     public int[] TourFee { get { return tourFee; } }
 
     public PropertyCardSet MyCardSet { get; set; }
+    public int PropertySetIndex { get; set; }
 }
