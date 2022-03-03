@@ -18,23 +18,35 @@ public class TradingManager : MonoBehaviour
     [SerializeField] private Text otherPlayerMoney;
     [SerializeField] private Text currentPlayerAddedMoney;
     [SerializeField] private Text otherPlayerAddedMoney;
+    [SerializeField] private Text totalOfferedMoney;
+    [SerializeField] private Text totalWantedMoney;
+
     [SerializeField] private Button[] purpleButtons;
     [SerializeField] private Button[] blueButtons;
     [SerializeField] private Button[] redButtons;
     [SerializeField] private Button[] greenButtons;
+
     [SerializeField] private PropertyCardSet[] allPropertyCardSet;
     [SerializeField] private GameObject cardPrefab;
     [SerializeField] private Transform placeOfferCardPrefab;
     [SerializeField] private Transform placeWantedCardPrefab;
+    [SerializeField] private Image centerCardImage;
 
     private int currentPlayerOfferedMoney = 0;
     private int otherPlayerWantedMoney = 0;
+    private int totalOfferedValue = 0;
+    private int totalWantedValue = 0;
+
     private List<PropertyCard> offeredPropertyCards = new List<PropertyCard>();
     private List<PropertyCard> wantedPropertyCards = new List<PropertyCard>();
+
+    private List<Image> offeredPropertyCardsSpawned = new List<Image>();
+    private List<Image> wantedPropertyCardsSpawned = new List<Image>();
 
     private void Start()
     {
         playerManager = FindObjectOfType<PlayerManager>();
+        centerCardImage.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -49,6 +61,23 @@ public class TradingManager : MonoBehaviour
             {
                 tradingPanel.SetActive(false);
                 tradingSelectPlayerPanel.SetActive(false);
+
+                centerCardImage.gameObject.SetActive(false);
+
+                foreach (Image item in offeredPropertyCardsSpawned)
+                {
+                    Destroy(item.gameObject);
+                }
+
+                foreach (Image item in wantedPropertyCardsSpawned)
+                {
+                    Destroy(item.gameObject);
+                }
+
+                offeredPropertyCards.Clear();
+                wantedPropertyCards.Clear();
+                offeredPropertyCardsSpawned.Clear();
+                wantedPropertyCardsSpawned.Clear();
             }            
         }
     }
@@ -73,8 +102,12 @@ public class TradingManager : MonoBehaviour
         otherPlayerMoney.text = "$" + playerToTrade.Money.ToString();
         currentPlayerAddedMoney.text = "$0"; 
         otherPlayerAddedMoney.text = "$0";
+        totalOfferedMoney.text = "$0";
+        totalWantedMoney.text = "$0";
         currentPlayerOfferedMoney = 0;
         otherPlayerWantedMoney = 0;
+        totalOfferedValue = 0;
+        totalWantedValue = 0;
 
         SetButtonsUninteractable(purpleButtons);
         SetButtonsUninteractable(blueButtons);
@@ -139,6 +172,8 @@ public class TradingManager : MonoBehaviour
             {
                 currentPlayerOfferedMoney++;
                 currentPlayerAddedMoney.text = "$" + currentPlayerOfferedMoney.ToString();
+                totalOfferedValue++;
+                totalOfferedMoney.text = totalOfferedValue.ToString();
             }
         }
         else
@@ -147,6 +182,8 @@ public class TradingManager : MonoBehaviour
             {
                 otherPlayerWantedMoney++;
                 otherPlayerAddedMoney.text = "$" + otherPlayerWantedMoney.ToString();
+                totalWantedValue++;
+                totalWantedMoney.text = totalWantedValue.ToString();
             }
         }
     }
@@ -159,6 +196,8 @@ public class TradingManager : MonoBehaviour
             {
                 currentPlayerOfferedMoney--;
                 currentPlayerAddedMoney.text = "$" + currentPlayerOfferedMoney.ToString();
+                totalOfferedValue--;
+                totalOfferedMoney.text = totalOfferedValue.ToString();
             }
         }
         else
@@ -166,7 +205,9 @@ public class TradingManager : MonoBehaviour
             if (otherPlayerWantedMoney > 0)
             {
                 otherPlayerWantedMoney--;
+                totalWantedValue--;
                 otherPlayerAddedMoney.text = "$" + otherPlayerWantedMoney.ToString();
+                totalWantedMoney.text = totalWantedValue.ToString();
             }
         }
     }
@@ -174,30 +215,76 @@ public class TradingManager : MonoBehaviour
     public void OfferPropertyCard(string propertyCardID)
     {
         PropertyCard card = AddOrRemovePropertyToAList(offeredPropertyCards, GetPropertyCardOfID(propertyCardID));
-        var myNewPropertyCard = Instantiate(cardPrefab, placeOfferCardPrefab);
 
-        RectTransform rectTransform = myNewPropertyCard.GetComponent<RectTransform>();
-        rectTransform.localPosition = Vector3.zero;
-        // add visual card
-        // get component image en pak dan de property
+        if (offeredPropertyCards.Contains(card))
+        {
+            var myNewPropertyCard = Instantiate(cardPrefab, placeOfferCardPrefab);
+            totalOfferedValue += card.BuyPrice;
 
-        myNewPropertyCard.GetComponent<Image>().sprite = card.MySprite;
+            RectTransform rectTransform = myNewPropertyCard.GetComponent<RectTransform>();
+            rectTransform.localPosition = Vector3.zero;
+            Image image = myNewPropertyCard.GetComponent<Image>();
+            image.sprite = card.MySprite;
+
+            offeredPropertyCardsSpawned.Add(image);
+            totalOfferedMoney.text = totalOfferedValue.ToString();
+        }
+        else
+        {
+            foreach (Image item in offeredPropertyCardsSpawned)
+            {
+                if (item.sprite == card.MySprite)
+                {
+                    offeredPropertyCardsSpawned.Remove(item);
+                    Destroy(item.gameObject);
+                    break;
+                }
+            }
+
+            totalOfferedValue -= card.BuyPrice;
+        }
+        totalOfferedMoney.text = totalOfferedValue.ToString();
     }
 
 
     public void WantPropertyCard(string propertyCardID)
     {
         PropertyCard card = AddOrRemovePropertyToAList(wantedPropertyCards, GetPropertyCardOfID(propertyCardID));
-        var myNewPropertyCard = Instantiate(cardPrefab, placeWantedCardPrefab);
 
-        RectTransform rectTransform = myNewPropertyCard.GetComponent<RectTransform>();
-        rectTransform.localPosition = Vector3.zero;
-        // add visual card
-        myNewPropertyCard.GetComponent<Image>().sprite = card.MySprite;
+        if (wantedPropertyCards.Contains(card))
+        {
+            var myNewPropertyCard = Instantiate(cardPrefab, placeWantedCardPrefab);
+            totalWantedValue += card.BuyPrice;
+
+            RectTransform rectTransform = myNewPropertyCard.GetComponent<RectTransform>();
+            rectTransform.localPosition = Vector3.zero;
+            Image image = myNewPropertyCard.GetComponent<Image>();
+            image.sprite = card.MySprite;        
+            wantedPropertyCardsSpawned.Add(image);
+        }
+        else
+        {
+            foreach (Image item in wantedPropertyCardsSpawned)
+            {
+                if (item.sprite == card.MySprite)
+                {
+                    wantedPropertyCardsSpawned.Remove(item);                    
+                    Destroy(item.gameObject);
+                    break;
+                }
+            }
+
+            totalWantedValue -= card.BuyPrice;
+        }
+
+        totalWantedMoney.text = totalWantedValue.ToString();
     }
 
     private PropertyCard AddOrRemovePropertyToAList(List<PropertyCard> propertyCards, PropertyCard card)
     {
+        centerCardImage.gameObject.SetActive(true);
+        centerCardImage.sprite = card.MySprite;
+
         if (!propertyCards.Contains(card))
         {
             propertyCards.Add(card);
