@@ -23,6 +23,9 @@ public class TradingManager : MonoBehaviour
     [SerializeField] private Button[] redButtons;
     [SerializeField] private Button[] greenButtons;
     [SerializeField] private PropertyCardSet[] allPropertyCardSet;
+    [SerializeField] private GameObject cardPrefab;
+    [SerializeField] private Transform placeOfferCardPrefab;
+    [SerializeField] private Transform placeWantedCardPrefab;
 
     private int currentPlayerOfferedMoney = 0;
     private int otherPlayerWantedMoney = 0;
@@ -170,16 +173,30 @@ public class TradingManager : MonoBehaviour
 
     public void OfferPropertyCard(string propertyCardID)
     {
-        AddOrRemovePropertyToAList(offeredPropertyCards, GetPropertyCardOfID(propertyCardID));       
+        PropertyCard card = AddOrRemovePropertyToAList(offeredPropertyCards, GetPropertyCardOfID(propertyCardID));
+        var myNewPropertyCard = Instantiate(cardPrefab, placeOfferCardPrefab);
+
+        RectTransform rectTransform = myNewPropertyCard.GetComponent<RectTransform>();
+        rectTransform.localPosition = Vector3.zero;
+        // add visual card
+        // get component image en pak dan de property
+
+        //myNewPropertyCard.GetComponent<Image>().sprite = card.
     }
 
 
     public void WantPropertyCard(string propertyCardID)
     {
-        AddOrRemovePropertyToAList(wantedPropertyCards, GetPropertyCardOfID(propertyCardID));
+        PropertyCard card = AddOrRemovePropertyToAList(wantedPropertyCards, GetPropertyCardOfID(propertyCardID));
+        var myNewPropertyCard = Instantiate(cardPrefab, placeWantedCardPrefab);
+
+        RectTransform rectTransform = myNewPropertyCard.GetComponent<RectTransform>();
+        rectTransform.localPosition = Vector3.zero;
+        // add visual card
+        //myNewPropertyCard.GetComponent<Image>().sprite = card.
     }
 
-    private void AddOrRemovePropertyToAList(List<PropertyCard> propertyCards, PropertyCard card)
+    private PropertyCard AddOrRemovePropertyToAList(List<PropertyCard> propertyCards, PropertyCard card)
     {
         if (!propertyCards.Contains(card))
         {
@@ -189,6 +206,8 @@ public class TradingManager : MonoBehaviour
         {
             propertyCards.Remove(card);
         }
+
+        return card;
     }
 
     private PropertyCard GetPropertyCardOfID(string propertyCardID)
