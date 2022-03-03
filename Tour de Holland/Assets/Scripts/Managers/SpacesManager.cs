@@ -84,7 +84,7 @@ public class SpacesManager : MonoBehaviour
         {
             if (pos == extraSpaces[i].SpaceBeforeThisIndex)
             {
-                spacePositions.Add(extraSpaces[i].transform.position);                
+                spacePositions.Add(extraSpaces[i].ExtraSpacePos);
 
                 if (extraSpaces[i].CutsceneSpace)
                 {
