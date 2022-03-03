@@ -12,7 +12,7 @@ public class PlayerData : MonoBehaviour
     [SerializeField] private int playerNumber = 0;
     public int PlayerNumber { get { return playerNumber; } }
     [SerializeField] private int money = 1500;
-    public int Money { get { return money; } set { playerDataUI.UpdateMoneyText(value); money = value; } }
+    public int Money { get { return money; } set { playerDataUI.UpdateMoneyText(value, money); money = value; } }
     [SerializeField] private List<PropertyCard> propertyCards;
     public List<PropertyCard> PropertyCards { get { return propertyCards; } }
 

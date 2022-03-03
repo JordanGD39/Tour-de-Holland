@@ -6,14 +6,48 @@ using UnityEngine.UI;
 public class PlayerDataUI : MonoBehaviour
 {
     [SerializeField] private Text moneyText;
+    [SerializeField] private Text addMoneyText;
     [SerializeField] private Transform[] purpleProperties;
     [SerializeField] private Transform[] blueProperties;
     [SerializeField] private Transform[] redProperties;
     [SerializeField] private Transform[] greenProperties;
+    [SerializeField] private float lerpSpeed = 2;
 
-    public void UpdateMoneyText(int money)
+    private float currentMoneyShowed = 0;
+    private float targetMoney = 0;
+    
+
+    private void Start()
     {
-        moneyText.text = money.ToString();
+        addMoneyText.gameObject.SetActive(false);
+    }
+
+    private IEnumerator CountMoneyToCurrentRealMoney()
+    {
+        while (currentMoneyShowed != targetMoney)
+        {
+            currentMoneyShowed = Mathf.Lerp(currentMoneyShowed, targetMoney, lerpSpeed * Time.deltaTime);
+
+            moneyText.text = Mathf.RoundToInt(currentMoneyShowed).ToString();
+
+            yield return null;
+        }
+    }
+
+    public void UpdateMoneyText(int money, int oldMoney)
+    {
+        int diff = money - oldMoney;
+
+        string plusOrMin = diff > 0 ? "+" : "-";
+
+        addMoneyText.text = plusOrMin + " €" + Mathf.Abs(diff).ToString();
+        addMoneyText.gameObject.SetActive(false);
+        addMoneyText.gameObject.SetActive(true);
+
+        currentMoneyShowed = oldMoney;
+        targetMoney = money;
+
+        StartCoroutine(nameof(CountMoneyToCurrentRealMoney));
     }
 
     public void UpdateProperties(PropertyCard propertyCard, bool add)
