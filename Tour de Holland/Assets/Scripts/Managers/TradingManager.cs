@@ -122,7 +122,7 @@ public class TradingManager : MonoBehaviour
         {
             PropertyCard card = playerData.PropertyCards[i];
 
-            if (card.MyCardSet.SetColor == colorSet)
+            if (card.MyCardSet.PropertySetColor == colorSet)
             {
                 cards.Add(card);
             }
@@ -181,7 +181,7 @@ public class TradingManager : MonoBehaviour
         // add visual card
         // get component image en pak dan de property
 
-        //myNewPropertyCard.GetComponent<Image>().sprite = card.
+        myNewPropertyCard.GetComponent<Image>().sprite = card.MySprite;
     }
 
 
@@ -193,7 +193,7 @@ public class TradingManager : MonoBehaviour
         RectTransform rectTransform = myNewPropertyCard.GetComponent<RectTransform>();
         rectTransform.localPosition = Vector3.zero;
         // add visual card
-        //myNewPropertyCard.GetComponent<Image>().sprite = card.
+        myNewPropertyCard.GetComponent<Image>().sprite = card.MySprite;
     }
 
     private PropertyCard AddOrRemovePropertyToAList(List<PropertyCard> propertyCards, PropertyCard card)
