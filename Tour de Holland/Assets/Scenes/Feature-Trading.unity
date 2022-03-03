@@ -433,7 +433,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 27008511}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 338132452}
+        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+        m_MethodName: OfferPropertyCard
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: R1
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &27008511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,7 +459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.90932226, b: 0.107547104, a: 1}
+  m_Color: {r: 1, g: 0.27867386, b: 0.10588235, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -553,7 +565,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 34863487}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 338132452}
+        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+        m_MethodName: WantPropertyCard
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: P1
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &34863487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,7 +591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.64928377, g: 0.0658597, b: 0.9433962, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -848,7 +872,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 88966091}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 338132452}
+        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+        m_MethodName: OfferPropertyCard
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: B2
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &88966091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -862,7 +898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.43056607, a: 1}
+  m_Color: {r: 0, g: 0.7546997, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -968,7 +1004,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 95002219}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 338132452}
+        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+        m_MethodName: OfferPropertyCard
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: R2
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &95002219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -982,7 +1030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.90932226, b: 0.107547104, a: 1}
+  m_Color: {r: 1, g: 0.27867386, b: 0.10588235, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1088,7 +1136,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 95752606}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 338132452}
+        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+        m_MethodName: OfferPropertyCard
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: P2
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &95752606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1102,7 +1162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.64928377, g: 0.0658597, b: 0.9433962, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1591,7 +1651,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 190265347}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 338132452}
+        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+        m_MethodName: WantPropertyCard
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: G1
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &190265347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1605,7 +1677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.09533639, g: 0.44012693, b: 0.9716981, a: 1}
+  m_Color: {r: 0.13820355, g: 0.972549, b: 0.09411762, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1630,108 +1702,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 190265344}
   m_CullTransparentMesh: 1
---- !u!1001 &196088204
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1080173765}
-    m_Modifications:
-    - target: {fileID: 1992948297875708038, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_Name
-      value: Card
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
---- !u!224 &196088205 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-  m_PrefabInstance: {fileID: 196088204}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &199741930
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2666,6 +2636,39 @@ MonoBehaviour:
   otherPlayerMoney: {fileID: 1643023062}
   currentPlayerAddedMoney: {fileID: 1768488072}
   otherPlayerAddedMoney: {fileID: 933392561}
+  purpleButtons:
+  - {fileID: 1013747781}
+  - {fileID: 947824656}
+  - {fileID: 95752605}
+  - {fileID: 2075559808}
+  - {fileID: 34863486}
+  - {fileID: 1074272821}
+  blueButtons:
+  - {fileID: 623237273}
+  - {fileID: 1347854280}
+  - {fileID: 88966090}
+  - {fileID: 1914981999}
+  - {fileID: 599523043}
+  - {fileID: 1947911329}
+  redButtons:
+  - {fileID: 837677452}
+  - {fileID: 27008510}
+  - {fileID: 95002218}
+  - {fileID: 1010921185}
+  - {fileID: 589585909}
+  - {fileID: 344712828}
+  greenButtons:
+  - {fileID: 1086242684}
+  - {fileID: 1196197810}
+  - {fileID: 1051113356}
+  - {fileID: 1957832782}
+  - {fileID: 190265346}
+  - {fileID: 1741229751}
+  allPropertyCardSet:
+  - {fileID: 1729589031}
+  - {fileID: 1131556082}
+  - {fileID: 2023655208}
+  - {fileID: 1023398190}
 --- !u!1 &344712826
 GameObject:
   m_ObjectHideFlags: 0
@@ -2747,7 +2750,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 344712829}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 338132452}
+        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+        m_MethodName: WantPropertyCard
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: R2
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &344712829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2761,7 +2776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.90932226, b: 0.107547104, a: 1}
+  m_Color: {r: 1, g: 0.27867386, b: 0.10588235, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4223,7 +4238,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 589585910}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 338132452}
+        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+        m_MethodName: WantPropertyCard
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: R1
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &589585910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4237,7 +4264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.90932226, b: 0.107547104, a: 1}
+  m_Color: {r: 1, g: 0.27867386, b: 0.10588235, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4343,7 +4370,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 599523044}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 338132452}
+        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+        m_MethodName: WantPropertyCard
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: B1
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &599523044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4357,7 +4396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.43056607, a: 1}
+  m_Color: {r: 0, g: 0.7546997, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4463,7 +4502,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 623237274}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 338132452}
+        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+        m_MethodName: OfferPropertyCard
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: B0
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &623237274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4477,7 +4528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.43056607, a: 1}
+  m_Color: {r: 0, g: 0.7546997, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5422,7 +5473,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 837677453}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 338132452}
+        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+        m_MethodName: OfferPropertyCard
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: R0
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &837677453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5436,7 +5499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.90932226, b: 0.107547104, a: 1}
+  m_Color: {r: 1, g: 0.27867386, b: 0.10588235, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6145,7 +6208,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 947824657}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 338132452}
+        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+        m_MethodName: OfferPropertyCard
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: P1
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &947824657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6159,7 +6234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.64928377, g: 0.0658597, b: 0.9433962, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6502,7 +6577,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1010921186}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 338132452}
+        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+        m_MethodName: WantPropertyCard
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: R0
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1010921186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6516,7 +6603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.90932226, b: 0.107547104, a: 1}
+  m_Color: {r: 1, g: 0.27867386, b: 0.10588235, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6743,7 +6830,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1013747782}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 338132452}
+        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+        m_MethodName: OfferPropertyCard
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: P0
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1013747782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6757,7 +6856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.64928377, g: 0.0658597, b: 0.9433962, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7330,7 +7429,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1051113357}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 338132452}
+        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+        m_MethodName: OfferPropertyCard
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: G2
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1051113357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7344,7 +7455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.09533639, g: 0.44012693, b: 0.9716981, a: 1}
+  m_Color: {r: 0.13820355, g: 0.972549, b: 0.09411762, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7450,7 +7561,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1074272822}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 338132452}
+        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+        m_MethodName: WantPropertyCard
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: P2
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1074272822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7464,7 +7587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.64928377, g: 0.0658597, b: 0.9433962, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7515,8 +7638,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 196088205}
+  m_Children: []
   m_Father: {fileID: 1113297039}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7606,7 +7728,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1086242685}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 338132452}
+        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+        m_MethodName: OfferPropertyCard
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: G0
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1086242685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7620,7 +7754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.09533639, g: 0.44012693, b: 0.9716981, a: 1}
+  m_Color: {r: 0.13820355, g: 0.972549, b: 0.09411762, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8234,7 +8368,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1196197811}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 338132452}
+        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+        m_MethodName: OfferPropertyCard
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: G1
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1196197811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8248,7 +8394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.09533639, g: 0.44012693, b: 0.9716981, a: 1}
+  m_Color: {r: 0.13820355, g: 0.972549, b: 0.09411762, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8696,8 +8842,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1953961408}
+  m_Children: []
   m_Father: {fileID: 1113297039}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8896,7 +9041,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1347854281}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 338132452}
+        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+        m_MethodName: OfferPropertyCard
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: B1
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1347854281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8910,7 +9067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.43056607, a: 1}
+  m_Color: {r: 0, g: 0.7546997, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10508,7 +10665,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1741229752}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 338132452}
+        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+        m_MethodName: WantPropertyCard
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: G2
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1741229752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10522,7 +10691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.09533639, g: 0.44012693, b: 0.9716981, a: 1}
+  m_Color: {r: 0.13820355, g: 0.972549, b: 0.09411762, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10951,7 +11120,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1877823158
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11094,7 +11263,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1914982000}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 338132452}
+        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+        m_MethodName: WantPropertyCard
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: B0
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1914982000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11108,7 +11289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.43056607, a: 1}
+  m_Color: {r: 0, g: 0.7546997, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -11339,7 +11520,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1947911330}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 338132452}
+        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+        m_MethodName: WantPropertyCard
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: B2
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1947911330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11353,7 +11546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.43056607, a: 1}
+  m_Color: {r: 0, g: 0.7546997, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -11378,11 +11571,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1947911327}
   m_CullTransparentMesh: 1
---- !u!224 &1953961408 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-  m_PrefabInstance: {fileID: 1992948295935118649}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1957832780
 GameObject:
   m_ObjectHideFlags: 0
@@ -11464,7 +11652,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1957832783}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 338132452}
+        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+        m_MethodName: WantPropertyCard
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: G0
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1957832783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11478,7 +11678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.09533639, g: 0.44012693, b: 0.9716981, a: 1}
+  m_Color: {r: 0.13820355, g: 0.972549, b: 0.09411762, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12191,7 +12391,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2075559809}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 338132452}
+        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+        m_MethodName: WantPropertyCard
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: P0
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2075559809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12205,7 +12417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.64928377, g: 0.0658597, b: 0.9433962, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12405,103 +12617,6 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: af9000e7fda5c3a4487b53aee9b49fda, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ff9d43e1955af4d8a1dbd23505ce61, type: 3}
---- !u!1001 &1992948295935118649
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1321055756}
-    m_Modifications:
-    - target: {fileID: 1992948297875708038, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_Name
-      value: Card
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -250
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1992948297875708153, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 468769ebaaa24fe419bb90762fd305fc, type: 3}
 --- !u!1001 &2032780524844640868
 PrefabInstance:
   m_ObjectHideFlags: 0

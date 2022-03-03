@@ -8,6 +8,7 @@ public class PropertyCardSet : MonoBehaviour
     [SerializeField] private ColorOfSet setColor = ColorOfSet.PURPLE;
     public ColorOfSet SetColor { get { return setColor; } }
     [SerializeField] private PropertyCard[] propertyCards;
+    public PropertyCard[] PropertyCardsInSet { get { return propertyCards; } }
     [SerializeField] private int[] shopLocations = { 1, 2, 5 };
     public int[] ShopLocations { get { return shopLocations; } }
     [SerializeField] private int upgradeLevel = 0;
@@ -15,8 +16,10 @@ public class PropertyCardSet : MonoBehaviour
 
     private void Start()
     {
-        foreach (PropertyCard card in propertyCards)
+        for (int i = 0; i < propertyCards.Length; i++)
         {
+            PropertyCard card = propertyCards[i];
+            card.PropertySetIndex = i;
             card.MyCardSet = this;
         }
     }

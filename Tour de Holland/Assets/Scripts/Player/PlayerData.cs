@@ -8,8 +8,8 @@ public class PlayerData : MonoBehaviour
     public int PlayerNumber { get { return playerNumber; } }
     [SerializeField] private int money = 1500;
     public int Money { get { return money; } set { money = value; } }
-    [SerializeField] private PropertyCard[] propertyCards;
-    public PropertyCard[] PropertyCards { get { return propertyCards; } }
+    [SerializeField] private List<PropertyCard> propertyCards;
+    public List<PropertyCard> PropertyCards { get { return propertyCards; } }
 
     // Start is called before the first frame update
     void Start()
