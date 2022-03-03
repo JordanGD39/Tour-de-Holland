@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: c3aa22ee3d0fe5947a605d497baaea00
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Helvetica Condensed BQ
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 63be2368e40cdff40be711144ffe3d6e, type: 3}
+  - {fileID: 12800000, guid: b132eb19e1689c54c8cfe56805173921, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -11,7 +11,10 @@ public class PropertyCard : ScriptableObject
     public int SellPrice { get { return sellPrice; } }
     [SerializeField] private int[] tourFee = {20, 100, 300, 900, 1600, 2500};
     public int[] TourFee { get { return tourFee; } }
+    [SerializeField] private Sprite sprite;
+    public Sprite MySprite { get { return sprite; } }
 
     public PropertyCardSet MyCardSet { get; set; }
-    public int PropertySetIndex { get; set; } = 0;
+    public int PropertySetIndex { get; set; }
+    public PlayerData PlayerOwningThis { get; set; }
 }

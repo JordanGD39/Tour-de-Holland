@@ -15,4 +15,4 @@ MonoBehaviour:
   buyPrice: 66
   sellPrice: 33
   tourFee: 030000000f0000002800000064000000aa00000004010000
-  shopCost: 50
+  sprite: {fileID: 21300000, guid: b880708a3295f87409ad58239038752f, type: 3}
