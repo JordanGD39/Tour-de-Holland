@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private int playerNumber = 0;
-    public int PlayerNumber { get { return playerNumber; } }
     [SerializeField] private SpacesManager spacesManager;
     [SerializeField] private int currentBoardPosition = 0;
     [SerializeField] private bool canSpin = false;
@@ -13,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float journeyTime = 1;
     [SerializeField] private float arcHeight = 1;
     [SerializeField] private float extraY = 1;
+    [SerializeField] private float rotateSpeed = 1;
 
     private BoardSpace currentBoardSpace;
     private Vector3 startingPosition;
@@ -24,27 +23,45 @@ public class PlayerMovement : MonoBehaviour
     private bool goingToCutsceneSpace = false;
     private int previousSpace = 0;
 
+    public delegate void DoneMoving();
+    public DoneMoving OnDoneMoving;
+
     public delegate void EndTurn();
     public EndTurn OnEndTurn;
+
+    private PlayerData playerData;
+
+    private bool onTour = false;
+    private bool rolledOnTour = false;
+    private bool backOnNormalRoute = true;
+    private TourRouteManager tourRouteManager;
 
     // Start is called before the first frame update
     void Start()
     {
         spacesManager = FindObjectOfType<SpacesManager>();
+        playerData = GetComponent<PlayerData>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canSpin && Input.GetKeyDown(KeyCode.S))
-        {
-            SpinWheel();
-        }
-
         if (goTowardsSpace)
         {
             MoveTowardsBoardSpace();
         }
+    }
+
+    public void PlaceOnTourRoute(TourRouteManager aTourRouteManager)
+    {
+        tourRouteManager = aTourRouteManager;
+        onTour = true;
+        rolledOnTour = false;
+        backOnNormalRoute = false;
+        SetStartingVariablesForStartMoving();
+
+        spacePos = tourRouteManager.GiveFirstBoardSpaceLocation(currentBoardSpace.PropertyCardOnSpace.PropertySetIndex) + Vector3.up * extraY;
+        goTowardsSpace = true;
     }
 
     public void ReceiveTurn()
@@ -52,21 +69,35 @@ public class PlayerMovement : MonoBehaviour
         canSpin = true;
     }
 
-    private void SpinWheel()
+    public void SpinWheel()
     {
+        if (!canSpin)
+        {
+            return;
+        }
+
         canSpin = false;
-        CalculatePosition(Random.Range(1, 6));
+        CalculatePosition(Random.Range(1, 7));
         //CalculatePosition(40);
     }
 
     private void CalculatePosition(int spinnedNumber)
     {
+        if (onTour)
+        {
+            rolledOnTour = true;
+            spacePosistions = tourRouteManager.GivePositionsAfterFirst(spinnedNumber);
+            moveToSpaceIndex = 0;
+            StartMoving();
+
+            return;
+        }
+
         int calcBoardPos = currentBoardPosition + spinnedNumber;
 
         GetInBetweenBoardSpaces(calcBoardPos);
 
         currentBoardSpace = spacesManager.GetBoardSpace(calcBoardPos);
-        Debug.Log(currentBoardSpace.BoardSpaceType);
         Debug.Log("BoardPos: " + currentBoardPosition + " spinnedNum: " + spinnedNumber);
         currentBoardPosition = currentBoardSpace.BoardIndex;
 
@@ -74,15 +105,20 @@ public class PlayerMovement : MonoBehaviour
         StartMoving();
     }
 
-    private void StartMoving()
+    private void SetStartingVariablesForStartMoving()
     {
         startTime = Time.time;
-        startingPosition = transform.position;
+        startingPosition = transform.position;        
+    }
+
+    private void StartMoving()
+    {
+        SetStartingVariablesForStartMoving();
         spacePos = spacePosistions[moveToSpaceIndex] + Vector3.up * extraY;
 
         goingToCutsceneSpace = false;
 
-        if (cutsceneSpaceIndexs.Count > 0)
+        if (cutsceneSpaceIndexs.Count > 0 && !onTour)
         {
             foreach (int item in cutsceneSpaceIndexs)
             {
@@ -125,17 +161,37 @@ public class PlayerMovement : MonoBehaviour
         transform.position = Vector3.Slerp(startRelCenter, spaceRelCenter, fracComplete);
         transform.position += center;
 
+        Vector3 lookPos = spacePos;
+        lookPos.y = transform.position.y;
+
+        Vector3 diff = lookPos - transform.position;
+
+        if (diff != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(diff);
+
+            // Smoothly rotate towards the target point.
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
+        }        
+
         if (fracComplete >= 1)
         {
             moveToSpaceIndex++;
             goTowardsSpace = false;
+
+            if (onTour && moveToSpaceIndex > spacePosistions.Count - 1)
+            {
+                TourCheck();
+
+                return;
+            }
 
             if (!goingToCutsceneSpace)
             {
                 if (moveToSpaceIndex > spacePosistions.Count - 1)
                 {
                     previousSpace = currentBoardPosition;
-                    OnEndTurn();
+                    playerData.CheckCurrentSpace(currentBoardSpace);
                 }
                 else
                 {
@@ -157,5 +213,43 @@ public class PlayerMovement : MonoBehaviour
                 extraSpace.OnPlayCutscene(transform);
             }
         }
+    }
+
+    private void TourCheck()
+    {
+        if (!rolledOnTour)
+        {
+            OnDoneMoving();
+            return;
+        }
+
+        if (backOnNormalRoute)
+        {
+            onTour = false;
+            OnDoneMoving();
+        }
+        else
+        {
+            PropertyCard propertyCard = currentBoardSpace.PropertyCardOnSpace;
+
+            foreach (int pos in propertyCard.ShopLocations)
+            {
+                if (moveToSpaceIndex == pos)
+                {
+                    playerData.GiveMoneyToOtherPlayer(propertyCard.TourFee[propertyCard.UpgradeLevel], currentBoardSpace.PropertyCardOnSpace.PlayerOwningThis);
+                }                
+            }
+
+            ReturnToBoard();
+        }
+    }
+
+    private void ReturnToBoard()
+    {
+        SetStartingVariablesForStartMoving();
+
+        spacePos = currentBoardSpace.transform.position + Vector3.up * extraY;
+        backOnNormalRoute = true;
+        goTowardsSpace = true;
     }
 }
