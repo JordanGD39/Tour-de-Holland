@@ -12,10 +12,8 @@ public class PropertyCardSet : MonoBehaviour
     public ColorOfSet PropertySetColor { get { return propertySetColor; } }
     [SerializeField] private PropertyCard[] propertyCards;
     [SerializeField] public PropertyCard[] PropertyCardsInSet { get { return propertyCards; } }
-    [SerializeField] private int[] shopLocations = { 1, 2, 5 };
-    public int[] ShopLocations { get { return shopLocations; } }
-    [SerializeField] private int upgradeLevel = 0;
-    public int UpgradeLevel { get { return upgradeLevel; } set { upgradeLevel = value; } }
+
+    public PlayerData PlayerOwningThis { get; set; }
 
     private void Start()
     {
@@ -25,6 +23,11 @@ public class PropertyCardSet : MonoBehaviour
             card.MyCardSet = this;
             card.PropertySetIndex = i;
             card.PlayerOwningThis = null;
+            card.UpgradeLevel = 0;
+            card.ShopLocations.Clear();
+            card.ShopLocations.Add(1);
+            card.ShopLocations.Add(2);
+            card.ShopLocations.Add(5);
         }
 
         if (tourRouteManager != null)

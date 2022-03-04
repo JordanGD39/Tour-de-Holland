@@ -13127,6 +13127,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2011411901}
     m_Modifications:
+    - target: {fileID: 2952879329970475932, guid: 15bc28a1ae63371448e2569d59d5acbb, type: 3}
+      propertyPath: timeForMoneyToComplete
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5564180102665171258, guid: 15bc28a1ae63371448e2569d59d5acbb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -13449,6 +13453,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2011411901}
     m_Modifications:
+    - target: {fileID: 2952879329970475932, guid: 15bc28a1ae63371448e2569d59d5acbb, type: 3}
+      propertyPath: timeForMoneyToComplete
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5564180102665171258, guid: 15bc28a1ae63371448e2569d59d5acbb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

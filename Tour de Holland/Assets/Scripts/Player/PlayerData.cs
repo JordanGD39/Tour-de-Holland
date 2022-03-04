@@ -16,6 +16,9 @@ public class PlayerData : MonoBehaviour
     [SerializeField] private List<PropertyCard> propertyCards;
     public List<PropertyCard> PropertyCards { get { return propertyCards; } }
 
+    [SerializeField] private List<PropertyCardSet> propertyCardSets;
+    public List<PropertyCardSet> PropertyCardSets { get { return propertyCardSets; } }
+
     private BoardSpace currentBoardSpace;
 
     // Start is called before the first frame update
@@ -31,6 +34,31 @@ public class PlayerData : MonoBehaviour
         propertyCard.PlayerOwningThis = this;
         propertyCards.Add(propertyCard);
         playerDataUI.UpdateProperties(propertyCard, true);
+
+        CheckGotCardSet(propertyCard);
+    }
+
+    private void CheckGotCardSet(PropertyCard propertyCard)
+    {
+        PropertyCardSet propertyCardSet = propertyCard.MyCardSet;
+
+        int cardsInSetCount = propertyCardSet.PropertyCardsInSet.Length;
+        PropertyCardSet.ColorOfSet propertyCardSetColor = propertyCardSet.PropertySetColor;
+        int owningCardsOfSetCount = 0;
+
+        foreach (PropertyCard card in propertyCards)
+        {
+            if (card.MyCardSet.PropertySetColor == propertyCardSetColor)
+            {
+                owningCardsOfSetCount++;
+            }
+        }
+
+        if (owningCardsOfSetCount == cardsInSetCount)
+        {
+            propertyCardSet.PlayerOwningThis = this;
+            propertyCardSets.Add(propertyCardSet);
+        }
     }
 
     public void RemovePropertyCard(PropertyCard propertyCard)
@@ -38,6 +66,11 @@ public class PlayerData : MonoBehaviour
         propertyCard.PlayerOwningThis = null;
         propertyCards.Remove(propertyCard);
         playerDataUI.UpdateProperties(propertyCard, false);
+
+        if (propertyCardSets.Contains(propertyCard.MyCardSet))
+        {
+            propertyCardSets.Remove(propertyCard.MyCardSet);
+        }
     }
 
     public void CheckCurrentSpace(BoardSpace boardSpace)

@@ -13,6 +13,10 @@ public class PropertyCard : ScriptableObject
     public int[] TourFee { get { return tourFee; } }
     [SerializeField] private Sprite sprite;
     public Sprite MySprite { get { return sprite; } }
+    [SerializeField] private int upgradeLevel = 0;
+    public int UpgradeLevel { get { return upgradeLevel; } set { upgradeLevel = value; } }
+    [SerializeField] private List<int> shopLocations = new List<int>();
+    public List<int> ShopLocations { get { return shopLocations; } set { shopLocations = value; } }
 
     public PropertyCardSet MyCardSet { get; set; }
     public int PropertySetIndex { get; set; }

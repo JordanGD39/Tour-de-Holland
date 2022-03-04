@@ -11,11 +11,15 @@ public class PlayerDataUI : MonoBehaviour
     [SerializeField] private Transform[] blueProperties;
     [SerializeField] private Transform[] redProperties;
     [SerializeField] private Transform[] greenProperties;
-    [SerializeField] private float lerpSpeed = 2;
+    [SerializeField] private float timeForMoneyToComplete = 2;
+    [SerializeField] private float minTimeToComplete = 0.25f;
+    [SerializeField] private float maxTimeToComplete = 1.5f;
+    [SerializeField] private float baseMoneyValueTime = 100;
 
-    private float currentMoneyShowed = 0;
+    private float startingMoney = 0;
     private float targetMoney = 0;
-    
+    private float startMoneyTime;
+    private float timeForMoneyToCompleteMultiplier = 1;
 
     private void Start()
     {
@@ -25,12 +29,19 @@ public class PlayerDataUI : MonoBehaviour
     private IEnumerator CountMoneyToCurrentRealMoney()
     {
         yield return new WaitForSeconds(0.75f);
+        startMoneyTime = Time.time;
+        float fracComplete = 0;
+        float time = timeForMoneyToComplete * timeForMoneyToCompleteMultiplier;
 
-        while (currentMoneyShowed != targetMoney)
+        time = Mathf.Clamp(time, minTimeToComplete, maxTimeToComplete);
+
+        while (fracComplete < 1)
         {
-            currentMoneyShowed = Mathf.Lerp(currentMoneyShowed, targetMoney, lerpSpeed * Time.deltaTime);
+            fracComplete = (Time.time - startMoneyTime) / time;
 
-            moneyText.text = Mathf.RoundToInt(currentMoneyShowed).ToString();
+            float showingMoney = Mathf.Lerp(startingMoney, targetMoney, fracComplete);
+
+            moneyText.text = Mathf.RoundToInt(showingMoney).ToString();
 
             yield return null;
         }
@@ -46,10 +57,12 @@ public class PlayerDataUI : MonoBehaviour
         addMoneyText.gameObject.SetActive(false);
         addMoneyText.gameObject.SetActive(true);
 
-        currentMoneyShowed = oldMoney;
+        startingMoney = oldMoney;
         targetMoney = money;
 
-        StartCoroutine(nameof(CountMoneyToCurrentRealMoney));
+        timeForMoneyToCompleteMultiplier = (float)Mathf.Abs(diff) / baseMoneyValueTime;
+
+        StartCoroutine(CountMoneyToCurrentRealMoney());
     }
 
     public void UpdateProperties(PropertyCard propertyCard, bool add)

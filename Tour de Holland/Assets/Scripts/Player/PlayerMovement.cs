@@ -230,13 +230,13 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            PropertyCardSet propertyCardSet = tourRouteManager.CardSet;
+            PropertyCard propertyCard = currentBoardSpace.PropertyCardOnSpace;
 
-            foreach (int pos in propertyCardSet.ShopLocations)
+            foreach (int pos in propertyCard.ShopLocations)
             {
                 if (moveToSpaceIndex == pos)
                 {
-                    playerData.GiveMoneyToOtherPlayer(currentBoardSpace.PropertyCardOnSpace.TourFee[propertyCardSet.UpgradeLevel], currentBoardSpace.PropertyCardOnSpace.PlayerOwningThis);
+                    playerData.GiveMoneyToOtherPlayer(propertyCard.TourFee[propertyCard.UpgradeLevel], currentBoardSpace.PropertyCardOnSpace.PlayerOwningThis);
                 }                
             }
 

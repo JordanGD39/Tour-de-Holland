@@ -874,7 +874,10 @@ MonoBehaviour:
   - {fileID: 1522902413558010108}
   - {fileID: 5634904649099728901}
   - {fileID: 6800726519903563152}
-  lerpSpeed: 2
+  timeForMoneyToComplete: 0.5
+  minTimeToComplete: 0.25
+  maxTimeToComplete: 1
+  baseMoneyValueTime: 100
 --- !u!1001 &580334713722580044
 PrefabInstance:
   m_ObjectHideFlags: 0
