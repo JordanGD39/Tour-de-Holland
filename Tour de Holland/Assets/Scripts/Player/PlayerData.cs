@@ -47,10 +47,10 @@ public class PlayerData : MonoBehaviour
         switch (currentBoardSpace.BoardSpaceType)
         {
             case BoardSpace.BoardSpaceTypes.SAFE:
-                playerMovement.OnEndTurn();
+                playerMovement.OnDoneMoving();
                 break;
             case BoardSpace.BoardSpaceTypes.START:
-                playerMovement.OnEndTurn();
+                playerMovement.OnDoneMoving();
                 break;
             case BoardSpace.BoardSpaceTypes.PROPERTY:
                 if (boardSpace.PropertyCardOnSpace.PlayerOwningThis != null)
@@ -61,7 +61,7 @@ public class PlayerData : MonoBehaviour
                     }
                     else
                     {
-                        playerMovement.OnEndTurn();
+                        playerMovement.OnDoneMoving();
                     }                    
                 }
                 else
@@ -70,22 +70,36 @@ public class PlayerData : MonoBehaviour
                 }
                 break;
             case BoardSpace.BoardSpaceTypes.TRAIN:
-                playerMovement.OnEndTurn();
+                playerMovement.OnDoneMoving();
                 break;
             case BoardSpace.BoardSpaceTypes.JAILVISIT:
-                playerMovement.OnEndTurn();
+                playerMovement.OnDoneMoving();
                 break;
             case BoardSpace.BoardSpaceTypes.LUCKY:
-                playerMovement.OnEndTurn();
+                playerMovement.OnDoneMoving();
                 break;
             case BoardSpace.BoardSpaceTypes.GOTOJAIL:
-                playerMovement.OnEndTurn();
+                playerMovement.OnDoneMoving();
                 break;
         }
     }
 
+    public void GiveMoneyToOtherPlayer(int moneyLoss, PlayerData playerOwningProperty)
+    {
+        Money -= moneyLoss;
+
+        StartCoroutine(DelayGivingMoney(playerOwningProperty, moneyLoss));
+    }
+
+    private IEnumerator DelayGivingMoney(PlayerData playerOwningProperty, int moneyGain)
+    {
+        yield return new WaitForSeconds(1);
+
+        playerOwningProperty.Money += moneyGain;
+    }
+
     public void ResumeAfterBuying()
     {
-        playerMovement.OnEndTurn();
+        playerMovement.OnDoneMoving();
     }
 }

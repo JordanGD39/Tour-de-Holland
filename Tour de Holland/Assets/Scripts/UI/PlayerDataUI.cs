@@ -24,6 +24,8 @@ public class PlayerDataUI : MonoBehaviour
 
     private IEnumerator CountMoneyToCurrentRealMoney()
     {
+        yield return new WaitForSeconds(0.75f);
+
         while (currentMoneyShowed != targetMoney)
         {
             currentMoneyShowed = Mathf.Lerp(currentMoneyShowed, targetMoney, lerpSpeed * Time.deltaTime);

@@ -23,6 +23,9 @@ public class PlayerMovement : MonoBehaviour
     private bool goingToCutsceneSpace = false;
     private int previousSpace = 0;
 
+    public delegate void DoneMoving();
+    public DoneMoving OnDoneMoving;
+
     public delegate void EndTurn();
     public EndTurn OnEndTurn;
 
@@ -43,11 +46,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canSpin && Input.GetKeyDown(KeyCode.S))
-        {
-            SpinWheel();
-        }
-
         if (goTowardsSpace)
         {
             MoveTowardsBoardSpace();
@@ -71,8 +69,13 @@ public class PlayerMovement : MonoBehaviour
         canSpin = true;
     }
 
-    private void SpinWheel()
+    public void SpinWheel()
     {
+        if (!canSpin)
+        {
+            return;
+        }
+
         canSpin = false;
         CalculatePosition(Random.Range(1, 7));
         //CalculatePosition(40);
@@ -216,14 +219,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!rolledOnTour)
         {
-            OnEndTurn();
+            OnDoneMoving();
             return;
         }
 
         if (backOnNormalRoute)
         {
             onTour = false;
-            OnEndTurn();
+            OnDoneMoving();
         }
         else
         {
@@ -233,9 +236,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (moveToSpaceIndex == pos)
                 {
-                    int moneyLoss = currentBoardSpace.PropertyCardOnSpace.TourFee[propertyCardSet.UpgradeLevel];
-                    playerData.Money -= moneyLoss;
-                    currentBoardSpace.PropertyCardOnSpace.PlayerOwningThis.Money += moneyLoss;
+                    playerData.GiveMoneyToOtherPlayer(currentBoardSpace.PropertyCardOnSpace.TourFee[propertyCardSet.UpgradeLevel], currentBoardSpace.PropertyCardOnSpace.PlayerOwningThis);
                 }                
             }
 

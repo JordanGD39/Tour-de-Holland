@@ -12,4 +12,11 @@ public class ExtraSpace : MonoBehaviour
     public PlayCutscene OnPlayCutscene;
     public delegate void CutsceneDone();
     public CutsceneDone OnCutsceneDone;
+    private Vector3 extraSpacePos;
+    public Vector3 ExtraSpacePos { get { return extraSpacePos; } }
+
+    private void Start()
+    {
+        extraSpacePos = transform.position;
+    }
 }
