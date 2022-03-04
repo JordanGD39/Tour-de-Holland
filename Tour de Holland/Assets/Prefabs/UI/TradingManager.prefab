@@ -2390,8 +2390,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 700, y: 349.94617}
+  m_AnchoredPosition: {x: 0.00030517578, y: 0.00061416626}
+  m_SizeDelta: {x: 710.18, y: 360.13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7087783011556657289
 CanvasRenderer:
@@ -2414,7 +2414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.8627451}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3953,6 +3953,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tradingPanel: {fileID: 7087783011955905509}
   tradingSelectPlayerPanel: {fileID: 7087783011556657286}
+  managePanel: {fileID: 0}
   currentPlayerMoney: {fileID: 7087783011753390348}
   otherPlayerMoney: {fileID: 7087783012190771078}
   currentPlayerAddedMoney: {fileID: 7087783012048019928}
@@ -3996,6 +3997,7 @@ MonoBehaviour:
   placeOfferCardPrefab: {fileID: 7087783012514851676}
   placeWantedCardPrefab: {fileID: 7087783012735220117}
   centerCardImage: {fileID: 7087783012370047295}
+  cardOfferOffset: 7
 --- !u!1 &7087783011873766186
 GameObject:
   m_ObjectHideFlags: 0
@@ -4213,8 +4215,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 700, y: 349.94617}
+  m_AnchoredPosition: {x: -0.00009918213, y: 0}
+  m_SizeDelta: {x: 710.183, y: 360.1292}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7087783011955905512
 CanvasRenderer:
@@ -4237,7 +4239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.8862745}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

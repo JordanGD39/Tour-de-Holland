@@ -13,6 +13,7 @@ public class TradingManager : MonoBehaviour
 
     [SerializeField] private GameObject tradingPanel;
     [SerializeField] private GameObject tradingSelectPlayerPanel;
+    [SerializeField] private GameObject managePanel;
 
     [SerializeField] private Text currentPlayerMoney;
     [SerializeField] private Text otherPlayerMoney;
@@ -43,46 +44,40 @@ public class TradingManager : MonoBehaviour
     private List<Image> offeredPropertyCardsSpawned = new List<Image>();
     private List<Image> wantedPropertyCardsSpawned = new List<Image>();
 
+    [SerializeField] private float cardOfferOffset = 10;
+
     private void Start()
     {
         playerManager = FindObjectOfType<PlayerManager>();
         centerCardImage.gameObject.SetActive(false);
+        CloseTrading();
     }
 
-    private void Update()
+    private void CloseTrading()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        tradingPanel.SetActive(false);
+        managePanel.SetActive(true);
+        tradingSelectPlayerPanel.SetActive(false);
+
+        centerCardImage.gameObject.SetActive(false);
+
+        foreach (Image item in offeredPropertyCardsSpawned)
         {
-            if (!tradingPanel.activeSelf && !tradingSelectPlayerPanel.activeSelf)
-            {
-                ShowPlayerTradeSelect();
-            }
-            else
-            {
-                tradingPanel.SetActive(false);
-                tradingSelectPlayerPanel.SetActive(false);
-
-                centerCardImage.gameObject.SetActive(false);
-
-                foreach (Image item in offeredPropertyCardsSpawned)
-                {
-                    Destroy(item.gameObject);
-                }
-
-                foreach (Image item in wantedPropertyCardsSpawned)
-                {
-                    Destroy(item.gameObject);
-                }
-
-                offeredPropertyCards.Clear();
-                wantedPropertyCards.Clear();
-                offeredPropertyCardsSpawned.Clear();
-                wantedPropertyCardsSpawned.Clear();
-            }            
+            Destroy(item.gameObject);
         }
+
+        foreach (Image item in wantedPropertyCardsSpawned)
+        {
+            Destroy(item.gameObject);
+        }
+
+        offeredPropertyCards.Clear();
+        wantedPropertyCards.Clear();
+        offeredPropertyCardsSpawned.Clear();
+        wantedPropertyCardsSpawned.Clear();
     }
 
-    private void ShowPlayerTradeSelect()
+    public void ShowPlayerTradeSelect()
     {
         tradingSelectPlayerPanel.SetActive(true);
         players.Clear();
@@ -98,12 +93,12 @@ public class TradingManager : MonoBehaviour
         playerToTrade = players[index].playerData;
         tradingSelectPlayerPanel.SetActive(false);
         tradingPanel.SetActive(true);
-        currentPlayerMoney.text = "$" + tradingPlayer.Money.ToString();
-        otherPlayerMoney.text = "$" + playerToTrade.Money.ToString();
-        currentPlayerAddedMoney.text = "$0"; 
-        otherPlayerAddedMoney.text = "$0";
-        totalOfferedMoney.text = "$0";
-        totalWantedMoney.text = "$0";
+        currentPlayerMoney.text = "€ " + tradingPlayer.Money.ToString();
+        otherPlayerMoney.text = "€ " + playerToTrade.Money.ToString();
+        currentPlayerAddedMoney.text = "€ 0"; 
+        otherPlayerAddedMoney.text = "€ 0";
+        totalOfferedMoney.text = "€ 0";
+        totalWantedMoney.text = "€ 0";
         currentPlayerOfferedMoney = 0;
         otherPlayerWantedMoney = 0;
         totalOfferedValue = 0;
@@ -171,9 +166,9 @@ public class TradingManager : MonoBehaviour
             if (currentPlayerOfferedMoney < tradingPlayer.Money)
             {
                 currentPlayerOfferedMoney++;
-                currentPlayerAddedMoney.text = "$" + currentPlayerOfferedMoney.ToString();
+                currentPlayerAddedMoney.text = "€ " + currentPlayerOfferedMoney.ToString();
                 totalOfferedValue++;
-                totalOfferedMoney.text = totalOfferedValue.ToString();
+                totalOfferedMoney.text = "€ " + totalOfferedValue.ToString();
             }
         }
         else
@@ -181,9 +176,9 @@ public class TradingManager : MonoBehaviour
             if (otherPlayerWantedMoney < playerToTrade.Money)
             {
                 otherPlayerWantedMoney++;
-                otherPlayerAddedMoney.text = "$" + otherPlayerWantedMoney.ToString();
+                otherPlayerAddedMoney.text = "€ " + otherPlayerWantedMoney.ToString();
                 totalWantedValue++;
-                totalWantedMoney.text = totalWantedValue.ToString();
+                totalWantedMoney.text = "€ " + totalWantedValue.ToString();
             }
         }
     }
@@ -195,7 +190,7 @@ public class TradingManager : MonoBehaviour
             if (currentPlayerOfferedMoney > 0)
             {
                 currentPlayerOfferedMoney--;
-                currentPlayerAddedMoney.text = "$" + currentPlayerOfferedMoney.ToString();
+                currentPlayerAddedMoney.text = "€ " + currentPlayerOfferedMoney.ToString();
                 totalOfferedValue--;
                 totalOfferedMoney.text = totalOfferedValue.ToString();
             }
@@ -206,8 +201,8 @@ public class TradingManager : MonoBehaviour
             {
                 otherPlayerWantedMoney--;
                 totalWantedValue--;
-                otherPlayerAddedMoney.text = "$" + otherPlayerWantedMoney.ToString();
-                totalWantedMoney.text = totalWantedValue.ToString();
+                otherPlayerAddedMoney.text = "€ " + otherPlayerWantedMoney.ToString();
+                totalWantedMoney.text = "€ " + totalWantedValue.ToString();
             }
         }
     }
@@ -222,12 +217,15 @@ public class TradingManager : MonoBehaviour
             totalOfferedValue += card.BuyPrice;
 
             RectTransform rectTransform = myNewPropertyCard.GetComponent<RectTransform>();
-            rectTransform.localPosition = Vector3.zero;
+
+            Vector3 cardPos = Vector3.zero;
+            cardPos.x = cardOfferOffset * offeredPropertyCardsSpawned.Count;
+
+            rectTransform.localPosition = cardPos;
             Image image = myNewPropertyCard.GetComponent<Image>();
             image.sprite = card.MySprite;
 
             offeredPropertyCardsSpawned.Add(image);
-            totalOfferedMoney.text = totalOfferedValue.ToString();
         }
         else
         {
@@ -242,8 +240,10 @@ public class TradingManager : MonoBehaviour
             }
 
             totalOfferedValue -= card.BuyPrice;
+            UpdateAllPostionsOfShownCards(offeredPropertyCardsSpawned, false);
         }
-        totalOfferedMoney.text = totalOfferedValue.ToString();
+
+        totalOfferedMoney.text = "€ " + totalOfferedValue.ToString();
     }
 
 
@@ -257,7 +257,10 @@ public class TradingManager : MonoBehaviour
             totalWantedValue += card.BuyPrice;
 
             RectTransform rectTransform = myNewPropertyCard.GetComponent<RectTransform>();
-            rectTransform.localPosition = Vector3.zero;
+            Vector3 cardPos = Vector3.zero;
+            cardPos.x = -cardOfferOffset * wantedPropertyCardsSpawned.Count;
+
+            rectTransform.localPosition = cardPos;
             Image image = myNewPropertyCard.GetComponent<Image>();
             image.sprite = card.MySprite;        
             wantedPropertyCardsSpawned.Add(image);
@@ -274,10 +277,27 @@ public class TradingManager : MonoBehaviour
                 }
             }
 
+            UpdateAllPostionsOfShownCards(wantedPropertyCardsSpawned, true);
+
             totalWantedValue -= card.BuyPrice;
         }
 
-        totalWantedMoney.text = totalWantedValue.ToString();
+        totalWantedMoney.text = "€ " + totalWantedValue.ToString();
+    }
+
+    private void UpdateAllPostionsOfShownCards(List<Image> cards, bool inverted)
+    {
+        float offset = inverted ? -cardOfferOffset : cardOfferOffset;
+
+        for (int i = 0; i < cards.Count; i++)
+        {
+            Image card = cards[i];
+
+            Vector3 cardPos = Vector3.zero;
+            cardPos.x = offset * i;
+
+            card.rectTransform.localPosition = cardPos;
+        }
     }
 
     private PropertyCard AddOrRemovePropertyToAList(List<PropertyCard> propertyCards, PropertyCard card)
@@ -324,6 +344,33 @@ public class TradingManager : MonoBehaviour
         int.TryParse(s, out int i);
 
         return cardSet.PropertyCardsInSet[i];
+    }
+
+    public void ConfirmTrade()
+    {
+        foreach (PropertyCard card in offeredPropertyCards)
+        {
+            tradingPlayer.RemovePropertyCard(card);
+            playerToTrade.AddPropertyCard(card);
+        }
+
+        foreach (PropertyCard card in wantedPropertyCards)
+        {
+            playerToTrade.RemovePropertyCard(card);
+            tradingPlayer.AddPropertyCard(card);
+        }
+
+        if (currentPlayerOfferedMoney > 0)
+        {
+            tradingPlayer.GiveMoneyToOtherPlayer(currentPlayerOfferedMoney, playerToTrade);
+        }
+        
+        if(otherPlayerWantedMoney > 0)
+        {
+            playerToTrade.GiveMoneyToOtherPlayer(otherPlayerWantedMoney, tradingPlayer);
+        }
+
+        CloseTrading();
     }
 }
 

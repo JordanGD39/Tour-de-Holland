@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerButtonUI : MonoBehaviour
 {
     private PlayerManager playerManager;
+    private TradingManager tradingManager;
     [SerializeField] private Button spinButton;
     [SerializeField] private GameObject tradeButton;
     [SerializeField] private GameObject endTurnButton;
@@ -21,6 +22,7 @@ public class PlayerButtonUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        tradingManager = FindObjectOfType<TradingManager>();
         playerManager = FindObjectOfType<PlayerManager>();
         managePanel.SetActive(false);
         spinButton.gameObject.SetActive(false);
@@ -85,6 +87,12 @@ public class PlayerButtonUI : MonoBehaviour
         spinButton.interactable = true;
 
         playerManager.Players[playerManager.CurrentTurn].playerMovement.OnEndTurn();
+    }
+
+    public void OpenTradePanel()
+    {
+        managePanel.SetActive(false);
+        tradingManager.ShowPlayerTradeSelect();
     }
 
     public void DeactivateButton(GameObject button)
