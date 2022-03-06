@@ -29,7 +29,7 @@ public class WheelSpin : MonoBehaviour
         if (!isSpinning)
         {
             rigid.angularDrag = 0.05f;
-            spinVelocity = Random.Range(130, 200);
+            spinVelocity = Random.Range(230, 300);
             rigid.AddTorque(transform.up * spinVelocity);
             isSpinning = true;
         }
