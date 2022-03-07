@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerSelection : MonoBehaviour
 {
-    public enum CharacterSelection { Kaas, Klomp, Placeholder1, Placeholder2, Placeholder3, Placeholder4, Placeholder5, Placeholder6 };
-    [SerializeField] GameObject[] characterPrefabs;
+    public enum CharacterSelection { MOLEN, TULP, KAASBLOK, RONDEKAAS, KLOMP, PATAT, VIS, OLIEBOL };
+    public List<CharacterSelection> characterSelections = new List<CharacterSelection>();
     
 }
