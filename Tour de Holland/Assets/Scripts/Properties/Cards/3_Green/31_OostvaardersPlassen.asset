@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: 31_OostvaardersPlassen
   m_EditorClassIdentifier: 
   buyPrice: 310
+  upgradePrice: 200
   sellPrice: 155
+  rebuyPrice: 44
   tourFee: 1b0000008c0000009a010000b60300007e04000078050000
   sprite: {fileID: 21300000, guid: 129e0e9926879274bb380a92b0dfc528, type: 3}
+  upgradeLevel: 0
+  shopLocations: 

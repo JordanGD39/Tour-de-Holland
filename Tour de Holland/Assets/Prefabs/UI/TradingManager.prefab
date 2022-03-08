@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7087783010928732714}
   - component: {fileID: 7087783010928732713}
   - component: {fileID: 7087783010928732712}
+  - component: {fileID: 2755587203130506918}
   m_Layer: 5
   m_Name: PlusButton
   m_TagString: Untagged
@@ -119,19 +120,52 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7087783010928732713}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7087783011867173044}
-        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
-        m_MethodName: AddOfferMoney
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &2755587203130506918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7087783010928732710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7087783011867173044}
+          m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+          m_MethodName: StartAddingOfferMoney
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7087783011867173044}
+          m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+          m_MethodName: StopAddingOfferMoney
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!1 &7087783011021332128
 GameObject:
   m_ObjectHideFlags: 0
@@ -1864,6 +1898,7 @@ GameObject:
   - component: {fileID: 7087783011426444530}
   - component: {fileID: 7087783011426444529}
   - component: {fileID: 7087783011426444528}
+  - component: {fileID: 7764043431952544685}
   m_Layer: 5
   m_Name: PlusButton
   m_TagString: Untagged
@@ -1971,19 +2006,36 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7087783011426444529}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7087783011867173044}
-        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
-        m_MethodName: AddOfferMoney
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &7764043431952544685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7087783011426444494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7087783011867173044}
+          m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+          m_MethodName: AddOfferMoney
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7087783011441150429
 GameObject:
   m_ObjectHideFlags: 0
@@ -3573,6 +3625,7 @@ GameObject:
   - component: {fileID: 7087783011811465201}
   - component: {fileID: 7087783011811465200}
   - component: {fileID: 7087783011811465167}
+  - component: {fileID: 8103632747558663149}
   m_Layer: 5
   m_Name: MinusButton
   m_TagString: Untagged
@@ -3680,19 +3733,52 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7087783011811465200}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7087783011867173044}
-        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
-        m_MethodName: RemoveOfferMoney
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &8103632747558663149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7087783011811465165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7087783011867173044}
+          m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+          m_MethodName: StartRemovingOfferMoney
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7087783011867173044}
+          m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+          m_MethodName: StopRemovingOfferMoney
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!1 &7087783011816881155
 GameObject:
   m_ObjectHideFlags: 0
@@ -3997,6 +4083,8 @@ MonoBehaviour:
   placeOfferCardPrefab: {fileID: 7087783012514851676}
   placeWantedCardPrefab: {fileID: 7087783012735220117}
   centerCardImage: {fileID: 7087783012370047295}
+  cooldownTime: 0.1
+  speedUpCooldownTime: 1
   cardOfferOffset: 7
 --- !u!1 &7087783011873766186
 GameObject:
@@ -5819,6 +5907,7 @@ GameObject:
   - component: {fileID: 7087783012586948956}
   - component: {fileID: 7087783012586948955}
   - component: {fileID: 7087783012586948954}
+  - component: {fileID: 1068323211821724070}
   m_Layer: 5
   m_Name: MinusButton
   m_TagString: Untagged
@@ -5926,19 +6015,36 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7087783012586948955}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7087783011867173044}
-        m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
-        m_MethodName: RemoveOfferMoney
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &1068323211821724070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7087783012586948952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7087783011867173044}
+          m_TargetAssemblyTypeName: TradingManager, Assembly-CSharp
+          m_MethodName: RemoveOfferMoney
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7087783012616624864
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: 21_Hunnebedden
   m_EditorClassIdentifier: 
   buyPrice: 230
+  upgradePrice: 150
   sellPrice: 115
+  rebuyPrice: 44
   tourFee: 130000005f00000013010000d50200008403000033040000
   sprite: {fileID: 21300000, guid: 106ce1e67d9808540a2477ab04648969, type: 3}
+  upgradeLevel: 0
+  shopLocations: 

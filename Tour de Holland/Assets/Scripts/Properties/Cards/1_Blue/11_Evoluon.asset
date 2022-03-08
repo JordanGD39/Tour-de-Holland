@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: 11_Evoluon
   m_EditorClassIdentifier: 
   buyPrice: 150
+  upgradePrice: 100
   sellPrice: 75
+  rebuyPrice: 44
   tourFee: 0b00000037000000a5000000db0100008a02000020030000
   sprite: {fileID: 21300000, guid: 610abb0a5aa4ab746855adae1b6dba52, type: 3}
+  upgradeLevel: 0
+  shopLocations: 

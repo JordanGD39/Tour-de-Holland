@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2032780525393870516}
   - component: {fileID: 5195215431397749478}
   - component: {fileID: 2935385527601445214}
+  - component: {fileID: 4881387120162779144}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -45,7 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785cf3af5a8e6654e8c04db522bbc5f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 0
   spacesManager: {fileID: 0}
   currentBoardPosition: 0
   canSpin: 0
@@ -53,6 +53,11 @@ MonoBehaviour:
   journeyTime: 1
   arcHeight: 1
   extraY: 1
+  rotateSpeed: 1
+  extraTrainSpaceYToStartFalling: 5
+  fallTime: 0.6
+  debugMove: 1
+  boardDirection: 0
 --- !u!114 &2935385527601445214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,6 +70,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8756cc3fce0bf4c97cf88c0b9a1aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNumber: 0
+  money: 1500
+  propertyCards: []
+  propertyCardSets: []
+--- !u!65 &4881387120162779144
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032780525393870507}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2032780525957955072
 GameObject:
   m_ObjectHideFlags: 0

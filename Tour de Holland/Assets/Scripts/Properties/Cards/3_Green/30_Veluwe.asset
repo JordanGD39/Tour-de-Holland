@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: 30_Veluwe
   m_EditorClassIdentifier: 
   buyPrice: 300
+  upgradePrice: 200
   sellPrice: 150
+  rebuyPrice: 44
   tourFee: 1a0000008200000086010000840300004c040000fb040000
   sprite: {fileID: 21300000, guid: b6532d39c75e48a4194c548bb2f4c31e, type: 3}
+  upgradeLevel: 0
+  shopLocations: 

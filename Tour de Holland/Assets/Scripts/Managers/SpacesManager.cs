@@ -46,13 +46,15 @@ public class SpacesManager : MonoBehaviour
         return boardSpaces[spaceIndex];
     }
 
-    public MoveToSpaceData GetMoveToSpaces(int numberOfSpaces, int currentPos)
+    public MoveToSpaceData GetMoveToSpaces(int numberOfSpaces, int currentPos, bool jail)
     {
         extraCutsceneIndex = 1;
         List<Vector3> spacePositions = new List<Vector3>();
         MoveToSpaceData moveToSpaceData = new MoveToSpaceData();
+        int startIndex = -1;
         Debug.Log(currentPos);
-        CheckExtraSpaces(currentPos, -1, spacePositions, moveToSpaceData);
+
+        CheckExtraSpaces(!jail ? currentPos : -1, -1, spacePositions, moveToSpaceData);
 
         for (int i = 0; i < numberOfSpaces; i++)
         {
@@ -67,13 +69,27 @@ public class SpacesManager : MonoBehaviour
             BoardSpace space = GetBoardSpace(calcPos);
             spacePositions.Add(space.transform.position);
 
+            int extraI = 0;
+
+            if (jail)
+            {
+                extraI = 1;
+                jail = false;
+            }
+
             if (i < numberOfSpaces - 1)
             {
-                CheckExtraSpaces(calcPos, i, spacePositions, moveToSpaceData);
+                CheckExtraSpaces(calcPos + extraI, i, spacePositions, moveToSpaceData);
+            }
+
+            if (calcPos == 0)
+            {
+                startIndex = spacePositions.Count;
             }
         }
         
         moveToSpaceData.spacePositions = spacePositions;
+        moveToSpaceData.startIndex = startIndex;
 
         return moveToSpaceData;
     }
@@ -119,4 +135,5 @@ public class MoveToSpaceData
 {
     public List<Vector3> spacePositions = new List<Vector3>();
     public List<int> cutsceneSpaceIndexs = new List<int>();
+    public int startIndex = -1;
 }

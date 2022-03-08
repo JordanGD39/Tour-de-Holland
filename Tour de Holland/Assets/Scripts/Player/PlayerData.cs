@@ -21,6 +21,13 @@ public class PlayerData : MonoBehaviour
 
     private BoardSpace currentBoardSpace;
 
+    public delegate void Lost();
+    public Lost OnLost;
+
+    public bool DidLose { get; set; } = false;
+    private bool inJail = false;
+    public bool InJail { get { return inJail; } }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,7 +77,32 @@ public class PlayerData : MonoBehaviour
         if (propertyCardSets.Contains(propertyCard.MyCardSet))
         {
             propertyCardSets.Remove(propertyCard.MyCardSet);
+            ResetCardPropertiesUpgrade(propertyCard.MyCardSet);
         }
+    }
+
+    public void ResetCardPropertiesUpgrade(PropertyCardSet propertyCardSet)
+    {
+        int allMoneyGot = 0;
+        int removedUpgrades = 0;
+
+        foreach (PropertyCard card in propertyCardSet.PropertyCardsInSet)
+        {
+            while (card.UpgradeLevel > 0)
+            {
+                allMoneyGot += Mathf.RoundToInt((float)card.UpgradePrice / 2);
+
+                card.UpgradeLevel--;
+                removedUpgrades++;
+            }
+        }
+
+        if (allMoneyGot > 0)
+        {
+            Money += allMoneyGot;
+        }
+
+        Debug.Log("Removed upgrades: " + removedUpgrades);
     }
 
     public void CheckCurrentSpace(BoardSpace boardSpace)
@@ -88,7 +120,7 @@ public class PlayerData : MonoBehaviour
             case BoardSpace.BoardSpaceTypes.PROPERTY:
                 if (boardSpace.PropertyCardOnSpace.PlayerOwningThis != null)
                 {
-                    if (boardSpace.PropertyCardOnSpace.PlayerOwningThis != this)
+                    if (!boardSpace.PropertyCardOnSpace.Sold && boardSpace.PropertyCardOnSpace.PlayerOwningThis != this)
                     {
                         playerMovement.PlaceOnTourRoute(boardSpace.PropertyCardOnSpace.MyCardSet.TourRoute);
                     }
@@ -103,16 +135,18 @@ public class PlayerData : MonoBehaviour
                 }
                 break;
             case BoardSpace.BoardSpaceTypes.TRAIN:
-                playerMovement.OnDoneMoving();
+                playerMovement.TeleportToGivenSpace();
                 break;
             case BoardSpace.BoardSpaceTypes.JAILVISIT:
-                playerMovement.OnDoneMoving();
+                playerMovement.TeleportToGivenSpace();
                 break;
             case BoardSpace.BoardSpaceTypes.LUCKY:
                 playerMovement.OnDoneMoving();
                 break;
             case BoardSpace.BoardSpaceTypes.GOTOJAIL:
-                playerMovement.OnDoneMoving();
+                playerMovement.TeleportToGivenSpace();
+
+                inJail = true;
                 break;
         }
     }
@@ -134,5 +168,21 @@ public class PlayerData : MonoBehaviour
     public void ResumeAfterBuying()
     {
         playerMovement.OnDoneMoving();
+    }
+
+    public void CheckLost()
+    {
+        if (money < 0)
+        {
+            DidLose = true;
+            OnLost();
+        }
+    }
+
+    public void GetOutOfJail()
+    {
+        inJail = false;
+
+        Money -= 50;
     }
 }
