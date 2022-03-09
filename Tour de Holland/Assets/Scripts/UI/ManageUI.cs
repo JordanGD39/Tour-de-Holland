@@ -16,6 +16,7 @@ public class ManageUI : MonoBehaviour
     //[SerializeField] private GameObject editShopsButton;
     [SerializeField] private RectTransform rebuyButton;
     [SerializeField] private Text rebuyPriceText;
+    [SerializeField] private Text propertyCardText;
     [SerializeField] private Vector3 startingSellTourPos;
 
     private List<PropertyCard> allPropertyCards = new List<PropertyCard>();
@@ -66,6 +67,7 @@ public class ManageUI : MonoBehaviour
 
         showedPropertyCard.gameObject.SetActive(true);
         showedPropertyCard.sprite = card.MySprite;
+        propertyCardText.text = card.GetCardDataText();
 
         CheckButtons();
     }
