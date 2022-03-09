@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c874c01a6f6149449b8f00be7b77bba6, type: 3}
   m_Name: 2_ScheepVaartMuseumCard
   m_EditorClassIdentifier: 
-  buyPrice: 70
-  sellPrice: 40
-  tourFee: 04000000140000003c000000b400000040010000c2010000
-  sprite: {fileID: 21300000, guid: 033a85966a8beaf4692057ac2ec39be3, type: 3}
+  buyPrice: 120
+  upgradePrice: 50
+  sellPrice: 60
+  rebuyPrice: 66
+  tourFee: 0800000028000000640000002c010000c201000058020000
+  sprite: {fileID: 21300000, guid: 0144d1ae335bf2f4a9f275bf69fd44e4, type: 3}
   upgradeLevel: 0
-  shopLocations: 010000000200000005000000
+  shopLocations: 010000000300000005000000

@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: 10_BasiliekVanHHAgahthaCard
   m_EditorClassIdentifier: 
   buyPrice: 140
+  upgradePrice: 100
   sellPrice: 70
+  rebuyPrice: 44
   tourFee: 0a0000003200000096000000c201000071020000ee020000
-  sprite: {fileID: 21300000, guid: c301690f4f5e70a4fb124141f3a60bfb, type: 3}
+  sprite: {fileID: 21300000, guid: b66198873d158a04cbbf9019682f0133, type: 3}
   upgradeLevel: 0
-  shopLocations: 010000000200000005000000
+  shopLocations: 

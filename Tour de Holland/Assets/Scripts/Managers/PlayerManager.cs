@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -13,8 +14,17 @@ public class PlayerManager : MonoBehaviour
     public delegate void PlayerNextTurn();
     public PlayerNextTurn OnPlayerNextTurn;
 
+    [SerializeField] private Text playerWinText;
+
+    private void Start()
+    {
+        //PlayerSelection.instance.OnPlayersSetupFinish += CreatePlayerList;
+        playerWinText.gameObject.SetActive(false);
+        CreatePlayerList();
+    }
+
     // Start is called before the first frame update
-    void Start()
+    private void CreatePlayerList()
     {
         List<PlayerData> playerDatas = new List<PlayerData>();
         playerDatas.AddRange(FindObjectsOfType<PlayerData>());
@@ -31,6 +41,7 @@ public class PlayerManager : MonoBehaviour
         foreach (PlayerClassHolder player in players)
         {
             player.playerMovement.OnEndTurn += NextTurn;
+            player.playerData.OnLost += RemovePlayerFromTurnList;
         }
 
         OnPlayersInitialized();
@@ -53,6 +64,36 @@ public class PlayerManager : MonoBehaviour
 
         OnPlayerNextTurn();
         GiveTurnToCurrentPlayer();
+    }
+
+    private void RemovePlayerFromTurnList()
+    {
+        int index = players.IndexOf(players[currentTurn]);
+
+        players[currentTurn].playerMovement.gameObject.SetActive(false);
+
+        players.RemoveAt(currentTurn);
+
+        if (currentTurn >= index && currentTurn > 0)
+        {
+            currentTurn--;
+        }
+
+        if (players.Count > 1)
+        {
+            NextTurn();
+        }
+        else
+        {
+            GameEnd();
+        }        
+    }
+
+    private void GameEnd()
+    {
+        playerWinText.text = "Player " + (players[currentTurn].playerData.PlayerNumber + 1) + " wins!";
+
+        playerWinText.gameObject.SetActive(true);
     }
 }
 
