@@ -238,3 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8fbfcf603107c48b2f064a3a9dfab0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boardSpaceType: 2
+  boardIndex: 0
+  propertyCardOnSpace: {fileID: 0}
+  spaceToTransportTo: {fileID: 699182497557813420}
