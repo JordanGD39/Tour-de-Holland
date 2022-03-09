@@ -6,28 +6,21 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private SpacesManager spacesManager;
     [SerializeField] private int currentBoardPosition = 0;
-    public int CurrentBoardPosition { get { return currentBoardPosition; } }
     [SerializeField] private bool canSpin = false;
     [SerializeField] private bool goTowardsSpace = false;
     [SerializeField] private float journeyTime = 1;
     [SerializeField] private float arcHeight = 1;
     [SerializeField] private float extraY = 1;
     [SerializeField] private float rotateSpeed = 1;
-    [SerializeField] private float extraTrainSpaceYToStartFalling = 5;
-    [SerializeField] private float fallTime = 1;
-    [SerializeField] private int debugMove = 1;
-    [SerializeField] private bool moveDebugSpaces = false;
 
     private BoardSpace currentBoardSpace;
     private Vector3 startingPosition;
     private Vector3 spacePos;
     private List<Vector3> spacePosistions = new List<Vector3>();
     private List<int> cutsceneSpaceIndexs = new List<int>();
-    private int startMoveIndex = -1;
     private float startTime;
     private int moveToSpaceIndex = 0;
     private bool goingToCutsceneSpace = false;
-    private bool onAJailSpace = false;
     private int previousSpace = 0;
 
     public delegate void DoneMoving();
@@ -36,30 +29,18 @@ public class PlayerMovement : MonoBehaviour
     public delegate void EndTurn();
     public EndTurn OnEndTurn;
 
-    public delegate void UpdateBoardDirection();
-    public UpdateBoardDirection OnUpdateBoardDirection;
-    public enum BoardDirections { DOWN, RIGHT, UP, LEFT }
-    [SerializeField] private BoardDirections boardDirection = BoardDirections.DOWN;
-    public BoardDirections BoardDirection { get { return boardDirection; } }
-
     private PlayerData playerData;
 
     private bool onTour = false;
-    public bool OnTour { get { return onTour; } }
     private bool rolledOnTour = false;
     private bool backOnNormalRoute = true;
     private TourRouteManager tourRouteManager;
-
-    private int jailTurns = 0;
-    public int JailTurns { get { return jailTurns; } }
-    private PlayerButtonUI buttonUI;
 
     // Start is called before the first frame update
     void Start()
     {
         spacesManager = FindObjectOfType<SpacesManager>();
         playerData = GetComponent<PlayerData>();
-        buttonUI = FindObjectOfType<PlayerButtonUI>();
     }
 
     // Update is called once per frame
@@ -79,49 +60,25 @@ public class PlayerMovement : MonoBehaviour
         backOnNormalRoute = false;
         SetStartingVariablesForStartMoving();
 
-        Vector3 pos = tourRouteManager.GiveFirstBoardSpaceLocation(currentBoardSpace.PropertyCardOnSpace.PropertySetIndex);
-
-        spacePos = spacesManager.CheckOtherPlayersOnSpace(currentBoardPosition, pos, true, playerData.PlayerNumber) + Vector3.up * extraY;
+        spacePos = tourRouteManager.GiveFirstBoardSpaceLocation(currentBoardSpace.PropertyCardOnSpace.PropertySetIndex) + Vector3.up * extraY;
         goTowardsSpace = true;
     }
 
     public void ReceiveTurn()
     {
         canSpin = true;
-
-        if (onTour)
-        {
-            tourRouteManager.UpdateShops(currentBoardSpace.PropertyCardOnSpace);
-        }
-
-        if (playerData.InJail && jailTurns >= 3)
-        {
-            buttonUI.ShowPayJailButton(true);
-        }
     }
 
-    public void SpinWheel(bool lucky)
+    public void SpinWheel()
     {
-        if (lucky)
-        {
-            playerData.CheckLuckyNumber(Random.Range(1, 7));
-        }
-
         if (!canSpin)
         {
             return;
         }
 
         canSpin = false;
-
-        if (!moveDebugSpaces)
-        {
-            CalculatePosition(Random.Range(1, 7));
-        }
-        else
-        {
-            CalculatePosition(debugMove);
-        }       
+        CalculatePosition(Random.Range(1, 7));
+        //CalculatePosition(40);
     }
 
     private void CalculatePosition(int spinnedNumber)
@@ -134,36 +91,6 @@ public class PlayerMovement : MonoBehaviour
             StartMoving();
 
             return;
-        }
-
-        if (playerData.InJail)
-        {
-            if (spinnedNumber != 6)
-            {
-                if (jailTurns < 3)
-                {
-                    jailTurns++;
-                    OnDoneMoving();
-                    return;
-                }
-                else
-                {
-                    jailTurns = 0;
-                    playerData.GetOutOfJail(true);
-                }
-            }
-            else
-            {
-                playerData.GetOutOfJail(false);
-            }
-        }
-
-        onAJailSpace = currentBoardPosition < 0;
-
-        if (onAJailSpace)
-        {
-            currentBoardPosition = 6;
-            onAJailSpace = true;
         }
 
         int calcBoardPos = currentBoardPosition + spinnedNumber;
@@ -206,13 +133,12 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void GetInBetweenBoardSpaces(int calcBoardPos)
-    {
+    {        
         int numberOfSpacesBetween = calcBoardPos - currentBoardPosition;
 
-        MoveToSpaceData moveToSpaceData = spacesManager.GetMoveToSpaces(numberOfSpacesBetween, currentBoardPosition, onAJailSpace);
+        MoveToSpaceData moveToSpaceData = spacesManager.GetMoveToSpaces(numberOfSpacesBetween, currentBoardPosition);
         spacePosistions = moveToSpaceData.spacePositions;
         cutsceneSpaceIndexs = moveToSpaceData.cutsceneSpaceIndexs;
-        startMoveIndex = moveToSpaceData.startIndex;
     }
 
     private void MoveTowardsBoardSpace()
@@ -262,32 +188,19 @@ public class PlayerMovement : MonoBehaviour
 
             if (!goingToCutsceneSpace)
             {
-                bool startPassed = moveToSpaceIndex == startMoveIndex;
-
                 if (moveToSpaceIndex > spacePosistions.Count - 1)
                 {
                     previousSpace = currentBoardPosition;
                     playerData.CheckCurrentSpace(currentBoardSpace);
-
-                    if (startPassed)
-                    {
-                        playerData.Money += 400;
-                    }
                 }
                 else
                 {
                     StartMoving();
-
-                    if (startPassed)
-                    {
-                        playerData.Money += 200;
-                    }
                 }
             }   
             else
             {
                 ExtraSpace extraSpace = spacesManager.GetCutsceneSpaceFromStartingBoardPos(previousSpace);
-
                 previousSpace = extraSpace.SpaceBeforeThisIndex + 1;
 
                 if (previousSpace > spacesManager.GetSpacesCount() - 1)
@@ -297,7 +210,6 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 extraSpace.OnCutsceneDone = StartMoving;
-                ChangeBoardDirection(1);
                 extraSpace.OnPlayCutscene(transform);
             }
         }
@@ -336,96 +248,8 @@ public class PlayerMovement : MonoBehaviour
     {
         SetStartingVariablesForStartMoving();
 
-        spacePos = spacesManager.CheckOtherPlayersOnSpace(currentBoardPosition, currentBoardSpace.transform.position, false, playerData.PlayerNumber) + Vector3.up * extraY;
+        spacePos = currentBoardSpace.transform.position + Vector3.up * extraY;
         backOnNormalRoute = true;
         goTowardsSpace = true;
-    }
-    
-    public void TeleportToCurrentGivenSpace()
-    {
-        BoardSpace spaceToGoTo = currentBoardSpace.SpaceToTransportTo;
-
-        TeleportToGivenSpace(spaceToGoTo);
-    }
-
-    private void TeleportToGivenSpace(BoardSpace spaceToGoTo)
-    {
-        currentBoardPosition = spaceToGoTo.BoardIndex;
-
-        StartCoroutine(FallToGivenSpacePos(spaceToGoTo));
-    }
-
-    public void ChangeBoardDirection(int changeNum)
-    {
-        int i = (int)boardDirection + changeNum;
-
-        int enumLength = System.Enum.GetNames(typeof(BoardDirections)).Length;
-
-        if (i > enumLength - 1)
-        {
-            i -= enumLength;
-        }
-
-        boardDirection = (BoardDirections)i;
-
-        OnUpdateBoardDirection();
-    }
-
-    private IEnumerator FallToGivenSpacePos(BoardSpace space)
-    {
-        Vector3 startPos = transform.position;
-        Vector3 flyPos = transform.position + Vector3.up * extraTrainSpaceYToStartFalling;
-
-        float fracComplete = 0;
-        float startTime = Time.time;
-
-        while (fracComplete < 1)
-        {
-            fracComplete = (Time.time - startTime) / fallTime;
-
-            transform.position = Vector3.Lerp(startPos, flyPos, fracComplete);
-
-            yield return null;
-        }
-
-        BoardSpace spaceToGoTo = space;
-
-        Vector3 modifiedPos = spacesManager.CheckOtherPlayersOnSpace(spaceToGoTo.BoardIndex, spaceToGoTo.transform.position, false, playerData.PlayerNumber);
-
-        transform.position = modifiedPos + Vector3.up * extraTrainSpaceYToStartFalling;
-        startPos = transform.position;
-        Vector3 trainSpacePos = modifiedPos + Vector3.up * extraY;
-        fracComplete = 0;
-        startTime = Time.time;
-
-        while (fracComplete < 1)
-        {
-            fracComplete = (Time.time - startTime) / fallTime;
-
-            transform.position = Vector3.Lerp(startPos, trainSpacePos, fracComplete);
-
-            yield return null;
-        }
-
-        currentBoardSpace = spaceToGoTo;
-
-        if (previousSpace > 20 && currentBoardPosition < 10 && currentBoardPosition > 0)
-        {
-            playerData.Money += 200;
-        }
-
-        previousSpace = currentBoardSpace.BoardIndex;
-
-        if (currentBoardPosition < 0)
-        {
-            boardDirection = BoardDirections.DOWN;
-            OnUpdateBoardDirection();
-        }
-        else
-        {
-            ChangeBoardDirection(1);
-        }
-
-        OnDoneMoving();
     }
 }

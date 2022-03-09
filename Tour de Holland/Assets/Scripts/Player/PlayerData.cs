@@ -11,68 +11,8 @@ public class PlayerData : MonoBehaviour
 
     [SerializeField] private int playerNumber = 0;
     public int PlayerNumber { get { return playerNumber; } }
-
     [SerializeField] private int money = 1500;
-    public int Money
-    {
-        get
-        {
-            return money;
-        }
-        set
-        {
-            if (debt < 0 && money <= 0)
-            {
-                Debt += value;
-                return;
-            }
-
-            playerDataUI.UpdateMoneyText(value, money, false);
-
-            if (value < 0)
-            {
-                money = 0;
-                Debt = value;
-            }
-            else
-            {
-                money = value;
-            }
-        }
-    }
-
-    [SerializeField] private int debt = 0;
-
-    public int Debt
-    {
-        get
-        {
-            return debt;
-        }
-        set
-        {
-            if (inDebtedTo != null && debt < 0)
-            {
-                int debtMoneyToGive = value < 0 ? debt - value : debt;
-
-                inDebtedTo.Money += Mathf.Abs(debtMoneyToGive);
-            }
-
-            if (value >= 0)
-            {
-                debt = 0;
-                inDebtedTo = null;
-                Money = value;
-            }
-
-            playerDataUI.UpdateMoneyText(value, debt, true);
-            debt = value;
-        }
-    }
-
-    [SerializeField] private PlayerData inDebtedTo;
-    public PlayerData InDebtedTo { get { return inDebtedTo; } }
-
+    public int Money { get { return money; } set { playerDataUI.UpdateMoneyText(value, money); money = value; } }
     [SerializeField] private List<PropertyCard> propertyCards;
     public List<PropertyCard> PropertyCards { get { return propertyCards; } }
 
@@ -81,22 +21,12 @@ public class PlayerData : MonoBehaviour
 
     private BoardSpace currentBoardSpace;
 
-    public delegate void Lost();
-    public Lost OnLost;
-
-    public bool DidLose { get; set; } = false;
-    private bool inJail = false;
-    public bool InJail { get { return inJail; } }
-
-    private PlayerButtonUI buttonUI;
-
     // Start is called before the first frame update
     void Start()
     {
         playerDataUI = GameObject.FindGameObjectWithTag("PlayerPanels").transform.GetChild(playerNumber).GetComponent<PlayerDataUI>();
         playerMovement = GetComponent<PlayerMovement>();
         uiScriptsManager = FindObjectOfType<UIScriptsManager>();
-        buttonUI = FindObjectOfType<PlayerButtonUI>();
     }
 
     public void AddPropertyCard(PropertyCard propertyCard)
@@ -140,29 +70,6 @@ public class PlayerData : MonoBehaviour
         if (propertyCardSets.Contains(propertyCard.MyCardSet))
         {
             propertyCardSets.Remove(propertyCard.MyCardSet);
-            ResetCardPropertiesUpgrade(propertyCard.MyCardSet);
-        }
-    }
-
-    public void ResetCardPropertiesUpgrade(PropertyCardSet propertyCardSet)
-    {
-        int allMoneyGot = 0;
-        int removedUpgrades = 0;
-
-        foreach (PropertyCard card in propertyCardSet.PropertyCardsInSet)
-        {
-            while (card.UpgradeLevel > 0)
-            {
-                allMoneyGot += Mathf.RoundToInt((float)card.UpgradePrice / 2);
-
-                card.UpgradeLevel--;
-                removedUpgrades++;
-            }
-        }
-
-        if (allMoneyGot > 0)
-        {
-            Money += allMoneyGot;
         }
     }
 
@@ -181,7 +88,7 @@ public class PlayerData : MonoBehaviour
             case BoardSpace.BoardSpaceTypes.PROPERTY:
                 if (boardSpace.PropertyCardOnSpace.PlayerOwningThis != null)
                 {
-                    if (!boardSpace.PropertyCardOnSpace.Sold && boardSpace.PropertyCardOnSpace.PlayerOwningThis != this)
+                    if (boardSpace.PropertyCardOnSpace.PlayerOwningThis != this)
                     {
                         playerMovement.PlaceOnTourRoute(boardSpace.PropertyCardOnSpace.MyCardSet.TourRoute);
                     }
@@ -196,48 +103,25 @@ public class PlayerData : MonoBehaviour
                 }
                 break;
             case BoardSpace.BoardSpaceTypes.TRAIN:
-                playerMovement.TeleportToCurrentGivenSpace();
+                playerMovement.OnDoneMoving();
                 break;
             case BoardSpace.BoardSpaceTypes.JAILVISIT:
-                playerMovement.TeleportToCurrentGivenSpace();
+                playerMovement.OnDoneMoving();
                 break;
             case BoardSpace.BoardSpaceTypes.LUCKY:
-                //playerMovement.SpinWheel(true);
                 playerMovement.OnDoneMoving();
                 break;
             case BoardSpace.BoardSpaceTypes.GOTOJAIL:
-                playerMovement.TeleportToCurrentGivenSpace();
-
-                inJail = true;
+                playerMovement.OnDoneMoving();
                 break;
         }
     }
 
     public void GiveMoneyToOtherPlayer(int moneyLoss, PlayerData playerOwningProperty)
     {
-        if (playerOwningProperty == this)
-        {
-            return;
-        }
-
-        bool inDebted = money - moneyLoss < 0;
-
-        if (inDebted)
-        {
-            inDebtedTo = playerOwningProperty;
-        }
-
         Money -= moneyLoss;
 
-        if (inDebted)
-        {
-            moneyLoss -= Mathf.Abs(debt);
-        }
-
-        if (moneyLoss > 0)
-        {
-            StartCoroutine(DelayGivingMoney(playerOwningProperty, moneyLoss));
-        }        
+        StartCoroutine(DelayGivingMoney(playerOwningProperty, moneyLoss));
     }
 
     private IEnumerator DelayGivingMoney(PlayerData playerOwningProperty, int moneyGain)
@@ -250,70 +134,5 @@ public class PlayerData : MonoBehaviour
     public void ResumeAfterBuying()
     {
         playerMovement.OnDoneMoving();
-    }
-
-    public void CheckLost()
-    {
-        if (debt < 0)
-        {
-            DidLose = true;
-
-            List<PropertyCard> cardsToRemove = new List<PropertyCard>();
-
-            foreach (PropertyCard card in propertyCards)
-            {
-                cardsToRemove.Add(card);
-
-                if (inDebtedTo)
-                {
-                    inDebtedTo.AddPropertyCard(card);
-                }
-                else
-                {
-                    card.PlayerOwningThis = null;
-                    card.Sold = false;
-                }
-            }
-
-            foreach (PropertyCard card in cardsToRemove)
-            {
-                RemovePropertyCard(card);
-            }
-
-            OnLost();
-        }
-    }
-
-    public void GetOutOfJail(bool pay)
-    {
-        inJail = false;
-
-        if (pay)
-        {
-            Money -= 50;
-        }        
-    }
-
-    public void CheckLuckyNumber(int num)
-    {
-        switch (num)
-        {
-            case 1:
-                //Jail
-                //playerMovement.TeleportToGivenSpace();
-                break;
-            case 2:
-                buttonUI.ShowSpin();
-                break;
-            case 3:
-
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-            case 6:
-                break;
-        }
     }
 }

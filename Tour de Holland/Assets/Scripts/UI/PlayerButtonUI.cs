@@ -12,19 +12,12 @@ public class PlayerButtonUI : MonoBehaviour
     [SerializeField] private GameObject endTurnButton;
     [SerializeField] private Button manageButton;
     [SerializeField] private GameObject managePanel;
-    [SerializeField] private ManageUI manageUI;
 
     [SerializeField] private Animator spinButtonAnim;
     [SerializeField] private Animator tradeButtonAnim;
     [SerializeField] private Animator endTurnButtonAnim;
-    [SerializeField] private Animator payJailAnim;
 
     private bool spinned = false;
-    private bool canEndTurn = true;
-    private RectTransform payJailRect;
-    private Button payJailButton;
-    private RectTransform spinRect;
-    private Vector3 startPosPay;
 
     // Start is called before the first frame update
     void Start()
@@ -39,13 +32,7 @@ public class PlayerButtonUI : MonoBehaviour
         endTurnButton.gameObject.SetActive(false);
         manageButton.interactable = true;
         manageButton.gameObject.SetActive(false);
-        payJailAnim.gameObject.SetActive(false);
         manageButton.gameObject.SetActive(true);
-
-        payJailRect = payJailAnim.GetComponent<RectTransform>();
-        spinRect = spinButtonAnim.GetComponent<RectTransform>();
-        payJailButton = payJailAnim.GetComponent<Button>();
-        startPosPay = payJailRect.localPosition;
     }
 
     public void Spin()
@@ -54,24 +41,8 @@ public class PlayerButtonUI : MonoBehaviour
         manageButton.interactable = false;
         PlayerMovement player = playerManager.Players[playerManager.CurrentTurn].playerMovement;
         spinButton.interactable = false;
-        player.OnDoneMoving = AfterSpin;
-        player.SpinWheel(false);
-    }
-
-    private void AfterSpin()
-    {
-        manageButton.interactable = true;
-        spinButtonAnim.SetTrigger("FadeOut");
-
-        PlayerClassHolder player = playerManager.Players[playerManager.CurrentTurn];
-
-        if (player.playerData.InJail && player.playerMovement.JailTurns <= 3)
-        {
-            ShowPayJailButton(false);
-        }
-
-        endTurnButton.SetActive(false);
-        endTurnButton.SetActive(true);
+        player.OnDoneMoving = () => { manageButton.interactable = true; spinButtonAnim.SetTrigger("FadeOut"); endTurnButton.SetActive(false); endTurnButton.SetActive(true); };
+        player.SpinWheel();
     }
 
     public void ToggleManage()
@@ -102,79 +73,26 @@ public class PlayerButtonUI : MonoBehaviour
         }
         else
         {
-            manageUI.HideOpenProperty();
             tradeButton.SetActive(false);
             tradeButton.SetActive(true);
         }        
     }
 
-    public void ShowSpin()
+    public void EndTurn()
     {
+        spinned = false;
         endTurnButtonAnim.SetTrigger("FadeOut");
-        payJailAnim.SetTrigger("FadeOut");
         spinButton.gameObject.SetActive(false);
         spinButton.gameObject.SetActive(true);
         spinButton.interactable = true;
-    }
 
-    public void EndTurn()
-    {
-        if (!canEndTurn)
-        {
-            return;
-        }
-
-        canEndTurn = false;
-
-        spinned = false;
-        ShowSpin();
-
-        PlayerClassHolder player = playerManager.Players[playerManager.CurrentTurn];
-
-        player.playerData.CheckLost();
-
-        if (!player.playerData.DidLose)
-        {
-            player.playerMovement.OnEndTurn();
-        }
-
-        Invoke(nameof(MayEndTurnAgain), 1);
-    }
-
-    private void MayEndTurnAgain()
-    {
-        canEndTurn = true;
+        playerManager.Players[playerManager.CurrentTurn].playerMovement.OnEndTurn();
     }
 
     public void OpenTradePanel()
     {
         managePanel.SetActive(false);
         tradingManager.ShowPlayerTradeSelect();
-    }
-
-    public void ShowPayJailButton(bool forced)
-    {
-        if (!forced)
-        {
-            PlayerData player = playerManager.Players[playerManager.CurrentTurn].playerData;
-
-            payJailButton.interactable = player.Money >= 50;
-        }
-        else
-        {
-            payJailButton.interactable = true;
-        }
-
-        payJailRect.localPosition = forced ? spinRect.localPosition : startPosPay;
-        payJailAnim.gameObject.SetActive(false);
-        payJailAnim.gameObject.SetActive(true);
-    }
-
-    public void PayJail()
-    {
-        playerManager.Players[playerManager.CurrentTurn].playerData.GetOutOfJail(true);
-
-        payJailAnim.SetTrigger("FadeOut");
     }
 
     public void DeactivateButton(GameObject button)

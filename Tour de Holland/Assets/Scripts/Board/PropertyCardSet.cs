@@ -23,12 +23,10 @@ public class PropertyCardSet : MonoBehaviour
             card.MyCardSet = this;
             card.PropertySetIndex = i;
             card.PlayerOwningThis = null;
-            card.RebuyPrice = Mathf.RoundToInt((float)card.SellPrice * 1.1f);
             card.UpgradeLevel = 0;
-            card.Sold = false;
             card.ShopLocations.Clear();
             card.ShopLocations.Add(1);
-            card.ShopLocations.Add(3);
+            card.ShopLocations.Add(2);
             card.ShopLocations.Add(5);
         }
 

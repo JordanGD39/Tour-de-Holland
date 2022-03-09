@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c874c01a6f6149449b8f00be7b77bba6, type: 3}
   m_Name: 1_ZuiderZeeMuseumCard
   m_EditorClassIdentifier: 
-  buyPrice: 110
-  upgradePrice: 50
-  sellPrice: 55
-  rebuyPrice: 60
-  tourFee: 07000000230000005f0000001d010000a90100003f020000
-  sprite: {fileID: 21300000, guid: b880708a3295f87409ad58239038752f, type: 3}
+  buyPrice: 66
+  sellPrice: 33
+  tourFee: 030000000f0000002800000064000000aa00000004010000
+  sprite: {fileID: 21300000, guid: 29021064b182f7643a0124dae9a79164, type: 3}
   upgradeLevel: 0
-  shopLocations: 010000000300000005000000
+  shopLocations: 010000000200000005000000

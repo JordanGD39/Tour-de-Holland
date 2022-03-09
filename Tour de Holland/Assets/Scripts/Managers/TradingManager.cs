@@ -13,7 +13,7 @@ public class TradingManager : MonoBehaviour
 
     [SerializeField] private GameObject tradingPanel;
     [SerializeField] private GameObject tradingSelectPlayerPanel;
-    [SerializeField] private ManageUI managePanel;
+    [SerializeField] private GameObject managePanel;
 
     [SerializeField] private Text currentPlayerMoney;
     [SerializeField] private Text otherPlayerMoney;
@@ -32,8 +32,6 @@ public class TradingManager : MonoBehaviour
     [SerializeField] private Transform placeOfferCardPrefab;
     [SerializeField] private Transform placeWantedCardPrefab;
     [SerializeField] private Image centerCardImage;
-    [SerializeField] private float cooldownTime = 0.2f;
-    [SerializeField] private float speedUpCooldownTime = 2;
 
     private int currentPlayerOfferedMoney = 0;
     private int otherPlayerWantedMoney = 0;
@@ -47,92 +45,18 @@ public class TradingManager : MonoBehaviour
     private List<Image> wantedPropertyCardsSpawned = new List<Image>();
 
     [SerializeField] private float cardOfferOffset = 10;
-    private bool addMoney = false;
-    private bool removeMoney = false;
-    private bool currentPlayerChangingMoney = false;
-
-    private float timer = 0;
-    private float holdTimer = 0;
-    private bool cooldown = false;
-    private float actualCooldownTime = 0;
 
     private void Start()
     {
         playerManager = FindObjectOfType<PlayerManager>();
         centerCardImage.gameObject.SetActive(false);
         CloseTrading();
-        actualCooldownTime = cooldownTime;
-    }
-
-    private void Update()
-    {
-        if (addMoney || removeMoney)
-        {
-            holdTimer += Time.deltaTime;
-        }
-
-        if (cooldown)
-        {
-            timer += Time.deltaTime;
-
-            if (timer > actualCooldownTime)
-            {
-                cooldown = false;
-                timer = 0;
-            }
-
-            return;
-        }
-
-        if (holdTimer > speedUpCooldownTime)
-        {
-            actualCooldownTime /= 2;
-        }
-
-        if (addMoney)
-        {
-            cooldown = true;            
-            AddOfferMoney(currentPlayerChangingMoney);
-        }
-
-        if (removeMoney)
-        {
-            cooldown = true;
-            RemoveOfferMoney(currentPlayerChangingMoney);
-        }
-    }
-
-    public void StartAddingOfferMoney(bool currentPlayer)
-    {
-        actualCooldownTime = cooldownTime;
-        addMoney = true;
-        currentPlayerChangingMoney = currentPlayer;
-    }
-
-    public void StartRemovingOfferMoney(bool currentPlayer)
-    {
-        actualCooldownTime = cooldownTime;
-        removeMoney = true;
-        currentPlayerChangingMoney = currentPlayer;
-    }
-
-    public void StopAddingOfferMoney()
-    {
-        holdTimer = 0;
-        addMoney = false;
-    }
-
-    public void StopRemovingOfferMoney()
-    {
-        holdTimer = 0;
-        removeMoney = false;
     }
 
     private void CloseTrading()
     {
         tradingPanel.SetActive(false);
-        managePanel.gameObject.SetActive(true);
-        managePanel.HideOpenProperty();
+        managePanel.SetActive(true);
         tradingSelectPlayerPanel.SetActive(false);
 
         centerCardImage.gameObject.SetActive(false);
@@ -169,12 +93,12 @@ public class TradingManager : MonoBehaviour
         playerToTrade = players[index].playerData;
         tradingSelectPlayerPanel.SetActive(false);
         tradingPanel.SetActive(true);
-        currentPlayerMoney.text = "€" + tradingPlayer.Money.ToString();
-        otherPlayerMoney.text = "€" + playerToTrade.Money.ToString();
-        currentPlayerAddedMoney.text = "€0"; 
-        otherPlayerAddedMoney.text = "€0";
-        totalOfferedMoney.text = "€0";
-        totalWantedMoney.text = "€0";
+        currentPlayerMoney.text = "€ " + tradingPlayer.Money.ToString();
+        otherPlayerMoney.text = "€ " + playerToTrade.Money.ToString();
+        currentPlayerAddedMoney.text = "€ 0"; 
+        otherPlayerAddedMoney.text = "€ 0";
+        totalOfferedMoney.text = "€ 0";
+        totalWantedMoney.text = "€ 0";
         currentPlayerOfferedMoney = 0;
         otherPlayerWantedMoney = 0;
         totalOfferedValue = 0;
@@ -242,9 +166,9 @@ public class TradingManager : MonoBehaviour
             if (currentPlayerOfferedMoney < tradingPlayer.Money)
             {
                 currentPlayerOfferedMoney++;
-                currentPlayerAddedMoney.text = "€" + currentPlayerOfferedMoney.ToString();
+                currentPlayerAddedMoney.text = "€ " + currentPlayerOfferedMoney.ToString();
                 totalOfferedValue++;
-                totalOfferedMoney.text = "€" + totalOfferedValue.ToString();
+                totalOfferedMoney.text = "€ " + totalOfferedValue.ToString();
             }
         }
         else
@@ -252,9 +176,9 @@ public class TradingManager : MonoBehaviour
             if (otherPlayerWantedMoney < playerToTrade.Money)
             {
                 otherPlayerWantedMoney++;
-                otherPlayerAddedMoney.text = "€" + otherPlayerWantedMoney.ToString();
+                otherPlayerAddedMoney.text = "€ " + otherPlayerWantedMoney.ToString();
                 totalWantedValue++;
-                totalWantedMoney.text = "€" + totalWantedValue.ToString();
+                totalWantedMoney.text = "€ " + totalWantedValue.ToString();
             }
         }
     }
@@ -266,9 +190,9 @@ public class TradingManager : MonoBehaviour
             if (currentPlayerOfferedMoney > 0)
             {
                 currentPlayerOfferedMoney--;
-                currentPlayerAddedMoney.text = "€" + currentPlayerOfferedMoney.ToString();
+                currentPlayerAddedMoney.text = "€ " + currentPlayerOfferedMoney.ToString();
                 totalOfferedValue--;
-                totalOfferedMoney.text = "€" + totalOfferedValue.ToString();
+                totalOfferedMoney.text = totalOfferedValue.ToString();
             }
         }
         else
@@ -277,8 +201,8 @@ public class TradingManager : MonoBehaviour
             {
                 otherPlayerWantedMoney--;
                 totalWantedValue--;
-                otherPlayerAddedMoney.text = "€" + otherPlayerWantedMoney.ToString();
-                totalWantedMoney.text = "€" + totalWantedValue.ToString();
+                otherPlayerAddedMoney.text = "€ " + otherPlayerWantedMoney.ToString();
+                totalWantedMoney.text = "€ " + totalWantedValue.ToString();
             }
         }
     }
@@ -319,7 +243,7 @@ public class TradingManager : MonoBehaviour
             UpdateAllPostionsOfShownCards(offeredPropertyCardsSpawned, false);
         }
 
-        totalOfferedMoney.text = "€" + totalOfferedValue.ToString();
+        totalOfferedMoney.text = "€ " + totalOfferedValue.ToString();
     }
 
 
@@ -358,7 +282,7 @@ public class TradingManager : MonoBehaviour
             totalWantedValue -= card.BuyPrice;
         }
 
-        totalWantedMoney.text = "€" + totalWantedValue.ToString();
+        totalWantedMoney.text = "€ " + totalWantedValue.ToString();
     }
 
     private void UpdateAllPostionsOfShownCards(List<Image> cards, bool inverted)
