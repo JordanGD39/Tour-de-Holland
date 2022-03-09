@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -13,9 +14,12 @@ public class PlayerManager : MonoBehaviour
     public delegate void PlayerNextTurn();
     public PlayerNextTurn OnPlayerNextTurn;
 
+    [SerializeField] private Text playerWinText;
+
     private void Start()
     {
         //PlayerSelection.instance.OnPlayersSetupFinish += CreatePlayerList;
+        playerWinText.gameObject.SetActive(false);
         CreatePlayerList();
     }
 
@@ -66,6 +70,8 @@ public class PlayerManager : MonoBehaviour
     {
         int index = players.IndexOf(players[currentTurn]);
 
+        players[currentTurn].playerMovement.gameObject.SetActive(false);
+
         players.RemoveAt(currentTurn);
 
         if (currentTurn >= index && currentTurn > 0)
@@ -85,7 +91,9 @@ public class PlayerManager : MonoBehaviour
 
     private void GameEnd()
     {
-        Debug.Log("Game end!");
+        playerWinText.text = "Player " + (players[currentTurn].playerData.PlayerNumber + 1) + " wins!";
+
+        playerWinText.gameObject.SetActive(true);
     }
 }
 

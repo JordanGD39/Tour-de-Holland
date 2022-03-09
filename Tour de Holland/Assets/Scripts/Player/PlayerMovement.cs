@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private SpacesManager spacesManager;
     [SerializeField] private int currentBoardPosition = 0;
+    public int CurrentBoardPosition { get { return currentBoardPosition; } }
     [SerializeField] private bool canSpin = false;
     [SerializeField] private bool goTowardsSpace = false;
     [SerializeField] private float journeyTime = 1;
@@ -15,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float extraTrainSpaceYToStartFalling = 5;
     [SerializeField] private float fallTime = 1;
     [SerializeField] private int debugMove = 1;
+    [SerializeField] private bool moveDebugSpaces = false;
 
     private BoardSpace currentBoardSpace;
     private Vector3 startingPosition;
@@ -43,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
     private PlayerData playerData;
 
     private bool onTour = false;
+    public bool OnTour { get { return onTour; } }
     private bool rolledOnTour = false;
     private bool backOnNormalRoute = true;
     private TourRouteManager tourRouteManager;
@@ -76,7 +79,9 @@ public class PlayerMovement : MonoBehaviour
         backOnNormalRoute = false;
         SetStartingVariablesForStartMoving();
 
-        spacePos = tourRouteManager.GiveFirstBoardSpaceLocation(currentBoardSpace.PropertyCardOnSpace.PropertySetIndex) + Vector3.up * extraY;
+        Vector3 pos = tourRouteManager.GiveFirstBoardSpaceLocation(currentBoardSpace.PropertyCardOnSpace.PropertySetIndex);
+
+        spacePos = spacesManager.CheckOtherPlayersOnSpace(currentBoardPosition, pos, true, playerData.PlayerNumber) + Vector3.up * extraY;
         goTowardsSpace = true;
     }
 
@@ -95,16 +100,28 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void SpinWheel()
+    public void SpinWheel(bool lucky)
     {
+        if (lucky)
+        {
+            playerData.CheckLuckyNumber(Random.Range(1, 7));
+        }
+
         if (!canSpin)
         {
             return;
         }
 
         canSpin = false;
-        //CalculatePosition(Random.Range(1, 7));
-        CalculatePosition(debugMove);
+
+        if (!moveDebugSpaces)
+        {
+            CalculatePosition(Random.Range(1, 7));
+        }
+        else
+        {
+            CalculatePosition(debugMove);
+        }       
     }
 
     private void CalculatePosition(int spinnedNumber)
@@ -119,19 +136,26 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        if (playerData.InJail && spinnedNumber != 6)
+        if (playerData.InJail)
         {
-            if (jailTurns < 3)
+            if (spinnedNumber != 6)
             {
-                jailTurns++;
-                OnDoneMoving();
-                return;
+                if (jailTurns < 3)
+                {
+                    jailTurns++;
+                    OnDoneMoving();
+                    return;
+                }
+                else
+                {
+                    jailTurns = 0;
+                    playerData.GetOutOfJail(true);
+                }
             }
             else
             {
-                jailTurns = 0;
-                playerData.GetOutOfJail();
-            }          
+                playerData.GetOutOfJail(false);
+            }
         }
 
         onAJailSpace = currentBoardPosition < 0;
@@ -312,18 +336,23 @@ public class PlayerMovement : MonoBehaviour
     {
         SetStartingVariablesForStartMoving();
 
-        spacePos = currentBoardSpace.transform.position + Vector3.up * extraY;
+        spacePos = spacesManager.CheckOtherPlayersOnSpace(currentBoardPosition, currentBoardSpace.transform.position, false, playerData.PlayerNumber) + Vector3.up * extraY;
         backOnNormalRoute = true;
         goTowardsSpace = true;
     }
     
-    public void TeleportToGivenSpace()
+    public void TeleportToCurrentGivenSpace()
     {
         BoardSpace spaceToGoTo = currentBoardSpace.SpaceToTransportTo;
 
+        TeleportToGivenSpace(spaceToGoTo);
+    }
+
+    private void TeleportToGivenSpace(BoardSpace spaceToGoTo)
+    {
         currentBoardPosition = spaceToGoTo.BoardIndex;
 
-        StartCoroutine(nameof(FallToGivenSpacePos));
+        StartCoroutine(FallToGivenSpacePos(spaceToGoTo));
     }
 
     public void ChangeBoardDirection(int changeNum)
@@ -342,7 +371,7 @@ public class PlayerMovement : MonoBehaviour
         OnUpdateBoardDirection();
     }
 
-    private IEnumerator FallToGivenSpacePos()
+    private IEnumerator FallToGivenSpacePos(BoardSpace space)
     {
         Vector3 startPos = transform.position;
         Vector3 flyPos = transform.position + Vector3.up * extraTrainSpaceYToStartFalling;
@@ -359,11 +388,13 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
         }
 
-        BoardSpace spaceToGoTo = currentBoardSpace.SpaceToTransportTo;
+        BoardSpace spaceToGoTo = space;
 
-        transform.position = spaceToGoTo.transform.position + Vector3.up * extraTrainSpaceYToStartFalling;
+        Vector3 modifiedPos = spacesManager.CheckOtherPlayersOnSpace(spaceToGoTo.BoardIndex, spaceToGoTo.transform.position, false, playerData.PlayerNumber);
+
+        transform.position = modifiedPos + Vector3.up * extraTrainSpaceYToStartFalling;
         startPos = transform.position;
-        Vector3 trainSpacePos = spaceToGoTo.transform.position + Vector3.up * extraY;
+        Vector3 trainSpacePos = modifiedPos + Vector3.up * extraY;
         fracComplete = 0;
         startTime = Time.time;
 

@@ -20,6 +20,7 @@ public class PlayerButtonUI : MonoBehaviour
     [SerializeField] private Animator payJailAnim;
 
     private bool spinned = false;
+    private bool canEndTurn = true;
     private RectTransform payJailRect;
     private Button payJailButton;
     private RectTransform spinRect;
@@ -54,7 +55,7 @@ public class PlayerButtonUI : MonoBehaviour
         PlayerMovement player = playerManager.Players[playerManager.CurrentTurn].playerMovement;
         spinButton.interactable = false;
         player.OnDoneMoving = AfterSpin;
-        player.SpinWheel();
+        player.SpinWheel(false);
     }
 
     private void AfterSpin()
@@ -107,14 +108,26 @@ public class PlayerButtonUI : MonoBehaviour
         }        
     }
 
-    public void EndTurn()
+    public void ShowSpin()
     {
-        spinned = false;
         endTurnButtonAnim.SetTrigger("FadeOut");
         payJailAnim.SetTrigger("FadeOut");
         spinButton.gameObject.SetActive(false);
         spinButton.gameObject.SetActive(true);
         spinButton.interactable = true;
+    }
+
+    public void EndTurn()
+    {
+        if (!canEndTurn)
+        {
+            return;
+        }
+
+        canEndTurn = false;
+
+        spinned = false;
+        ShowSpin();
 
         PlayerClassHolder player = playerManager.Players[playerManager.CurrentTurn];
 
@@ -123,7 +136,14 @@ public class PlayerButtonUI : MonoBehaviour
         if (!player.playerData.DidLose)
         {
             player.playerMovement.OnEndTurn();
-        }        
+        }
+
+        Invoke(nameof(MayEndTurnAgain), 1);
+    }
+
+    private void MayEndTurnAgain()
+    {
+        canEndTurn = true;
     }
 
     public void OpenTradePanel()
@@ -152,7 +172,7 @@ public class PlayerButtonUI : MonoBehaviour
 
     public void PayJail()
     {
-        playerManager.Players[playerManager.CurrentTurn].playerData.GetOutOfJail();
+        playerManager.Players[playerManager.CurrentTurn].playerData.GetOutOfJail(true);
 
         payJailAnim.SetTrigger("FadeOut");
     }

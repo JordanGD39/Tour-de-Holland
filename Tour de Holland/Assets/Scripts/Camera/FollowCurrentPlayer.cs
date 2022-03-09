@@ -42,8 +42,6 @@ public class FollowCurrentPlayer : MonoBehaviour
 
     private void UpdateDirection()
     {
-        smoothSpeed = smoothTurnSpeed;
-
         PlayerMovement playerMovement = playerManager.Players[playerManager.CurrentTurn].playerMovement;
 
         Vector3 vec;
@@ -80,6 +78,8 @@ public class FollowCurrentPlayer : MonoBehaviour
         PlayerMovement playerMovement = playerManager.Players[playerManager.CurrentTurn].playerMovement;
 
         playerToFollow = playerMovement.transform;
-        playerMovement.OnUpdateBoardDirection = UpdateDirection;
+        playerMovement.OnUpdateBoardDirection = () => { UpdateDirection(); smoothSpeed = smoothTurnSpeed;};
+
+        UpdateDirection();
     }
 }
