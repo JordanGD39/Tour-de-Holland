@@ -7,6 +7,8 @@ public class BuyPropertyUIHandler : MonoBehaviour
 {
     [SerializeField] private GameObject objectHolder;
     [SerializeField] private Image propertyImage;
+    [SerializeField] private Text propertyText;
+    [SerializeField] private Text buyPriceText;
     private PlayerData playerData;
     private PropertyCard currentPropertyCard;
 
@@ -21,6 +23,8 @@ public class BuyPropertyUIHandler : MonoBehaviour
         currentPropertyCard = propertyCard;
         propertyImage.sprite = currentPropertyCard.MySprite;
         objectHolder.SetActive(true);
+        buyPriceText.text = "Buy for €" + currentPropertyCard.BuyPrice + "?";
+        propertyText.text = propertyCard.GetCardDataText();
     }
 
     public void BuyProperty()

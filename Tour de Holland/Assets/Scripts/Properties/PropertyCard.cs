@@ -26,4 +26,9 @@ public class PropertyCard : ScriptableObject
     public int PropertySetIndex { get; set; }
     public PlayerData PlayerOwningThis { get; set; }
     public bool Sold { get; set; } = false;
+
+    public string GetCardDataText()
+    {
+        return "No upgrades: €" + tourFee[0] + "\n Full set: €" + (tourFee[0] * 2) + "\n 1st upgrade: €" + tourFee[1] + "\n 2nd upgrade: €" + tourFee[2] + "\n 3rd upgrade: €" + tourFee[3] + "\n 4th upgrade: €" + tourFee[5] + "\n 5th upgrade: €" + tourFee[5] + "\n\n Upgrade cost: €" + upgradePrice + "\n\n Sell price: €" + sellPrice;
+    }
 }
