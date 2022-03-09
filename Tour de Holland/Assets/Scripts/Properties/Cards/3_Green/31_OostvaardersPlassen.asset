@@ -15,4 +15,6 @@ MonoBehaviour:
   buyPrice: 310
   sellPrice: 155
   tourFee: 1b0000008c0000009a010000b60300007e04000078050000
-  sprite: {fileID: 21300000, guid: 129e0e9926879274bb380a92b0dfc528, type: 3}
+  sprite: {fileID: 21300000, guid: bc4c1de3f9610164f9276f7ec5419a57, type: 3}
+  upgradeLevel: 0
+  shopLocations: 010000000200000005000000
