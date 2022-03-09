@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerDataUI : MonoBehaviour
 {
     [SerializeField] private Text moneyText;
+    [SerializeField] private Text debtText;
     [SerializeField] private Text addMoneyText;
     [SerializeField] private Transform[] purpleProperties;
     [SerializeField] private Transform[] blueProperties;
@@ -19,18 +20,24 @@ public class PlayerDataUI : MonoBehaviour
     private float startingMoney = 0;
     private float targetMoney = 0;
     private float startMoneyTime;
+    private float fracComplete;
     private float timeForMoneyToCompleteMultiplier = 1;
+    private bool inDebt = false;
+    private bool lerping = false;
 
     private void Start()
     {
         addMoneyText.gameObject.SetActive(false);
+        debtText.gameObject.SetActive(false);
     }
 
     private IEnumerator CountMoneyToCurrentRealMoney()
     {
+        lerping = true;
+
         yield return new WaitForSeconds(0.75f);
         startMoneyTime = Time.time;
-        float fracComplete = 0;
+        fracComplete = 0;
         float time = timeForMoneyToComplete * timeForMoneyToCompleteMultiplier;
 
         time = Mathf.Clamp(time, minTimeToComplete, maxTimeToComplete);
@@ -41,13 +48,24 @@ public class PlayerDataUI : MonoBehaviour
 
             float showingMoney = Mathf.Lerp(startingMoney, targetMoney, fracComplete);
 
-            moneyText.text = Mathf.RoundToInt(showingMoney).ToString();
+            string moneyString = Mathf.RoundToInt(showingMoney).ToString();
+
+            if (!inDebt)
+            {
+                moneyText.text = moneyString;
+            }
+            else
+            {
+                debtText.text = "€" + moneyString;
+            }            
 
             yield return null;
         }
+
+        lerping = false;
     }
 
-    public void UpdateMoneyText(int money, int oldMoney)
+    public void UpdateMoneyText(int money, int oldMoney, bool debt)
     {
         int diff = money - oldMoney;
 
@@ -56,6 +74,29 @@ public class PlayerDataUI : MonoBehaviour
         addMoneyText.text = plusOrMin + " €" + Mathf.Abs(diff).ToString();
         addMoneyText.gameObject.SetActive(false);
         addMoneyText.gameObject.SetActive(true);
+
+        if (lerping)
+        {
+            fracComplete = 1;
+            if (!inDebt)
+            {
+                if (money < 0)
+                {
+                    targetMoney = 0;
+                }
+
+                moneyText.text = targetMoney.ToString();
+            }
+            else
+            {
+                debtText.text = targetMoney.ToString();
+            }
+            
+            lerping = false;
+        }
+
+        debtText.gameObject.SetActive(debt && money < 0);
+        inDebt = debt;
 
         startingMoney = oldMoney;
         targetMoney = money;
@@ -88,10 +129,5 @@ public class PlayerDataUI : MonoBehaviour
     {
         image.transform.GetChild(add ? 0 : 1).gameObject.SetActive(true);
         image.transform.GetChild(add ? 1 : 0).gameObject.SetActive(false);
-    }
-
-    public void ShowBuyProperty()
-    {
-
     }
 }
