@@ -114,6 +114,11 @@ public class SpacesManager : MonoBehaviour
             } 
         }
 
+        return AdjustedPositionWithGivenIndex(spacePosition, playerCount);
+    }
+
+    public Vector3 AdjustedPositionWithGivenIndex(Vector3 spacePosition, int playerCount)
+    {
         if (playerCount > 0)
         {
             spacePosition.y -= 0.06f;

@@ -130,7 +130,7 @@ public class TradingManager : MonoBehaviour
         removeMoney = false;
     }
 
-    private void CloseTrading()
+    public void CloseTrading()
     {
         tradingPanel.SetActive(false);
         managePanel.gameObject.SetActive(true);
@@ -448,6 +448,11 @@ public class TradingManager : MonoBehaviour
 
     public void ConfirmTrade()
     {
+        if (wantedPropertyCards.Count > 0 || offeredPropertyCards.Count > 0)
+        {
+            AudioManager.instance.Play("TourBoughtSFX");
+        }
+
         foreach (PropertyCard card in offeredPropertyCards)
         {
             tradingPlayer.RemovePropertyCard(card);

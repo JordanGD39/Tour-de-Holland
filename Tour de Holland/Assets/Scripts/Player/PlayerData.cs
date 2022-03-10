@@ -297,6 +297,11 @@ public class PlayerData : MonoBehaviour
                 }
             }
 
+            if (inDebtedTo != null)
+            {
+                AudioManager.instance.Play("TourBoughtSFX");
+            }
+
             foreach (PropertyCard card in cardsToRemove)
             {
                 RemovePropertyCard(card);
@@ -385,6 +390,8 @@ public class PlayerData : MonoBehaviour
                     card.PlayerOwningThis.RemovePropertyCard(card);
                     AddPropertyCard(card);                    
                 }
+
+                AudioManager.instance.Play("TourBoughtSFX");
 
                 Invoke(nameof(DelayDoneMoving), 1);
 

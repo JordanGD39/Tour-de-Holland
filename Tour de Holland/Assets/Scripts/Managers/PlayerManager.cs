@@ -74,6 +74,7 @@ public class PlayerManager : MonoBehaviour
 
         FindObjectOfType<CheckPlayerCountUI>().RemovePlayerPanels(players.Count);
 
+        PlayerSelectionManager.instance.ChosenPlayerModels.Clear();
         OnPlayersInitialized();
         GiveTurnToCurrentPlayer();
     }
@@ -140,7 +141,13 @@ public class PlayerManager : MonoBehaviour
         Invoke(nameof(ToMainMenu), 3.5f);
     }
 
-    private void FadeStart()
+    public void BackToMainMenu()
+    {
+        FadeStart();
+        Invoke(nameof(ToMainMenu), 0.5f);
+    }
+
+    public void FadeStart()
     {
         fadeIn.SetActive(true);
     }

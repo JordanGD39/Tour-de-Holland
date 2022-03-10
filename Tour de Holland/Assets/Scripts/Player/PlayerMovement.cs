@@ -133,6 +133,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void CalculatePosition(int spinnedNumber)
     {
+        transform.SetParent(null);
+
         if (onTour)
         {
             rolledOnTour = true;
@@ -278,6 +280,7 @@ public class PlayerMovement : MonoBehaviour
                 if (moveToSpaceIndex > spacePosistions.Count - 1)
                 {
                     previousSpace = currentBoardPosition;
+                    transform.SetParent(currentBoardSpace.transform, true);
                     playerData.CheckCurrentSpace(currentBoardSpace);
 
                     if (startPassed)
@@ -320,6 +323,7 @@ public class PlayerMovement : MonoBehaviour
         {
             ChangeBoardDirection(2);
             OnDoneMoving();
+            transform.SetParent(currentBoardSpace.transform, true);
             return;
         }
 
@@ -328,6 +332,7 @@ public class PlayerMovement : MonoBehaviour
             onTour = false;
             ChangeBoardDirection(2);
             OnDoneMoving();
+            transform.SetParent(currentBoardSpace.transform, true);
         }
         else
         {
@@ -452,14 +457,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void CheckIfPlayersOnCurrentSpace(int spaceIndex, bool tour)
     {
-        if (currentBoardPosition != spaceIndex || tour != OnTour)
+        if (currentBoardPosition != spaceIndex || tour != OnTour || currentBoardSpace == null)
         {
             return;
         }
 
         BoardSpace space = spacesManager.GetBoardSpace(currentBoardPosition);
 
-        Vector3 adjustedPos = spacesManager.CheckOtherPlayersOnSpace(currentBoardPosition, space.transform.position, onTour, playerData.PlayerNumber);
+        Vector3 adjustedPos = spacesManager.AdjustedPositionWithGivenIndex(space.transform.position, transform.GetSiblingIndex() - 1);
 
         adjustedPos += Vector3.up * extraY;
 
