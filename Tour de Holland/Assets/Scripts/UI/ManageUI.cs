@@ -18,6 +18,7 @@ public class ManageUI : MonoBehaviour
     [SerializeField] private Text rebuyPriceText;
     [SerializeField] private Text propertyCardText;
     [SerializeField] private Vector3 startingSellTourPos;
+    [SerializeField] private Transform starsParent;
 
     private List<PropertyCard> allPropertyCards = new List<PropertyCard>();
 
@@ -40,6 +41,11 @@ public class ManageUI : MonoBehaviour
         sellTourTransform.gameObject.SetActive(true);
         rebuyButton.gameObject.SetActive(false);
         rebuyPriceText.gameObject.SetActive(false);
+
+        for (int i = 0; i < starsParent.childCount; i++)
+        {
+            starsParent.transform.GetChild(i).gameObject.SetActive(false);
+        }
 
         if (allPropertyCards.Count > 0)
         {
@@ -68,6 +74,16 @@ public class ManageUI : MonoBehaviour
         showedPropertyCard.gameObject.SetActive(true);
         showedPropertyCard.sprite = card.MySprite;
         propertyCardText.text = card.GetCardDataText();
+
+        for (int i = 0; i < starsParent.childCount; i++)
+        {
+            starsParent.transform.GetChild(i).gameObject.SetActive(false);
+        }
+
+        for (int i = 0; i < card.UpgradeLevel - 1; i++)
+        {
+            starsParent.transform.GetChild(i).gameObject.SetActive(true);
+        }
 
         CheckButtons();
     }
@@ -161,6 +177,8 @@ public class ManageUI : MonoBehaviour
 
             playerData.Money -= currentCard.UpgradePrice;
 
+            starsParent.transform.GetChild(currentCard.UpgradeLevel - 1).gameObject.SetActive(true);
+
             SetShopLocations(currentCard.UpgradeLevel, false);
 
             CheckButtons();
@@ -197,6 +215,8 @@ public class ManageUI : MonoBehaviour
 
         if (currentCard.UpgradeLevel > 0)
         {
+            starsParent.transform.GetChild(currentCard.UpgradeLevel - 1).gameObject.SetActive(false);
+
             currentCard.UpgradeLevel--;
 
             playerData.Money += Mathf.RoundToInt((float)currentCard.UpgradePrice / 2);

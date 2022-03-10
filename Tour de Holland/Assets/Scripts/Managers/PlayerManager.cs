@@ -15,6 +15,7 @@ public class PlayerManager : MonoBehaviour
     public PlayerNextTurn OnPlayerNextTurn;
 
     [SerializeField] private Text playerWinText;
+    [SerializeField] private List<GameObject> playerModelPrefabs = new List<GameObject>();
 
     private void Start()
     {
