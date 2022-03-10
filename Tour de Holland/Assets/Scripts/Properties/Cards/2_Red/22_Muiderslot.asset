@@ -15,8 +15,8 @@ MonoBehaviour:
   buyPrice: 240
   upgradePrice: 150
   sellPrice: 120
-  rebuyPrice: 44
+  rebuyPrice: 132
   tourFee: 14000000640000002c010000ee0200009d0300004c040000
-  sprite: {fileID: 21300000, guid: 5964bb167b0a3b64185658ce88fa988a, type: 3}
+  sprite: {fileID: 21300000, guid: 08ae3c7ae8e040b458dbde9c4c41080f, type: 3}
   upgradeLevel: 0
-  shopLocations: 
+  shopLocations: 010000000300000005000000

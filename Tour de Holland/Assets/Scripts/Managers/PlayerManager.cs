@@ -19,8 +19,12 @@ public class PlayerManager : MonoBehaviour
     private void Start()
     {
         //PlayerSelection.instance.OnPlayersSetupFinish += CreatePlayerList;
-        playerWinText.gameObject.SetActive(false);
         CreatePlayerList();
+
+        if (playerWinText != null)
+        {
+            playerWinText.gameObject.SetActive(false);
+        }        
     }
 
     // Start is called before the first frame update

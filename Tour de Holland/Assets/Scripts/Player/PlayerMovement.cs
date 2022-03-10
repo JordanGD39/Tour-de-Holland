@@ -78,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
         rolledOnTour = false;
         backOnNormalRoute = false;
         SetStartingVariablesForStartMoving();
+        ChangeBoardDirection(2);
 
         Vector3 pos = tourRouteManager.GiveFirstBoardSpaceLocation(currentBoardSpace.PropertyCardOnSpace.PropertySetIndex);
 
@@ -339,6 +340,7 @@ public class PlayerMovement : MonoBehaviour
         spacePos = spacesManager.CheckOtherPlayersOnSpace(currentBoardPosition, currentBoardSpace.transform.position, false, playerData.PlayerNumber) + Vector3.up * extraY;
         backOnNormalRoute = true;
         goTowardsSpace = true;
+        ChangeBoardDirection(2);
     }
     
     public void TeleportToCurrentGivenSpace()
