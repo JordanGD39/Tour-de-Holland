@@ -327,7 +327,15 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (moveToSpaceIndex == pos)
                 {
-                    playerData.GiveMoneyToOtherPlayer(propertyCard.TourFee[propertyCard.UpgradeLevel], currentBoardSpace.PropertyCardOnSpace.PlayerOwningThis);
+                    int fee = propertyCard.TourFee[propertyCard.UpgradeLevel];
+                    PlayerData opponent = currentBoardSpace.PropertyCardOnSpace.PlayerOwningThis;
+
+                    if (propertyCard.UpgradeLevel == 0 && opponent.PropertyCardSets.Contains(propertyCard.MyCardSet))
+                    {
+                        fee *= 2;
+                    }
+
+                    playerData.GiveMoneyToOtherPlayer(fee, opponent);
                 }                
             }
 

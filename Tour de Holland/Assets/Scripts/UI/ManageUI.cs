@@ -19,10 +19,12 @@ public class ManageUI : MonoBehaviour
     [SerializeField] private Text propertyCardText;
     [SerializeField] private Vector3 startingSellTourPos;
     [SerializeField] private Transform starsParent;
+    [SerializeField] private Animator cardAnim;
 
     private List<PropertyCard> allPropertyCards = new List<PropertyCard>();
 
     private PropertyCard currentCard;
+    private bool flipped = false;
 
     private void Awake()
     {
@@ -74,6 +76,7 @@ public class ManageUI : MonoBehaviour
         showedPropertyCard.gameObject.SetActive(true);
         showedPropertyCard.sprite = card.MySprite;
         propertyCardText.text = card.GetCardDataText();
+        flipped = false;
 
         for (int i = 0; i < starsParent.childCount; i++)
         {
@@ -224,5 +227,19 @@ public class ManageUI : MonoBehaviour
 
             CheckButtons();
         }
+    }
+
+    public void StartFlip()
+    {
+        cardAnim.SetTrigger("Flip");
+    }
+
+    public void SwapSpriteFlip()
+    {
+        flipped = !flipped;
+
+        showedPropertyCard.sprite = !flipped ? currentCard.MySprite : currentCard.BackSprite;
+
+        propertyCardText.gameObject.SetActive(!flipped);
     }
 }

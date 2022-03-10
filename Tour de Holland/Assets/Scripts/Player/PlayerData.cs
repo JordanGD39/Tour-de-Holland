@@ -98,6 +98,12 @@ public class PlayerData : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         uiScriptsManager = FindObjectOfType<UIScriptsManager>();
         buttonUI = FindObjectOfType<PlayerButtonUI>();
+        FindObjectOfType<PlayerManager>().OnPlayersInitialized += SetIcon;
+    }
+
+    private void SetIcon()
+    {
+        playerDataUI.UpdateIcon(PlayerIcon);
     }
 
     public void AddPropertyCard(PropertyCard propertyCard)

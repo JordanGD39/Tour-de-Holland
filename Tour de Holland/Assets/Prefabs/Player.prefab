@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 2032780525393870516}
   - component: {fileID: 5195215431397749478}
   - component: {fileID: 2935385527601445214}
+  - component: {fileID: 6390059491863695612}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,6 +77,19 @@ MonoBehaviour:
   inDebtedTo: {fileID: 0}
   propertyCards: []
   propertyCardSets: []
+--- !u!65 &6390059491863695612
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032780525393870507}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1748758440569386531
 PrefabInstance:
   m_ObjectHideFlags: 0

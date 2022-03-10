@@ -34,6 +34,8 @@ public class TradingManager : MonoBehaviour
     [SerializeField] private Image centerCardImage;
     [SerializeField] private float cooldownTime = 0.2f;
     [SerializeField] private float speedUpCooldownTime = 2;
+    [SerializeField] private Image currentPlayerIcon;
+    [SerializeField] private Image otherPlayerIcon;
 
     private int currentPlayerOfferedMoney = 0;
     private int otherPlayerWantedMoney = 0;
@@ -159,6 +161,25 @@ public class TradingManager : MonoBehaviour
         players.Clear();
         players.AddRange(playerManager.Players);
 
+        players.RemoveAt(playerManager.Players[playerManager.CurrentTurn].playerData.PlayerNumber);
+
+        for (int i = 0; i < tradingSelectPlayerPanel.transform.childCount; i++)
+        {
+            tradingSelectPlayerPanel.transform.GetChild(i).gameObject.SetActive(false);
+        }
+
+        for (int i = 0; i < players.Count; i++)
+        {
+            Transform iconTransform = tradingSelectPlayerPanel.transform.GetChild(i);
+
+            iconTransform.gameObject.SetActive(true);
+
+            if (players[i].playerData != this)
+            {
+                iconTransform.GetChild(0).GetComponent<Image>().sprite = players[i].playerData.PlayerIcon;
+            }            
+        }
+
         PlayerClassHolder playerClassHolder = playerManager.Players[playerManager.CurrentTurn];
         tradingPlayer = playerClassHolder.playerData;
         players.Remove(playerClassHolder);
@@ -167,6 +188,9 @@ public class TradingManager : MonoBehaviour
     public void ChooseTradePlayer(int index)
     {
         playerToTrade = players[index].playerData;
+        currentPlayerIcon.sprite = playerManager.Players[playerManager.CurrentTurn].playerData.PlayerIcon;
+        otherPlayerIcon.sprite = playerToTrade.PlayerIcon;
+        otherPlayerIcon.sprite = playerToTrade.PlayerIcon;
         tradingSelectPlayerPanel.SetActive(false);
         tradingPanel.SetActive(true);
         currentPlayerMoney.text = "€" + tradingPlayer.Money.ToString();

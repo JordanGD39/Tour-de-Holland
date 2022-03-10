@@ -65,6 +65,8 @@ public class PlayerManager : MonoBehaviour
             playerIndex++;
         }
 
+        FindObjectOfType<CheckPlayerCountUI>().RemovePlayerPanels(players.Count);
+
         OnPlayersInitialized();
         GiveTurnToCurrentPlayer();
     }

@@ -18,5 +18,6 @@ MonoBehaviour:
   rebuyPrice: 165
   tourFee: 1a0000008200000086010000840300004c040000fb040000
   sprite: {fileID: 21300000, guid: 70e57a78f292fb845aac8440ad468fbd, type: 3}
+  backSprite: {fileID: 21300000, guid: 5f25d1aaf902b904997821aa10c2989a, type: 3}
   upgradeLevel: 0
   shopLocations: 010000000300000005000000

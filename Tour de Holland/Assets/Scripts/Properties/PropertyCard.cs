@@ -17,6 +17,8 @@ public class PropertyCard : ScriptableObject
     public int[] TourFee { get { return tourFee; } }
     [SerializeField] private Sprite sprite;
     public Sprite MySprite { get { return sprite; } }
+    [SerializeField] private Sprite backSprite;
+    public Sprite BackSprite { get { return backSprite; } }
     [SerializeField] private int upgradeLevel = 0;
     public int UpgradeLevel { get { return upgradeLevel; } set { upgradeLevel = value; } }
     [SerializeField] private List<int> shopLocations = new List<int>();

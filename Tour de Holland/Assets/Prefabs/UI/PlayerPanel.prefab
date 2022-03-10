@@ -1015,6 +1015,7 @@ MonoBehaviour:
   moneyText: {fileID: 7645756968082213045}
   debtText: {fileID: 2728581530880231084}
   addMoneyText: {fileID: 4788668178102207755}
+  playerIcon: {fileID: 3010405569602071727}
   purpleProperties:
   - {fileID: 7226394662446063236}
   - {fileID: 8124051451153251390}

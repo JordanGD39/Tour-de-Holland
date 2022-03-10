@@ -8,6 +8,7 @@ public class PlayerDataUI : MonoBehaviour
     [SerializeField] private Text moneyText;
     [SerializeField] private Text debtText;
     [SerializeField] private Text addMoneyText;
+    [SerializeField] private Image playerIcon;
     [SerializeField] private Transform[] purpleProperties;
     [SerializeField] private Transform[] blueProperties;
     [SerializeField] private Transform[] redProperties;
@@ -63,6 +64,11 @@ public class PlayerDataUI : MonoBehaviour
         }
 
         lerping = false;
+    }
+
+    public void UpdateIcon(Sprite sprite)
+    {
+        playerIcon.sprite = sprite;
     }
 
     public void UpdateMoneyText(int money, int oldMoney, bool debt)
