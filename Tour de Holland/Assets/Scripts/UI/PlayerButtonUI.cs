@@ -55,7 +55,7 @@ public class PlayerButtonUI : MonoBehaviour
         PlayerMovement player = playerManager.Players[playerManager.CurrentTurn].playerMovement;
         spinButton.interactable = false;
         player.OnDoneMoving = AfterSpin;
-        player.SpinWheel(false);
+        player.SpinWheel();
     }
 
     private void AfterSpin()

@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     public BoardDirections BoardDirection { get { return boardDirection; } }
 
     private PlayerData playerData;
+    private WheelSpin wheelSpin;
 
     private bool onTour = false;
     public bool OnTour { get { return onTour; } }
@@ -58,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         spacesManager = FindObjectOfType<SpacesManager>();
+        wheelSpin = FindObjectOfType<WheelSpin>();
         playerData = GetComponent<PlayerData>();
         buttonUI = FindObjectOfType<PlayerButtonUI>();
     }
@@ -101,13 +103,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void SpinWheel(bool lucky)
+    public void SpinWheel()
     {
-        if (lucky)
-        {
-            playerData.CheckLuckyNumber(Random.Range(1, 7));
-        }
-
         if (!canSpin)
         {
             return;
@@ -117,7 +114,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (!moveDebugSpaces)
         {
-            CalculatePosition(Random.Range(1, 7));
+            wheelSpin.OnNumberDetermined = CalculatePosition;
+            wheelSpin.Spin();
         }
         else
         {
@@ -359,7 +357,7 @@ public class PlayerMovement : MonoBehaviour
         TeleportToGivenSpace(spaceToGoTo);
     }
 
-    private void TeleportToGivenSpace(BoardSpace spaceToGoTo)
+    public void TeleportToGivenSpace(BoardSpace spaceToGoTo)
     {
         currentBoardPosition = spaceToGoTo.BoardIndex;
 

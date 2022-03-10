@@ -83,7 +83,7 @@ public class ManageUI : MonoBehaviour
             starsParent.transform.GetChild(i).gameObject.SetActive(false);
         }
 
-        for (int i = 0; i < card.UpgradeLevel - 1; i++)
+        for (int i = 0; i < card.UpgradeLevel; i++)
         {
             starsParent.transform.GetChild(i).gameObject.SetActive(true);
         }

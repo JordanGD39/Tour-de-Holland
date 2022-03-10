@@ -6,14 +6,17 @@ public class FollowCurrentPlayer : MonoBehaviour
 {
     private PlayerManager playerManager;
     private Transform playerToFollow;
+    private WheelSpin wheelSpin;
 
     [SerializeField] private Vector3 offset = Vector3.zero;
     [SerializeField] private float smoothToPlayerSpeed = 2;
     [SerializeField] private float smoothTurnSpeed = 2;
     [SerializeField] private float rotateSpeed = 2;
+    [SerializeField] private Transform wheelFocus;
 
     private Vector3 usedOffset;
     private float smoothSpeed;
+    private bool focusedOnPlayer = true;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +24,11 @@ public class FollowCurrentPlayer : MonoBehaviour
         playerManager = FindObjectOfType<PlayerManager>();
         playerManager.OnPlayersInitialized += UpdateCurrentPlayer;
         playerManager.OnPlayersInitialized += UpdateDirection;
-        playerManager.OnPlayerNextTurn += UpdateCurrentPlayer;    
+        playerManager.OnPlayerNextTurn += UpdateCurrentPlayer;
+
+        wheelSpin = FindObjectOfType<WheelSpin>();
+        wheelSpin.OnSpinningWheel += ShowWheel;
+        wheelSpin.OnSpinStop += UpdateCurrentPlayer;
     }
 
     private void LateUpdate()
@@ -31,7 +38,17 @@ public class FollowCurrentPlayer : MonoBehaviour
             return;
         }
 
-        Vector3 desiredPos = playerToFollow.position + usedOffset;
+        Vector3 desiredPos;
+
+        if (focusedOnPlayer)
+        {
+            desiredPos = playerToFollow.position + usedOffset;
+        }
+        else
+        {
+            desiredPos = wheelFocus.position;
+        }
+
         transform.position = Vector3.Lerp(transform.position, desiredPos, smoothSpeed * Time.deltaTime);
 
         Quaternion targetRotation = Quaternion.LookRotation(playerToFollow.position - transform.position);
@@ -73,6 +90,7 @@ public class FollowCurrentPlayer : MonoBehaviour
 
     private void UpdateCurrentPlayer()
     {
+        focusedOnPlayer = true;
         smoothSpeed = smoothToPlayerSpeed;
 
         PlayerMovement playerMovement = playerManager.Players[playerManager.CurrentTurn].playerMovement;
@@ -81,5 +99,11 @@ public class FollowCurrentPlayer : MonoBehaviour
         playerMovement.OnUpdateBoardDirection = () => { UpdateDirection(); smoothSpeed = smoothTurnSpeed;};
 
         UpdateDirection();
+    }
+
+    private void ShowWheel()
+    {
+        focusedOnPlayer = false;
+        playerToFollow = wheelSpin.transform.parent;
     }
 }

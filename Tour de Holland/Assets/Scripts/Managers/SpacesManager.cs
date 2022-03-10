@@ -9,6 +9,10 @@ public class SpacesManager : MonoBehaviour
     [SerializeField] private List<BoardSpace> boardSpaces = new List<BoardSpace>();
     [SerializeField] private List<ExtraSpace> extraSpaces = new List<ExtraSpace>();
     [SerializeField] private List<ExtraSpace> cutsceneSpaces = new List<ExtraSpace>();
+    [SerializeField] private BoardSpace jailSpace;
+    public BoardSpace JailSpace { get { return jailSpace; } }
+    [SerializeField] private BoardSpace startSpace;
+    public BoardSpace StartSpace { get { return startSpace; } }
 
     private int extraCutsceneIndex = 1;
 

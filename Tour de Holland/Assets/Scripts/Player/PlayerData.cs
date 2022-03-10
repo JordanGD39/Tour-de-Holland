@@ -6,7 +6,9 @@ using UnityEngine;
 public class PlayerData : MonoBehaviour
 {
     private UIScriptsManager uiScriptsManager;
+    private LuckyEffectUI luckyEffectUI;
     private PlayerDataUI playerDataUI;
+    private PlayerManager playerManager;
     private PlayerMovement playerMovement;
     public Sprite PlayerIcon { get; set; }
 
@@ -90,6 +92,7 @@ public class PlayerData : MonoBehaviour
     public List<PropertyCardSet> PropertyCardSets { get { return propertyCardSets; } }
 
     private BoardSpace currentBoardSpace;
+    private SpacesManager spacesManager;
 
     public delegate void Lost();
     public Lost OnLost;
@@ -106,6 +109,9 @@ public class PlayerData : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         uiScriptsManager = FindObjectOfType<UIScriptsManager>();
         buttonUI = FindObjectOfType<PlayerButtonUI>();
+        luckyEffectUI = FindObjectOfType<LuckyEffectUI>();
+        spacesManager = FindObjectOfType<SpacesManager>();
+        playerManager = FindObjectOfType<PlayerManager>();
     }
 
     public void SetIcon()
@@ -148,8 +154,8 @@ public class PlayerData : MonoBehaviour
 
     public void RemovePropertyCard(PropertyCard propertyCard)
     {
-        propertyCard.PlayerOwningThis = null;
         propertyCards.Remove(propertyCard);
+        propertyCard.PlayerOwningThis = null;
         playerDataUI.UpdateProperties(propertyCard, false);
 
         if (propertyCardSets.Contains(propertyCard.MyCardSet))
@@ -217,8 +223,9 @@ public class PlayerData : MonoBehaviour
                 playerMovement.TeleportToCurrentGivenSpace();
                 break;
             case BoardSpace.BoardSpaceTypes.LUCKY:
-                //playerMovement.SpinWheel(true);
-                playerMovement.OnDoneMoving();
+                uiScriptsManager.ShowLuckyPanel();
+                luckyEffectUI.OnLuckyEffectChosen = CheckLuckyEffect;
+                luckyEffectUI.StartChoosingARandomLuckyEffect();
                 break;
             case BoardSpace.BoardSpaceTypes.GOTOJAIL:
                 playerMovement.TeleportToCurrentGivenSpace();
@@ -314,26 +321,79 @@ public class PlayerData : MonoBehaviour
         }
     }
 
-    public void CheckLuckyNumber(int num)
+    public void CheckLuckyEffect(LuckyEffectUI.LuckyEffects effect)
     {
-        switch (num)
+        switch (effect)
         {
-            case 1:
-                //Jail
-                //playerMovement.TeleportToGivenSpace();
+            case LuckyEffectUI.LuckyEffects.GOTOJAIL:
+                playerMovement.TeleportToGivenSpace(spacesManager.JailSpace);
+                inJail = true;
                 break;
-            case 2:
+            case LuckyEffectUI.LuckyEffects.RESPIN:
                 buttonUI.ShowSpin();
+                playerMovement.ReceiveTurn();
                 break;
-            case 3:
+            case LuckyEffectUI.LuckyEffects.GOTOSTART:
+                playerMovement.TeleportToGivenSpace(spacesManager.StartSpace);
+                break;
+            case LuckyEffectUI.LuckyEffects.GAINONEHUNDRED:
+                Money += 100;
+                Invoke(nameof(DelayDoneMoving), 1);
+                break;
+            case LuckyEffectUI.LuckyEffects.GAINTWOHUNDRED:
+                Money += 200;
+                Invoke(nameof(DelayDoneMoving), 1);
+                break;
+            case LuckyEffectUI.LuckyEffects.GETPROPERTY:
+                List<PropertyCardSet> sets = new List<PropertyCardSet>();
+                List<PropertyCard> notOwnedProperties = new List<PropertyCard>();
+
+                sets.AddRange(FindObjectsOfType<PropertyCardSet>());
+
+                foreach (PropertyCardSet set in sets)
+                {
+                    foreach (PropertyCard card in set.PropertyCardsInSet)
+                    {
+                        if (card.PlayerOwningThis == null)
+                        {
+                            notOwnedProperties.Add(card);
+                        }                        
+                    }
+                }
+
+                if (notOwnedProperties.Count > 0)
+                {
+                    AddPropertyCard(notOwnedProperties[UnityEngine.Random.Range(0, notOwnedProperties.Count)]);
+                }
+                else
+                {
+                    List<PlayerData> players = new List<PlayerData>();
+
+                    foreach (PlayerClassHolder player in playerManager.Players)
+                    {
+                        players.Add(player.playerData);
+                    }
+
+                    players.Remove(this);
+
+                    PlayerData playerToStealFrom = players[UnityEngine.Random.Range(0, players.Count)];
+
+                    int cardIndex = UnityEngine.Random.Range(0, playerToStealFrom.propertyCards.Count);
+
+                    PropertyCard card = playerToStealFrom.propertyCards[cardIndex];
+
+                    card.PlayerOwningThis.RemovePropertyCard(card);
+                    AddPropertyCard(card);                    
+                }
+
+                Invoke(nameof(DelayDoneMoving), 1);
 
                 break;
-            case 4:
-                break;
-            case 5:
-                break;
-            case 6:
-                break;
-        }
+        }     
+    }
+
+    private void DelayDoneMoving()
+    {
+        playerMovement.OnDoneMoving();
     }
 }
