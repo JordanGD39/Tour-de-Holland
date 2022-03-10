@@ -58,4 +58,14 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("BoardScene");
     }
+
+    public void QuitButton()
+    {
+        Invoke(nameof(Quiting), 0.5f);
+    }
+
+    private void Quiting()
+    {
+        Application.Quit();
+    }
 }

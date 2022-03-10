@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
@@ -17,15 +18,18 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private Text playerWinText;
     [SerializeField] private List<GameObject> playerModelPrefabs = new List<GameObject>();
     [SerializeField] private List<Sprite> playerIcons = new List<Sprite>();
+    [SerializeField] private GameObject fadeOut;
 
     private void Start()
     {
+        fadeOut.SetActive(fadeOut);
+
         CreatePlayerList();
 
         if (playerWinText != null)
         {
             playerWinText.gameObject.SetActive(false);
-        }        
+        }
     }
 
     // Start is called before the first frame update
@@ -117,6 +121,19 @@ public class PlayerManager : MonoBehaviour
         playerWinText.text = "Player " + (players[currentTurn].playerData.PlayerNumber + 1) + " wins!";
 
         playerWinText.gameObject.SetActive(true);
+
+        Invoke(nameof(FadeStart), 3);
+        Invoke(nameof(ToMainMenu), 3.5f);
+    }
+
+    private void FadeStart()
+    {
+
+    }
+
+    private void ToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
 
