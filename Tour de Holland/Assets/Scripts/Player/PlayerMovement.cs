@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
     private TourRouteManager tourRouteManager;
 
     private int jailTurns = 0;
-    public int JailTurns { get { return jailTurns; } }
+    public int JailTurns { get { return jailTurns; } set { if (value == 0) { jailTurns = 0; } } }
     private PlayerButtonUI buttonUI;
 
     // Start is called before the first frame update

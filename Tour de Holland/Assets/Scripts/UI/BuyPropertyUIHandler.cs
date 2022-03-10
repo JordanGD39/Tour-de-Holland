@@ -25,6 +25,7 @@ public class BuyPropertyUIHandler : MonoBehaviour
         objectHolder.SetActive(true);
         buyPriceText.text = "Buy for €" + currentPropertyCard.BuyPrice + "?";
         propertyText.text = propertyCard.GetCardDataText();
+        AudioManager.instance.Play("CardAppearSFX");
     }
 
     public void BuyProperty()
@@ -33,6 +34,8 @@ public class BuyPropertyUIHandler : MonoBehaviour
         {
             return;
         }
+
+        AudioManager.instance.Play("TourBoughtSFX");
 
         playerData.Money -= currentPropertyCard.BuyPrice;
         objectHolder.SetActive(false);

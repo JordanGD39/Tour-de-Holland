@@ -9,6 +9,7 @@ public class PlayerDataUI : MonoBehaviour
     [SerializeField] private Text debtText;
     [SerializeField] private Text addMoneyText;
     [SerializeField] private Image playerIcon;
+    [SerializeField] private GameObject escapedJailText;
     [SerializeField] private Transform[] purpleProperties;
     [SerializeField] private Transform[] blueProperties;
     [SerializeField] private Transform[] redProperties;
@@ -30,6 +31,7 @@ public class PlayerDataUI : MonoBehaviour
     {
         addMoneyText.gameObject.SetActive(false);
         debtText.gameObject.SetActive(false);
+        escapedJailText.SetActive(false);
     }
 
     private IEnumerator CountMoneyToCurrentRealMoney()
@@ -69,6 +71,12 @@ public class PlayerDataUI : MonoBehaviour
     public void UpdateIcon(Sprite sprite)
     {
         playerIcon.sprite = sprite;
+    }
+
+    public void ShowEscapeJail()
+    {
+        escapedJailText.SetActive(false);
+        escapedJailText.SetActive(true);
     }
 
     public void UpdateMoneyText(int money, int oldMoney, bool debt)

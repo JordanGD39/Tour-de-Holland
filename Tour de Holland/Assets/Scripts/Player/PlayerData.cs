@@ -22,6 +22,15 @@ public class PlayerData : MonoBehaviour
         }
         set
         {
+            if (value > money)
+            {
+                AudioManager.instance.Play("MoneyGainedSFX");
+            }
+            else if (value < money)
+            {
+                AudioManager.instance.Play("MoneyLostSFX");
+            }
+
             if (debt < 0 && money <= 0)
             {
                 Debt += value;
@@ -94,15 +103,14 @@ public class PlayerData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerDataUI = GameObject.FindGameObjectWithTag("PlayerPanels").transform.GetChild(playerNumber).GetComponent<PlayerDataUI>();
         playerMovement = GetComponent<PlayerMovement>();
         uiScriptsManager = FindObjectOfType<UIScriptsManager>();
         buttonUI = FindObjectOfType<PlayerButtonUI>();
-        FindObjectOfType<PlayerManager>().OnPlayersInitialized += SetIcon;
     }
 
-    private void SetIcon()
+    public void SetIcon()
     {
+        playerDataUI = GameObject.FindGameObjectWithTag("PlayerPanels").transform.GetChild(playerNumber).GetComponent<PlayerDataUI>();
         playerDataUI.UpdateIcon(PlayerIcon);
     }
 
@@ -294,11 +302,16 @@ public class PlayerData : MonoBehaviour
     public void GetOutOfJail(bool pay)
     {
         inJail = false;
+        playerMovement.JailTurns = 0;
 
         if (pay)
         {
             Money -= 50;
         }        
+        else
+        {
+            playerDataUI.ShowEscapeJail();
+        }
     }
 
     public void CheckLuckyNumber(int num)

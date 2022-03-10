@@ -19,10 +19,12 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private List<GameObject> playerModelPrefabs = new List<GameObject>();
     [SerializeField] private List<Sprite> playerIcons = new List<Sprite>();
     [SerializeField] private GameObject fadeOut;
+    [SerializeField] private GameObject fadeIn;
 
     private void Start()
     {
-        fadeOut.SetActive(fadeOut);
+        fadeOut.SetActive(false);
+        fadeIn.SetActive(true);
 
         CreatePlayerList();
 
@@ -63,6 +65,7 @@ public class PlayerManager : MonoBehaviour
 
             int index = (int)PlayerSelectionManager.instance.ChosenPlayerModels[playerIndex];
             player.playerData.PlayerIcon = playerIcons[index];
+            player.playerData.SetIcon();
 
             GameObject model = Instantiate(playerModelPrefabs[index], player.playerData.transform);
             model.transform.localPosition = Vector3.zero;
