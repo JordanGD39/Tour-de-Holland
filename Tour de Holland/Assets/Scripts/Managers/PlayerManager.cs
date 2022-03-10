@@ -16,10 +16,10 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] private Text playerWinText;
     [SerializeField] private List<GameObject> playerModelPrefabs = new List<GameObject>();
+    [SerializeField] private List<Sprite> playerIcons = new List<Sprite>();
 
     private void Start()
     {
-        //PlayerSelection.instance.OnPlayersSetupFinish += CreatePlayerList;
         CreatePlayerList();
 
         if (playerWinText != null)
@@ -35,6 +35,13 @@ public class PlayerManager : MonoBehaviour
         playerDatas.AddRange(FindObjectsOfType<PlayerData>());
         playerDatas.Sort((p1, p2) => p1.PlayerNumber.CompareTo(p2.PlayerNumber));
 
+        int removePlayersCount = playerDatas.Count - PlayerSelectionManager.instance.ChosenPlayerModels.Count;
+
+        for (int i = 0; i < removePlayersCount; i++)
+        {
+            playerDatas.RemoveAt(playerDatas.Count - 1);
+        }
+
         foreach (PlayerData item in playerDatas)
         {
             PlayerClassHolder playerClassHolder = new PlayerClassHolder();
@@ -43,10 +50,19 @@ public class PlayerManager : MonoBehaviour
             players.Add(playerClassHolder);
         }
 
+        int playerIndex = 0;
+
         foreach (PlayerClassHolder player in players)
         {
             player.playerMovement.OnEndTurn += NextTurn;
             player.playerData.OnLost += RemovePlayerFromTurnList;
+
+            int index = (int)PlayerSelectionManager.instance.ChosenPlayerModels[playerIndex];
+            player.playerData.PlayerIcon = playerIcons[index];
+
+            GameObject model = Instantiate(playerModelPrefabs[index], player.playerData.transform);
+            model.transform.localPosition = Vector3.zero;
+            playerIndex++;
         }
 
         OnPlayersInitialized();

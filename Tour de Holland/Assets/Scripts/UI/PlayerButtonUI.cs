@@ -163,15 +163,20 @@ public class PlayerButtonUI : MonoBehaviour
         else
         {
             payJailButton.interactable = true;
+            spinButton.interactable = false;
         }
 
-        payJailRect.localPosition = forced ? spinRect.localPosition : startPosPay;
         payJailAnim.gameObject.SetActive(false);
         payJailAnim.gameObject.SetActive(true);
     }
 
     public void PayJail()
     {
+        if (!spinButton.interactable)
+        {
+            spinButton.interactable = true;
+        }
+
         playerManager.Players[playerManager.CurrentTurn].playerData.GetOutOfJail(true);
 
         payJailAnim.SetTrigger("FadeOut");

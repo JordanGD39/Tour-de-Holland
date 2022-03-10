@@ -8,6 +8,7 @@ public class PlayerData : MonoBehaviour
     private UIScriptsManager uiScriptsManager;
     private PlayerDataUI playerDataUI;
     private PlayerMovement playerMovement;
+    public Sprite PlayerIcon { get; set; }
 
     [SerializeField] private int playerNumber = 0;
     public int PlayerNumber { get { return playerNumber; } }
