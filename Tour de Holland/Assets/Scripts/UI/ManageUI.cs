@@ -174,7 +174,17 @@ public class ManageUI : MonoBehaviour
     {
         PlayerData playerData = playerManager.Players[playerManager.CurrentTurn].playerData;
 
-        if (playerData.Money >= currentCard.UpgradePrice && currentCard.UpgradeLevel < currentCard.TourFee.Length - 1)
+        int lowestUpgradeLevel = 9;
+
+        foreach (PropertyCard item in currentCard.MyCardSet.PropertyCardsInSet)
+        {
+            if (item.UpgradeLevel < lowestUpgradeLevel)
+            {
+                lowestUpgradeLevel = item.UpgradeLevel;
+            }
+        }
+
+        if (currentCard.UpgradeLevel <= lowestUpgradeLevel && playerData.Money >= currentCard.UpgradePrice && currentCard.UpgradeLevel < currentCard.TourFee.Length - 1)
         {
             currentCard.UpgradeLevel++;
 

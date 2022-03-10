@@ -100,6 +100,11 @@ public class PlayerMovement : MonoBehaviour
             tourRouteManager.UpdateShops(currentBoardSpace.PropertyCardOnSpace);
         }
 
+        if (playerData == null)
+        {
+            return;
+        }
+
         if (playerData.InJail && jailTurns >= 3)
         {
             buttonUI.ShowPayJailButton(true);
