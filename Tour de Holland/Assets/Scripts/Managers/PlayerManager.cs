@@ -96,6 +96,17 @@ public class PlayerManager : MonoBehaviour
         GiveTurnToCurrentPlayer();
     }
 
+    public void EveryPlayerCheckCorrectPosition(PlayerMovement playerMovement, int spaceIndex, bool tour)
+    {
+        foreach (PlayerClassHolder player in players)
+        {
+            if (player.playerMovement != playerMovement)
+            {
+                player.playerMovement.CheckIfPlayersOnCurrentSpace(spaceIndex, tour);
+            }
+        }
+    }
+
     private void RemovePlayerFromTurnList()
     {
         int index = players.IndexOf(players[currentTurn]);
@@ -131,7 +142,7 @@ public class PlayerManager : MonoBehaviour
 
     private void FadeStart()
     {
-
+        fadeIn.SetActive(true);
     }
 
     private void ToMainMenu()

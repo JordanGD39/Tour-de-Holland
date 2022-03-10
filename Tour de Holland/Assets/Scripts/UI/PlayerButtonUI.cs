@@ -21,6 +21,7 @@ public class PlayerButtonUI : MonoBehaviour
 
     private bool spinned = false;
     private bool canEndTurn = true;
+    private AllRoutesManager allRoutesManager;
     private RectTransform payJailRect;
     private Button payJailButton;
     private RectTransform spinRect;
@@ -42,6 +43,8 @@ public class PlayerButtonUI : MonoBehaviour
         payJailAnim.gameObject.SetActive(false);
         manageButton.gameObject.SetActive(true);
 
+        allRoutesManager = FindObjectOfType<AllRoutesManager>();
+
         payJailRect = payJailAnim.GetComponent<RectTransform>();
         spinRect = spinButtonAnim.GetComponent<RectTransform>();
         payJailButton = payJailAnim.GetComponent<Button>();
@@ -62,6 +65,7 @@ public class PlayerButtonUI : MonoBehaviour
     {
         manageButton.interactable = true;
         spinButtonAnim.SetTrigger("FadeOut");
+        allRoutesManager.HideAllShops();
 
         PlayerClassHolder player = playerManager.Players[playerManager.CurrentTurn];
 

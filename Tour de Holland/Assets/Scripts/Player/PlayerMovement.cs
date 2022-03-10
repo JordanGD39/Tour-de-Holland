@@ -44,6 +44,8 @@ public class PlayerMovement : MonoBehaviour
 
     private PlayerData playerData;
     private WheelSpin wheelSpin;
+    private PlayerManager playerManager;
+    private AllRoutesManager allRoutesManager;
 
     private bool onTour = false;
     public bool OnTour { get { return onTour; } }
@@ -62,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
         wheelSpin = FindObjectOfType<WheelSpin>();
         playerData = GetComponent<PlayerData>();
         buttonUI = FindObjectOfType<PlayerButtonUI>();
+        playerManager = FindObjectOfType<PlayerManager>();
     }
 
     // Update is called once per frame
@@ -169,9 +172,13 @@ public class PlayerMovement : MonoBehaviour
 
         GetInBetweenBoardSpaces(calcBoardPos);
 
+        int spaceBeforeMoving = currentBoardPosition;
+
         currentBoardSpace = spacesManager.GetBoardSpace(calcBoardPos);
         Debug.Log("BoardPos: " + currentBoardPosition + " spinnedNum: " + spinnedNumber);
         currentBoardPosition = currentBoardSpace.BoardIndex;
+
+        playerManager.EveryPlayerCheckCorrectPosition(this, spaceBeforeMoving, OnTour);
 
         moveToSpaceIndex = 0;
         StartMoving();
@@ -436,5 +443,41 @@ public class PlayerMovement : MonoBehaviour
         }
 
         OnDoneMoving();
+    }
+
+    public void CheckIfPlayersOnCurrentSpace(int spaceIndex, bool tour)
+    {
+        if (currentBoardPosition != spaceIndex || tour != OnTour)
+        {
+            return;
+        }
+
+        BoardSpace space = spacesManager.GetBoardSpace(currentBoardPosition);
+
+        Vector3 adjustedPos = spacesManager.CheckOtherPlayersOnSpace(currentBoardPosition, space.transform.position, onTour, playerData.PlayerNumber);
+
+        adjustedPos += Vector3.up * extraY;
+
+        if (adjustedPos != transform.position)
+        {
+            StartCoroutine(StraightLerpToPos(adjustedPos));
+        }
+    }
+
+    private IEnumerator StraightLerpToPos(Vector3 pos)
+    {
+        float startTime = Time.time;
+        Vector3 startPos = transform.position;
+
+        float frac = 0;
+
+        while (frac < 1)
+        {
+            frac = (Time.time - startTime) / 0.5f;
+
+            transform.position = Vector3.Lerp(startPos, pos, frac);
+
+            yield return null;
+        }
     }
 }
