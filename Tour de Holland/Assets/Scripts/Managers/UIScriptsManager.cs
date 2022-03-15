@@ -8,6 +8,7 @@ public class UIScriptsManager : MonoBehaviour
     public BuyPropertyUIHandler BuyPropertyUIScript { get { return buyPropertyUIHandler; } }
 
     [SerializeField] private GameObject luckyPanel;
+    public GameObject LuckyPanel { get { return luckyPanel; } }
     [SerializeField] private GameObject managePanel;
 
 

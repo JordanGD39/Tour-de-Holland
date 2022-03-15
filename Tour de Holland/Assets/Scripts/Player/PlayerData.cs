@@ -109,7 +109,7 @@ public class PlayerData : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         uiScriptsManager = FindObjectOfType<UIScriptsManager>();
         buttonUI = FindObjectOfType<PlayerButtonUI>();
-        luckyEffectUI = FindObjectOfType<LuckyEffectUI>();
+        luckyEffectUI = uiScriptsManager.LuckyPanel.GetComponent<LuckyEffectUI>();
         spacesManager = FindObjectOfType<SpacesManager>();
         playerManager = FindObjectOfType<PlayerManager>();
     }

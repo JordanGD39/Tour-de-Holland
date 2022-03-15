@@ -75,8 +75,9 @@ public class ManageUI : MonoBehaviour
 
         showedPropertyCard.gameObject.SetActive(true);
         showedPropertyCard.sprite = card.MySprite;
-        propertyCardText.text = card.GetCardDataText();
         flipped = false;
+        propertyCardText.gameObject.SetActive(true);
+        propertyCardText.text = card.GetCardDataText();
 
         for (int i = 0; i < starsParent.childCount; i++)
         {
@@ -110,6 +111,7 @@ public class ManageUI : MonoBehaviour
                 {
                     sellTourTransform.gameObject.SetActive(false);
                     removeUpgradeButton.gameObject.SetActive(true);
+                    rebuyButton.gameObject.SetActive(false);
                 }
                 else
                 {
